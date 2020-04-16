@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 Hi. Trying to perform conflict
 content to apppend
+=======
+Content from conflictdemo branch
+>>>>>>> conflictdemo
