@@ -31,11 +31,12 @@ public class GameTest {
 				break;
 
 			case 2:
+				//Game cannot be restarted before it is played once.
 				if (!gameStarted) {
 					System.out.println("Please first start the game");
 					break;
 				} else {
-					System.out.println("Would you like to play the game again?(yes|no)");
+					System.out.println("Would you like to play the game again?(y|n)");
 					String restartChoice = scan.next();
 
 					if (restartChoice.toLowerCase().equals("y")) {

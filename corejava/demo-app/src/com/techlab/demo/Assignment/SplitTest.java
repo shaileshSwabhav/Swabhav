@@ -1,4 +1,4 @@
-package com.techlab.demo;
+package com.techlab.demo.Assignment;
 
 public class SplitTest {
 
@@ -7,25 +7,42 @@ public class SplitTest {
 		
 		SplitTest sptest = new SplitTest();
 		
-		String str = "https://www.swabhavtechlabs.com?developer=Shailesh";
-		int end = str.indexOf("=");
+		//String queryString = "https://www.google.com?developer=paras";
 		
-		sptest.SplitCompanyDeveloper(str, end);
+		String queryString = "www.techlab.com@swabhavtechlabs?training=java";
+		
+		// output = comapny name is swabhavtechlabs
+		// training program is java
+		// origin name is techlab
+
+		//int end = queryString.indexOf("=");
+		
+		sptest.SplitCompanyDeveloper(queryString);
 		
 	}
 	
-	public void SplitCompanyDeveloper(String str, int end) {
+	public void SplitCompanyDeveloper(String queryString) {
 		
-		String[] x = str.split("\\.|=", end);
+		String [] str1 = queryString.split("@|\\?");
+		String [] str2 = queryString.split("=");
+		String [] str3 = queryString.split("\\.");
+
 		
-		if (x[1].length() == 0) {
-			x[1] = null;
+//		for (String z : x) {
+//			System.out.println(z);
+//		}
+//		
+		if (str1[1].length() == 0) {
+			str1[1] = null;
 		}
-		if (x[x.length-1].length() == 0) {
-			x[x.length-1] = null;
+		if (str2[1].length() == 0) {
+			str2[1] = null;
 		}
-		System.out.println("Company name is : " + x[1]);
-		System.out.println("Developer name is : " + x[x.length-1]);
-		
+		if (str3[1].length() == 0) {
+			str3[1] = null;
+		}
+		System.out.println("Company name is : " + str1[1]);
+		System.out.println("Training name is : " + str2[1]);
+		System.out.println("Origin name is : " + str3[1]);
 	}
 }

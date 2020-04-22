@@ -1,4 +1,4 @@
-package com.techlab.demo;
+package com.techlab.demo.Assignment;
 
 public class PassByValueTest {
 
@@ -17,7 +17,17 @@ public class PassByValueTest {
 	
 	void passByValue(int value) {
 		
-		value = value + 10;
+		value = 20;
 		System.out.println("Inside PassByValue function : " + value);
 	}
 }
+
+// yes
+//ok mam ok
+// it will just copy the value and not address
+// java is pass by value
+//yes
+//method me 20
+//main me 10
+//yes
+

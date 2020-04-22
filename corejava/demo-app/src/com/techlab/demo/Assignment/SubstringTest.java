@@ -1,4 +1,4 @@
-package com.techlab.demo;
+package com.techlab.demo.Assignment;
 
 public class SubstringTest {
 
@@ -7,14 +7,14 @@ public class SubstringTest {
 		
 		SubstringTest substrTest = new SubstringTest();
 		
-		String str = "https://www.swabhavtechlabs.com?developer=Shailesh";
+		String queryString = "https://www.google.com?developer=paras";
 		
-		int beginComapny = str.indexOf('.');
-		int endComapny = str.indexOf(".com");
-		substrTest.subStringPrint(str, beginComapny, endComapny);
+		int beginComapny = queryString.indexOf('.');
+		int endComapny = queryString.indexOf(".com");
+		substrTest.subStringPrint(queryString, beginComapny, endComapny);
 		
-		int beginDeveloper = str.indexOf("=");
-		substrTest.subStringPrint(str, beginDeveloper);		
+		int beginDeveloper = queryString.indexOf("=");
+		substrTest.subStringPrint(queryString, beginDeveloper);		
 	}
 	
 	public void subStringPrint(String str, int begin, int end) {

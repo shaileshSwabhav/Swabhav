@@ -1,4 +1,4 @@
-package com.techlab.demo;
+package com.techlab.demo.ClassWork.Dry;
 import java.util.*;
 
 public class DryTest {
@@ -6,7 +6,7 @@ public class DryTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		DryTest test = new DryTest();
+DryTest test = new DryTest();
 		
 		int [] arr1 = new int[5];
 		int[] arr2 = new int[7];
@@ -47,6 +47,8 @@ public class DryTest {
 		
 		for(int x: arr) {
 			System.out.println(x);
-		}
+		}		
+
 	}
+
 }

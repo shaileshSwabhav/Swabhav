@@ -1,4 +1,4 @@
-package com.techlab.demo;
+package com.techlab.demo.ClassWork.Dry;
 import java.util.*;
 
 public class WithoutDryTest {
