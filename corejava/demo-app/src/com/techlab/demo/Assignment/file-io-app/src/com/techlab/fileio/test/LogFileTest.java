@@ -32,19 +32,26 @@ public class LogFileTest {
 	}
 	
 	void readInput(File dbFile, String flag) {
-
+		
+		final String ERROR = "ERROR";
+		final String INFO = "INFO";
+		final String WARN = "WARNING";
+		final int INDEX = 3;
+		
+		
 		while (scan.hasNext()) {
 
 			String x = scan.nextLine();
 			String[] data = x.split(" ");
+			
 
-			if ((flag).equals("-i") && data[3].equals("INFO")) {
+			if ((flag).equals("-i") && data[INDEX].equals(INFO)) {
 				printMessage(data);
 
-			} else if ((flag).equals("-e") && data[3].equals("ERROR")) {
+			} else if ((flag).equals("-e") && data[INDEX].equals(ERROR)) {
 				printMessage(data);
 
-			} else if ((flag).equals("-w") && data[3].equals("WARNING")) {
+			} else if ((flag).equals("-w") && data[INDEX].equals(WARN)) {
 				printMessage(data);
 
 			} else if ((flag).equals(" ")) {
