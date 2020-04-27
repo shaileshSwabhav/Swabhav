@@ -16,9 +16,9 @@ public class LogFileTest {
 
 		file.openFile(dbFile);
 		if (args.length == 0) {
-			file.readInput(dbFile, " ");
+			file.printMessage(dbFile, "");
 		} else {
-			file.readInput(dbFile, args[0]);
+			file.printMessage(dbFile, args[0]);
 		}
 
 	}
@@ -31,41 +31,29 @@ public class LogFileTest {
 		}
 	}
 	
-	void readInput(File dbFile, String flag) {
+	void printMessage(File dbFile, String flag) {
 		
 		final String ERROR = "ERROR";
 		final String INFO = "INFO";
 		final String WARN = "WARNING";
-		final int INDEX = 3;
-		
-		
+			
 		while (scan.hasNext()) {
 
 			String x = scan.nextLine();
-			String[] data = x.split(" ");
+			String[] data = x.split("\n");
 			
-
-			if ((flag).equals("-i") && data[INDEX].equals(INFO)) {
-				printMessage(data);
-
-			} else if ((flag).equals("-e") && data[INDEX].equals(ERROR)) {
-				printMessage(data);
-
-			} else if ((flag).equals("-w") && data[INDEX].equals(WARN)) {
-				printMessage(data);
-
-			} else if ((flag).equals(" ")) {
-				printMessage(data);
-
+			for(int i = 0; i < data.length; i++) {
+				if ((flag).equals("-i") && (data[i].contains(INFO))) {
+					System.out.println(data[i]);
+				} else if ((flag).equals("-e") && (data[i].contains(ERROR))) {
+					System.out.println(data[i]);
+				} else if ((flag).equals("-w") && (data[i].contains(WARN))) {
+					System.out.println(data[i]);
+				} else if ((flag.equals(""))) {
+					System.out.println(data[i]);
+				}
 			}
 		}
-	}
-
-	void printMessage(String[] data) {
-		for (String z : data) {
-			System.out.print(z + " ");
-		}
-		System.out.println();
 	}
 
 }
