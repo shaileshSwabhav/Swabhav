@@ -12,7 +12,7 @@ public class LogFileTest {
 
 		LogFileTest file = new LogFileTest();
 		File dbFile = new File(
-				"F:\\\\Swabhav\\\\corejava\\\\demo-app\\\\src\\\\com\\\\techlab\\\\demo\\\\Assignment\\\\file-io-app\\\\src\\\\com\\\\techlab\\\\fileio\\\\test\\\\db_app.log");
+				"src/resource/db_app.log");
 
 		file.openFile(dbFile);
 		if (args.length == 0) {
@@ -22,6 +22,7 @@ public class LogFileTest {
 		}
 
 	}
+	
 
 	void openFile(File dbFile) {
 		try {
@@ -38,7 +39,7 @@ public class LogFileTest {
 		final String WARN = "WARNING";
 			
 		while (scan.hasNext()) {
-
+			
 			String x = scan.nextLine();
 			String[] data = x.split("\n");
 			

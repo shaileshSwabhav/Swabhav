@@ -12,10 +12,10 @@ public class FileReadingTest {
 
 		FileReadingTest readFile = new FileReadingTest();
 		File csvFile = new File(
-				"F:\\Swabhav\\corejava\\demo-app\\src\\com\\techlab\\demo\\Assignment\\file-io-app\\src\\com\\techlab\\fileio\\test\\student.csv");
+				"src/resource/student.csv");
 		readFile.printAllData(csvFile);
-		readFile.printWithoutSpace(csvFile);
-		readFile.printWithoutNull(csvFile);
+		readFile.withoutSpace(csvFile);
+		readFile.withoutNull(csvFile);
 
 	}
 
@@ -26,29 +26,29 @@ public class FileReadingTest {
 			System.out.println(e);
 		}
 		scan.useDelimiter(",");
-
 	}
 
 	void printAllData(File csvFile) throws Exception {
 		System.out.println("Print All Data");
-		
+
 		openFile(csvFile);
 		while (scan.hasNext()) {
 			System.out.print(scan.next() + " ");
 		}
 		System.out.println();
 	}
+//file reading .csv
 	
-	//Will ignore the blank rows
-	void printWithoutSpace(File csvFile) {
+	// Will ignore the blank rows
+	void withoutSpace(File csvFile) {
 		System.out.println("\nPrint Without Space");
 
 		openFile(csvFile);
 		printData(false);
 	}
 
-	//Null will be replaced by unspecified
-	void printWithoutNull(File csvFile) {
+	// Null will be replaced by unspecified
+	void withoutNull(File csvFile) {
 		System.out.println("\nPrint without NULL");
 
 		openFile(csvFile);
@@ -56,6 +56,7 @@ public class FileReadingTest {
 	}
 
 	void printData(Boolean checkNull) {
+		final String NULL_VALUE = "null";
 		
 		while (scan.hasNext()) {
 
@@ -64,7 +65,7 @@ public class FileReadingTest {
 
 			if (data.length != 1) {
 				for (int i = 0; i < data.length; i++) {
-					if (checkNull == true && data[i].equals("null") || data[i].equals("")) {
+					if (checkNull == true && data[i].equals(NULL_VALUE) || data[i].equals("")) {
 						System.out.print("unspecified ");
 					} else {
 						System.out.print(data[i] + " ");
@@ -76,3 +77,6 @@ public class FileReadingTest {
 	}
 
 }
+
+//ok mam
+//no doubt
