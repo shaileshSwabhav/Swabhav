@@ -25,12 +25,12 @@ public class Rectangle {
 
 	public void setBreadth(float setBreadth) {
 		if (setBreadth > ONE && setBreadth < HUNDRED) {
-			length = setBreadth;
+			breadth = setBreadth;
 		} else {
 			if (setBreadth < ONE) {
-				length = ONE;
+				breadth = ONE;
 			} else {
-				length = HUNDRED;
+				breadth = HUNDRED;
 			}
 		}
 	}
@@ -55,9 +55,8 @@ public class Rectangle {
 		return color;
 	}
 	
-	public void calculateArea() {
-		area = length * breadth;
-		System.out.println("Area: " + area);
+	public float calculateArea() {
+		return length * breadth;		
 	}
 
 }
