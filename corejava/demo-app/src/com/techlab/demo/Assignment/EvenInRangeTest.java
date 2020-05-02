@@ -9,11 +9,15 @@ public class EvenInRangeTest {
 
 		EvenInRangeTest evenNumber = new EvenInRangeTest();
 		
-		Scanner scan = new Scanner(System.in);
-		System.out.print("Enter range: ");
-		int range = scan.nextInt();
+		//Scanner scan = new Scanner(System.in);
+		//ip from arguments
 		
-		evenNumber.checkEvenNumber(range);
+		//System.out.print("Enter range: ");
+		//int range = scan.nextInt();
+		
+		int ip = Integer.parseInt(args[0]);
+		
+		evenNumber.checkEvenNumber(ip);
 	}
 	
 	void checkEvenNumber(int range) {
@@ -27,5 +31,4 @@ public class EvenInRangeTest {
 		}
 		
 	}
-
 }

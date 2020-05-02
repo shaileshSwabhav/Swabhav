@@ -1,14 +1,15 @@
 package com.techlab.demo.Assignment;
 
-public class PositiveNegativeTest {
+public class PositiveNegativeNumberTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		PositiveNegativeTest num = new PositiveNegativeTest();
-
+		PositiveNegativeNumberTest num = new PositiveNegativeNumberTest();
+		
 		int[] numbers = { -3, 16, 20, 54, -6, -23, 10 };
 		
+
 		num.checkPositive(numbers);
 		num.checkNegative(numbers);
 	}

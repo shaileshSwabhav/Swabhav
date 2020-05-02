@@ -1,4 +1,5 @@
-package com.techlab.circle;
+package com.techlab.circletest;
+import com.techlab.circle.*;
 
 public class CircleTest {
 
@@ -18,7 +19,6 @@ public class CircleTest {
 		
 		System.out.println("Area: " + c.calculateArea());
 		System.out.println("Perimeter: " + c.calculatePerimeter());
-				
 
 	}
 
