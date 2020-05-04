@@ -43,3 +43,9 @@ public class SeparateZeros {
 	}
 
 }
+
+//O(n)
+
+//ok mam
+//ok mam
+//yes mam

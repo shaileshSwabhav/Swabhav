@@ -22,7 +22,7 @@ public class FindSubArraySum {
 
 		while (i <= num.length) {
 
-			if (total == sum) {
+			if (total == sum) { // here i am checking if i am getting my total as sum
 
 				System.out.print("Continous sub array is: ");
 				while (start != i) {
@@ -33,11 +33,11 @@ public class FindSubArraySum {
 				total = 0;
 				i--;
 
-			} else if (total > sum) {
+			} else if (total > sum) { //if not the 
 				total = 0;
 				i = start;
 				
-			} else if (total < sum && i < num.length) {	
+			} else if (total < sum && i < num.length) {	//if total is less the sum means i can add next element of array to the total
 				// for last iteration the length exceeds the range of array.
 				if (total == 0) {
 					start = i;
@@ -51,3 +51,7 @@ public class FindSubArraySum {
 	}
 
 }
+//first start variable liya which points from where addition starts
+//and i will loop thru the array
+//total will store the sum to check if i get the required total
+//o(n)

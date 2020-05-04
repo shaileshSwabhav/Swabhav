@@ -2,20 +2,21 @@ package com.techlab.demo.Assignment;
 
 public class FindMissingNumber {
 
-	final int NUM_ZERO = 0, NUM_ONE = 1;
-	final int NUM_TWO = 2;
+	final static int NUM_ZERO = 0, NUM_ONE = 1 , NUM_TWO = 2;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		FindMissingNumber f = new FindMissingNumber();
 
 		int[] nums = { 1, 4, 5, 3, 2, 8, 6 };
 
-		f.findNumber(nums);
+		findNumberXor(nums);
+		findNumberWithoutXor(nums);
 	}
+	// instance variables
+	// array
 
-	public void findNumber(int[] num) {
+	public static void findNumberXor(int[] num) {
 
 		int smallestNumber = checkNumber(num, true);
 		int largestNumber = checkNumber(num, false);
@@ -25,15 +26,37 @@ public class FindMissingNumber {
 			xorSum1 = xorSum1 ^ i;
 		}
 
-		for (int i = NUM_ONE; i < num.length; i++) {
+		for (int i = 1; i < num.length; i++) {
 			xorSum2 = xorSum2 ^ num[i];
 		}
+		// xor of 8 and 15 will be 7
 
 		System.out.println("Missing Number is: " + (xorSum2 ^ xorSum1));
 
 	}
+	
+	public static void findNumberWithoutXor(int[] num) {
 
-	public int checkNumber(int[] num, boolean smallest) {
+		int smallestNumber = checkNumber(num, true);
+		
+		int x = NUM_ZERO;
+		boolean numberFound = false;
+		while (!numberFound) {
+
+			if (x == num.length) {
+				System.out.println("Missing Number is: " + smallestNumber);
+				numberFound = true;
+			} else if (smallestNumber == num[x]) {
+				smallestNumber++;
+				x = NUM_ZERO;
+			} else {
+				x++;
+			}
+		}
+
+	}
+
+	public static int checkNumber(int[] num, boolean smallest) {
 
 		int smallestNumber, largestNumber;
 
@@ -62,3 +85,12 @@ public class FindMissingNumber {
 	}
 
 }
+
+//first smallest and largest number find kiya
+//then usko xor kiya from smallest to largest
+//and then array ke elements b xor kiya from 0 to end
+//first xor ko second se karne pe missing element mil jayega
+//try without xor - modify
+
+
+
