@@ -5,7 +5,6 @@ public class Rectangle {
 	private float length;
 	private float breadth;
 	private String color;
-	private float area;
 	
 	final String COLOR_1 = "red", COLOR_2 = "black", COLOR_3 = "green";	 
 	final float ONE = 1.0f, HUNDRED = 100.0f;
