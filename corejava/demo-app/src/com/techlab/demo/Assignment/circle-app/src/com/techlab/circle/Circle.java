@@ -5,11 +5,10 @@ public class Circle {
 	private float radius;
 	private String color;
 	private final String IS_PINK = "pink", IS_GREY = "grey", IS_PURPLE = "purple";
-	// insatance variable
-	// color identify karna tha so i named them there color name
-	// ok
-	// change naming convention ok
 	private final double PI = 3.14;
+
+	// Instance variable
+	// change naming convention - modify
 
 	public void setRadius(float setRadius) {
 

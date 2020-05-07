@@ -1,4 +1,4 @@
-package com.techlab.circletest;
+package com.techlab.circle.test;
 import com.techlab.circle.*;
 
 public class CircleTest {
