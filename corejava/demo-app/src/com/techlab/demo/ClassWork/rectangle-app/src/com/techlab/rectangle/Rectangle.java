@@ -57,5 +57,9 @@ public class Rectangle {
 	public float calculateArea() {
 		return length * breadth;		
 	}
+	
+	public float calculatePerimeter() {
+		return (2 * (length + breadth));
+	}
 
 }
