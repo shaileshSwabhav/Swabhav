@@ -5,7 +5,7 @@ public class Circle {
 	private float radius;
 	private String color;
 	private final String IS_PINK = "pink", IS_GREY = "grey", IS_PURPLE = "purple";
-	private final double PI = 3.14;
+	private final double PI = 3.14f;
 
 	// Instance variable
 	// change naming convention - modify

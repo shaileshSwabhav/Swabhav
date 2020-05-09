@@ -31,3 +31,7 @@ public class CircleReferenceTest {
 	}
 
 }
+
+//c1=c2=c
+
+
