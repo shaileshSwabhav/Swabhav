@@ -66,7 +66,7 @@ public class CircleArrayOfObject {
 //	public static Circle findSmallArea(Circle [] c) {
 //		
 //		float result = (float) c[0].calculateArea();
-//		Circle circle = new Circle();
+//		Circle circle = c[0];
 //		for (int i = 1; i < c.length-1; i++) {
 //			if (result > c[i].calculateArea()) {
 //				circle = c[i];
@@ -90,7 +90,7 @@ public class CircleArrayOfObject {
 	
 //	public static Circle findBigPerimeter(Circle[] c) {
 //		
-//		Circle circle = new Circle();
+//		Circle circle = c[0];
 //		float result = (float) c[0].calculatePerimeter();
 //
 //		for (int i = 1; i < c.length; i++) {

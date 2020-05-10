@@ -76,7 +76,7 @@ public class RectangleArrayOfObject {
 
 //	public static float findBigPerimeter(Rectangle [] r) {
 //		
-//		float result = 0.0f;
+//		float result = r[0].calculatePerimeter();
 //		for (int i = 0; i < r.length-1; i++) {
 //			if (r[i].calculatePerimeter() > r[i+1].calculatePerimeter()) {
 //				result = r[i].calculatePerimeter();
@@ -89,7 +89,7 @@ public class RectangleArrayOfObject {
 
 //	public static Rectangle findBigPerimeter(Rectangle[] r) {
 //
-//		Rectangle rect = new Rectangle();
+//		Rectangle rect = r[0];
 //		float result = r[0].calculateArea();
 //
 //		for (int i = 1; i < r.length; i++) {
