@@ -3,10 +3,12 @@ package com.techlab.demo.Assignment;
 public class ConstructorOverloadingTest {
 
 	ConstructorOverloadingTest() {
+		this(5);
 		System.out.println("default constructor");
 	}
 
 	ConstructorOverloadingTest(int x) {
+		this("www");
 		System.out.println("Integer constructor: " + x);
 	}
 	
@@ -19,7 +21,7 @@ public class ConstructorOverloadingTest {
 
 		ConstructorOverloadingTest c1 = new ConstructorOverloadingTest();
 		ConstructorOverloadingTest c2 = new ConstructorOverloadingTest(5);
-		ConstructorOverloadingTest c3 = new ConstructorOverloadingTest("xyz");
+//		ConstructorOverloadingTest c3 = new ConstructorOverloadingTest("xyz");
 		
 	}
 
