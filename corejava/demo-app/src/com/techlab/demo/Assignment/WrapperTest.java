@@ -1,6 +1,6 @@
 package com.techlab.demo.Assignment;
 
-public class WrapperInJava {
+public class WrapperTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
