@@ -10,12 +10,9 @@ public class WrapperTest {
 		Integer c = 5; // Auto Boxing (Auto Wrapping)
 
 		int d = b.intValue(); // Unboxing (Unwrapping)
-		int e = b;
-		String s = "123";
-		int x = Integer.parseInt(s);
-		System.out.println(x);
+		int e = b;			  // Auto Unboxing (Auto Unwrapping)	
 
-		
+
 		if (c == b) {
 			System.out.println("equal");
 		} else {

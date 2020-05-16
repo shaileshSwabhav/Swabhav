@@ -18,6 +18,11 @@ public class ReflectionTest {
 		
 		System.out.println("Is interface: " + d.getClass().isInterface());
 		System.out.println("superclass: " + d.getClass().getSuperclass());
+		
+		Method[] method = d.getClass().getMethods();
+		for(Method x : method) {
+			System.out.println(x.getName());
+		}
 
 	}
 

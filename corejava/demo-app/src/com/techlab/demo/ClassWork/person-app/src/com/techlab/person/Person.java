@@ -6,6 +6,10 @@ public class Person {
 	private int age;
 	private float height, weight, bmi;
 	private final static int DEFAULT_AGE = 25;
+	
+	public Person() {
+		
+	}
 
 	public Person(String name, int age, String gender, float height, float weight) {
 
@@ -21,6 +25,10 @@ public class Person {
 	}
 
 	// getters
+	private void xyz() {
+		System.out.println("hi");
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -70,5 +78,7 @@ public class Person {
 	public float checkHeightWeight(float value) {
 		return (value <= 0 ? Math.abs(value) : value);
 	}
+	
+
 
 }
