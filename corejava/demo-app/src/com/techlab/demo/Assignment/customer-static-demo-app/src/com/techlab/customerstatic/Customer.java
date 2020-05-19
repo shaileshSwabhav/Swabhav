@@ -5,14 +5,15 @@ public class Customer {
 	private String id, name;
 	private int order;
 	private static int count = 1001;
-	private static final String ID;
+	private static final char ID;
 	
 	static {	
 		String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		StringBuilder str = new StringBuilder();
+//		StringBuilder str = new StringBuilder();
 		int index = (int) (Math.random() * alpha.length());
-		str.append(alpha.charAt(index));
-		ID = str.toString();
+//		str.append(alpha.charAt(index));
+//		ID = str.toString();
+		ID = alpha.charAt(index);
 	}
 	
 	public Customer(String name, int order) {
@@ -38,8 +39,8 @@ public class Customer {
 	private String setId() {
 		
 		String x = Integer.toString(count);
-		String setId = ID + x;
+		String accNum = ID + x;
 		count++;
-		return setId;
+		return accNum;
 	}
 }

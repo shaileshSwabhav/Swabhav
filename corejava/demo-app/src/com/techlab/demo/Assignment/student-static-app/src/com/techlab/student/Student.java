@@ -48,20 +48,22 @@ public class Student {
 		 */
 
 //		case 2
-
-//		Student s1 = new Student(22, "abc", 8.5f);
-//		System.out.println(s1.getCount());
 //
-//		Student s2 = new Student(22, "abc", 8.5f);
-//		System.out.println(s2.getCount());
+//		Student s7 = new Student(22, "abc", 8.5f);
+//		System.out.println(s7.getCount());
 //
-//		Student s3 = new Student(22, "abc", 8.5f);
-//		System.out.println(s3.getCount());
+//		Student s8 = new Student(22, "abc", 8.5f);
+//		System.out.println(s8.getCount());
+//
+//		Student s9 = new Student(22, "abc", 8.5f);
+//		System.out.println(s9.getCount());
 
 		/*
 		 * count increases as it is static constructor block runs every time obj is
 		 * created
 		 */
+
+//		case 3
 
 		Student s4 = new Student(22, "sona", 8.5f);
 
@@ -70,6 +72,20 @@ public class Student {
 		Student s6 = new Student(22, "Raju", 1.3f);
 
 		System.out.println("Head count = " + Student.headCount());// s1.headCount()??//same output???
+		
+//		Student.
+
+		/*
+		 * 1. main
+		 * 2. class
+		 * 3. countOfInstances
+		 * 4. headCount
+		 */
+
+		/*
+		 * same output as countOfInstance is incremented by 1 when the constructor is
+		 * called
+		 */
 
 	}
 
