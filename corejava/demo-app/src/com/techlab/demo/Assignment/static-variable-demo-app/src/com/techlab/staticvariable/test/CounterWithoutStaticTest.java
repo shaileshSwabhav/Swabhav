@@ -14,7 +14,7 @@ public class CounterWithoutStaticTest {
 		CounterWithoutStaticTest c1 = new CounterWithoutStaticTest();
 		CounterWithoutStaticTest c2 = new CounterWithoutStaticTest();
 		CounterWithoutStaticTest c3 = new CounterWithoutStaticTest();
-		
+
 	}
 
 }

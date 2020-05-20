@@ -43,12 +43,13 @@ public class Student {
 
 		/*
 		 * static block runs only once when class is loaded into the memory and
-		 * constructor runs every time when object is created count increases as it is
-		 * static
+		 * constructor runs every time when object is created so the count increases 
+		 * as it is static
+		 * 
 		 */
 
 //		case 2
-//
+
 //		Student s7 = new Student(22, "abc", 8.5f);
 //		System.out.println(s7.getCount());
 //
