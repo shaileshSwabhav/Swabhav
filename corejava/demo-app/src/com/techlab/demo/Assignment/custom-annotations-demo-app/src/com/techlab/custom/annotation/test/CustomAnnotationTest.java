@@ -13,14 +13,8 @@ public class CustomAnnotationTest {
 		CustomAnnotation c = new CustomAnnotation();
 
 		printNumberOfAnnotation(c);
-		
-		System.out.println("Passed cases:");
-		int countPassedCases = checkCases(c, true);
-		System.out.println("Passed cases count: " + countPassedCases + "\n");
 
-		System.out.println("Failes cases:");
-		int countFailedCases = checkCases(c, false);
-		System.out.println("Failed cases count: " + countFailedCases);
+		checkCases(c);
 	}
 
 	public static void printNumberOfAnnotation(CustomAnnotation c) {
@@ -31,40 +25,41 @@ public class CustomAnnotationTest {
 
 			Annotation[] annot = m.getDeclaredAnnotations();
 			for (Annotation a : annot) {
-			countAnnotation++;
+				countAnnotation++;
 			}
 		}
-		System.out.println("No. of annotations: " + countAnnotation+ "\n");
+		System.out.println("No. of annotations: " + countAnnotation + "\n");
 	}
 
-	public static int checkCases(CustomAnnotation c, boolean checkValue) throws Exception {
+	public static void checkCases(CustomAnnotation c) throws Exception {
 
-		int countCases = 0;
+		int countPassedCases = 0, countFailedCases = 0;
+		boolean isTrue = true;
+		
 		Method[] method = c.getClass().getDeclaredMethods();
-/*		for (Method m : method) {
-			m.setAccessible(true);
-			boolean value = (boolean) m.invoke(c, null);
-			if (value == checkValue) {
-				countCases++;
-				System.out.println(m.getName());
-			}
-		}
-*/		
+		/*
+		 * for (Method m : method) { m.setAccessible(true); boolean value = (boolean)
+		 * m.invoke(c, null); if (value == checkValue) { countCases++;
+		 * System.out.println(m.getName()); } }
+		 */
+		
 		for (Method m : method) {
 
 			Annotation[] annot = m.getDeclaredAnnotations();
 			for (Annotation a : annot) {
-			
+
 				m.setAccessible(true);
 				boolean value = (boolean) m.invoke(c, null);
-				if (value == checkValue) {
-					countCases++;
-					System.out.println(m.getName());
+				if (value == isTrue) {
+					countPassedCases++;
+//					System.out.println(m.getName());
+				} else {
+					countFailedCases++;
 				}
-
 			}
-
 		}
-		return countCases;
+		
+		System.out.println("Number of Passed Cases: " + countPassedCases);
+		System.out.println("Number of Failed Cases: " + countFailedCases);
 	}
 }
