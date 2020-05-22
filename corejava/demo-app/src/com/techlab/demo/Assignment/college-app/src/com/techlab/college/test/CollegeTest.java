@@ -22,14 +22,12 @@ public class CollegeTest {
 		System.out.println("id: " + p.getId());
 		System.out.println("address: " + p.getAddress());
 		System.out.println("date: " + p.getDate());
-		System.out.println();		
 	}
 	
 	public static void printStudentInfo(Student s) {
 
-		System.out.println("id: " + s.getId());
-		System.out.println("address: " + s.getAddress());
-		System.out.println("date: " + s.getDate());
+		System.out.println();
+		printPersonInfo(s);
 		System.out.println("branch: " + s.getBranch());
 		System.out.println();		
 		
@@ -37,9 +35,7 @@ public class CollegeTest {
 	
 	public static void printProfessorInfo(Professor pf) {
 		
-		System.out.println("id: " + pf.getId());
-		System.out.println("address: " + pf.getAddress());
-		System.out.println("date: " + pf.getDate());
+		printPersonInfo(pf);
 		System.out.println("salary: " + pf.getSalary());
 		pf.calculateSalary(5);
 		System.out.println("New Salary: " + pf.getSalary());
