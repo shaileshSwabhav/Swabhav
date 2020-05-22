@@ -7,9 +7,9 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		Base b = new Base(10);// implict call to base default constructor
+		Base b = new Base();// implict call to base default constructor
 
-		Child c = new Child(20);
+		Child c = new Child();
+		
 	}
-
 }

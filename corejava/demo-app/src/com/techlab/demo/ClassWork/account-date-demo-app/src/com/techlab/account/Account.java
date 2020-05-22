@@ -10,8 +10,12 @@ public class Account {
 	private String accNumber;
 	private double balance;
 	private Date creationDate, dateOfBirth;
-	private static String ID = "SBI";
+	private static String ID;
 	private static int num = 1001;
+	
+	static {
+		ID = "SBI";
+	}
 
 	public Account(String accName, double balance, String creationDate, String dateOfBirth) throws Exception {
 
