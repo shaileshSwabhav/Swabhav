@@ -41,13 +41,29 @@ public class CustomAnnotationTest {
 
 		int countCases = 0;
 		Method[] method = c.getClass().getDeclaredMethods();
-		for (Method m : method) {
+/*		for (Method m : method) {
 			m.setAccessible(true);
 			boolean value = (boolean) m.invoke(c, null);
 			if (value == checkValue) {
 				countCases++;
 				System.out.println(m.getName());
 			}
+		}
+*/		
+		for (Method m : method) {
+
+			Annotation[] annot = m.getDeclaredAnnotations();
+			for (Annotation a : annot) {
+			
+				m.setAccessible(true);
+				boolean value = (boolean) m.invoke(c, null);
+				if (value == checkValue) {
+					countCases++;
+					System.out.println(m.getName());
+				}
+
+			}
+
 		}
 		return countCases;
 	}
