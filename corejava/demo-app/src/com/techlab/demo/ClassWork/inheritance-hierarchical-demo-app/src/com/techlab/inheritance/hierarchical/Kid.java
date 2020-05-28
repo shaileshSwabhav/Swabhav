@@ -4,7 +4,7 @@ public class Kid extends Man {
 
 	@Override
 	public void plays() {
-		System.out.println("Kid plays");
+		System.out.println("Kid plays" + x);
 	}
 	
 }
