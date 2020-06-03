@@ -5,7 +5,6 @@ import java.util.*;
 
 public class ContactManager extends Contact {
 
-	private static boolean modified = false;
 	private final static String FILENAME = "src/resource/FileIoOperation.txt";
 
 	public ContactManager() {
@@ -27,7 +26,7 @@ public class ContactManager extends Contact {
 		out.close();
 	}
 
-	public boolean modifyContactByName(String modifyName, String newName) throws Exception {
+	public void modifyContactByName(String modifyName, String newName) throws Exception {
 
 		ObjectInputStream in = deserializeContacts();
 
@@ -38,12 +37,10 @@ public class ContactManager extends Contact {
 			am.get(i).setFirstName(newName);
 			addToContacts(am);
 
-			modified = true;
+		} else {
+			throw new ContactNotFoundException();
 		}
-
 		in.close();
-
-		return modified;
 	}
 
 	public ArrayList<ContactManager> searchContactByName(String searchContact) throws Exception {
@@ -56,13 +53,15 @@ public class ContactManager extends Contact {
 		int i = findContact(am, searchContact);
 		if (i != -1) {
 			am1.add(am.get(i));
+		} else {
+			throw new ContactNotFoundException();
 		}
 		in.close();
 		return am1;
 
 	}
 
-	public boolean deleteContactByName(String deleteContact) throws Exception {
+	public void deleteContactByName(String deleteContact) throws Exception {
 
 		ObjectInputStream in = deserializeContacts();
 
@@ -73,12 +72,11 @@ public class ContactManager extends Contact {
 			am.remove(i);
 
 			addToContacts(am);
-
-			modified = true;
+		} else {
+			throw new ContactNotFoundException();
 		}
 		in.close();
 
-		return modified;
 	}
 
 	public static ArrayList<ContactManager> displayContactList() throws Exception {

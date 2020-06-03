@@ -42,28 +42,40 @@ public class ContactTest {
 				String modifyName = scan.next();
 				System.out.print("Enter new name: ");
 				String newName = scan.next();
-				boolean modified = c.modifyContactByName(modifyName, newName);
+				try {
+					c.modifyContactByName(modifyName, newName);
+					System.out.println("Contact Modified");
+				} catch (ContactNotFoundException e) {
+					System.out.println(e.getMessage());
+				}
 				
-				checkIfChanged(modified);
-
 				break;
 
 			case SEARCH_CONTACT:
 
 				System.out.print("Enter name to be searched: ");
 				String searchContact = scan.next();
-				am = c.searchContactByName(searchContact);
-				printContactInfo(am);
-
+				try {
+					am = c.searchContactByName(searchContact);
+					printContactInfo(am);
+					
+				} catch (ContactNotFoundException e) {
+					System.out.println(e.getMessage());
+				}
+				
 				break;
 
 			case DELETE_CONTACT:
 
 				System.out.print("Enter name to be deleted: ");
 				String deleteContact = scan.next();
-				boolean deleted = c.deleteContactByName(deleteContact);
+				try {
+					c.deleteContactByName(deleteContact);
+					System.out.println("Contact Deleted");
+				} catch (ContactNotFoundException e) {
+					System.out.println(e.getMessage());
+				}
 
-				checkIfChanged(deleted);
 				
 				break;
 
@@ -74,7 +86,7 @@ public class ContactTest {
 
 					break;
 				} catch (Exception e) {
-					System.out.println("Exception: " + e);
+					System.out.println(e.getMessage());
 				}
 
 			case EXIT:
@@ -132,14 +144,5 @@ public class ContactTest {
 			}
 		}
 	}
-	
-	public static void checkIfChanged(boolean modified) {
-		if (!modified) {
-			System.out.println("Contact Not Found!!!");
-		} else {
-			System.out.println("Contact Found!!!");
-		}
-	}
-
 
 }
