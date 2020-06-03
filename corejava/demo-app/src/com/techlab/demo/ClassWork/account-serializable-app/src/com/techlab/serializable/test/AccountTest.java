@@ -46,8 +46,8 @@ public class AccountTest {
 
 		a[4] = new Account("Jay", 12412);
 
-		storingAccountHolderDetails(a);
-		retrivingAccountHolderDetails(a.length);
+//		storingAccountHolderDetails(a);
+		retrivingAccountHolderDetails(a);
 
 	}
 
@@ -68,11 +68,11 @@ public class AccountTest {
 
 	}
 
-	public static void retrivingAccountHolderDetails(int length) {
+	public static void retrivingAccountHolderDetails(Account [] a) {
 
-		Account[] a = new Account[length];
 		try {
-			ObjectInputStream in = new ObjectInputStream(new FileInputStream("Account.txt"));
+			FileInputStream file = new FileInputStream("Account.txt");
+			ObjectInputStream in = new ObjectInputStream(file);
 
 			for (int i = 0; i < a.length; i++) {
 //				a.set(i, (Account) in.readObject());
