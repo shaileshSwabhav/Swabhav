@@ -2,6 +2,7 @@ package com.techlab.shoppingcart.test;
 
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ public class CartTest {
 
 		System.out.println("Enter ur choice");
 		System.out.println(
-				"1. Create new Customer." + "\n2. Print all customers." + "\n3. Exit");
+				"1. Create new Customer." + "\n2. Print customer details." + "\n3. Exit");
 
 		int mainChoice = scan.nextInt();
 
@@ -58,8 +59,16 @@ public class CartTest {
 //				break;
 
 			case GET_CUSTOMERS:
-				map = Customer.getProductsInCart();
-				printCustomerDetails(map.keySet());
+				map = Customer.deserializeCustomer();
+				
+				for(Map.Entry<Customer, ArrayList<Product>> entry : map.entrySet()) {
+					
+					System.out.println("Customer Details\n");
+					printCustomerDetails(entry.getKey());
+					
+					System.out.println("Your products\n");
+					printProductDetails(entry.getValue());
+				}
 				
 				break;
 
@@ -74,7 +83,7 @@ public class CartTest {
 			if(!exitMain) {
 				System.out.println("Enter ur choice");
 				System.out.println(
-						"1. Create new Customer." + "\n2. Print all customers" + "\n3. Exit");
+						"1. Create new Customer." + "\n2. Print customer details." + "\n3. Exit");
 
 				mainChoice = scan.nextInt();
 			}
@@ -205,15 +214,15 @@ public class CartTest {
 		}
 	}
 	
-	private static void printCustomerDetails(Set<Customer> customer) {
+	private static void printCustomerDetails(Customer customer) {
 		
-		for(Customer c: customer) {
-			System.out.println("Customer ID: " + c.getID());
-			System.out.println("Customer Name: " + c.getCustomerName());
-			System.out.println("Purchase Date: " + c.getPurchaseDate());
-			System.out.println("Customer Address: " + c.getCustomerAddress());
+//		for(Customer c: customer) {
+			System.out.println("Customer ID: " + customer.getID());
+			System.out.println("Customer Name: " + customer.getCustomerName());
+			System.out.println("Purchase Date: " + customer.getPurchaseDate());
+			System.out.println("Customer Address: " + customer.getCustomerAddress());
 			System.out.println();
-		}
+//		}
 
 	}
 

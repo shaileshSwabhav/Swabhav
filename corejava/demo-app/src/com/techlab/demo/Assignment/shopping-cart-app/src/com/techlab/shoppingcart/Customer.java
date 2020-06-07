@@ -63,7 +63,7 @@ public class Customer implements Serializable {
 		
 	}
 
-	public static HashMap<Customer, ArrayList<Product>> getProductsInCart() throws Exception {
+	public static HashMap<Customer, ArrayList<Product>> deserializeCustomer() throws Exception {
 
 		HashMap<Customer, ArrayList<Product>> map;
 		FileInputStream file = new FileInputStream(FILENAME);
