@@ -40,25 +40,34 @@ public class Customer implements Serializable {
 
 	public ArrayList<Product> searchFromCart(ArrayList<Product> product, String productName) throws Exception {
 
-//		ArrayList<Product> product = getProductsInCart();
 		ArrayList<Product> p = new ArrayList<Product>();
+		boolean contactFound = false;
 
 		for (int i = 0; i < product.size(); i++) {
 			if (product.get(i).getProductName().equals(productName)) {
 				p.add(product.get(i));
+				contactFound = true;
 			}
+		}
+		
+		if (!contactFound) {
+			throw new ContactNotFoundException();
 		}
 		return p;
 	}
 
 	public void deleteFromCart(ArrayList<Product> product, String productName) throws Exception {
 
-//		ArrayList<Product> product = getProductsInCart();
+		boolean contactFound = false;
 
 		for (int i = 0; i < product.size(); i++) {
 			if (product.get(i).getProductName().equals(productName)) {
 				product.remove(i);
 			}
+		}
+		
+		if (!contactFound) {
+			throw new ContactNotFoundException();
 		}
 		
 	}

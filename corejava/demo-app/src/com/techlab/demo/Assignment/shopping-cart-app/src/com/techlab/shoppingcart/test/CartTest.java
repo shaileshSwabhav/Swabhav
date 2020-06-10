@@ -23,8 +23,7 @@ public class CartTest {
 		Scanner scan = new Scanner(System.in);
 
 		System.out.println("Enter ur choice");
-		System.out.println(
-				"1. Create new Customer." + "\n2. Print customer details." + "\n3. Exit");
+		System.out.println("1. Create new Customer." + "\n2. Print customer details." + "\n3. Exit");
 
 		int mainChoice = scan.nextInt();
 
@@ -60,16 +59,16 @@ public class CartTest {
 
 			case GET_CUSTOMERS:
 				map = Customer.deserializeCustomer();
-				
-				for(Map.Entry<Customer, ArrayList<Product>> entry : map.entrySet()) {
-					
+
+				for (Map.Entry<Customer, ArrayList<Product>> entry : map.entrySet()) {
+
 					System.out.println("Customer Details\n");
 					printCustomerDetails(entry.getKey());
-					
+
 					System.out.println("Your products\n");
 					printProductDetails(entry.getValue());
 				}
-				
+
 				break;
 
 			case EXIT_MAIN:
@@ -79,11 +78,10 @@ public class CartTest {
 			default:
 				System.out.println("Enter valid choice");
 			}
-			
-			if(!exitMain) {
+
+			if (!exitMain) {
 				System.out.println("Enter ur choice");
-				System.out.println(
-						"1. Create new Customer." + "\n2. Print customer details." + "\n3. Exit");
+				System.out.println("1. Create new Customer." + "\n2. Print customer details." + "\n3. Exit");
 
 				mainChoice = scan.nextInt();
 			}
@@ -119,15 +117,24 @@ public class CartTest {
 			case SEARCH_IN_CART:
 				System.out.print("Enter prduct to be search: ");
 				String searchItem = scan.next();
-				ArrayList<Product> p = customer.searchFromCart(product, searchItem);
+				try {
+					ArrayList<Product> p = customer.searchFromCart(product, searchItem);
 
-				printProductDetails(p);
+					printProductDetails(p);
+				} catch (ContactNotFoundException e) {
+					System.out.println(e.getMessage());
+				}
 				break;
 
 			case DELETE_FROM_CART:
 				System.out.print("Enter product to be deleted: ");
 				String deleteItem = scan.next();
-				customer.deleteFromCart(product, deleteItem);
+				try {
+					customer.deleteFromCart(product, deleteItem);
+					
+				} catch (ContactNotFoundException e) {
+					System.out.println(e.getMessage());
+				}
 				break;
 
 			case SHOW_CART:
@@ -213,15 +220,15 @@ public class CartTest {
 			System.out.println();
 		}
 	}
-	
+
 	private static void printCustomerDetails(Customer customer) {
-		
+
 //		for(Customer c: customer) {
-			System.out.println("Customer ID: " + customer.getID());
-			System.out.println("Customer Name: " + customer.getCustomerName());
-			System.out.println("Purchase Date: " + customer.getPurchaseDate());
-			System.out.println("Customer Address: " + customer.getCustomerAddress());
-			System.out.println();
+		System.out.println("Customer ID: " + customer.getID());
+		System.out.println("Customer Name: " + customer.getCustomerName());
+		System.out.println("Purchase Date: " + customer.getPurchaseDate());
+		System.out.println("Customer Address: " + customer.getCustomerAddress());
+		System.out.println();
 //		}
 
 	}
