@@ -53,13 +53,10 @@ public class Organization {
 		result += "Organization ID: " + getOrganizationID() + "\nOrganization Name: " + getOrganizationName() +
 				"\nRegistration Date: " + getRegistrationDate() + "\n\n";
 		
+//			result += "\nPartners Are";
+		
 		for (Talent t: talent) {
 			result += t.toString();
-		}
-			result += "\nPartners Are";
-		
-		for (Partner p: partner) {
-			result += p.toString();
 		}
 		
 		return result;

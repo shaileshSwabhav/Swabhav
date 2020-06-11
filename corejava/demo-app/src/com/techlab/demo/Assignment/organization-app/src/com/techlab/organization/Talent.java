@@ -31,9 +31,7 @@ public class Talent {
 	
 	@Override
 	public String toString() {
-		
-		String result = "";
-		
+		String result = "";		
 		result += "ID: " + getTalentID() + "\nName: " + getTalentName() +
 				"\nCGPA: " + getCGPA() + "\nPartner Name: " + getPartner() + "\n";
 		

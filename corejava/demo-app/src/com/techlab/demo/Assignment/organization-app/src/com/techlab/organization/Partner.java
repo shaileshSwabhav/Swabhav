@@ -43,7 +43,7 @@ public class Partner {
 	public String toString() {
 		String result = "";
 
-		result += "\nPartner ID: " + getPartnerID() + "\nPartner Name: " + getPartnerName()
+		result += "Partner ID: " + getPartnerID() + "\nPartner Name: " + getPartnerName()
 				+ "\nCompany Turn Over: " + getCompayTurnOver() + "\n";
 		
 		for(Talent t: talent) {
