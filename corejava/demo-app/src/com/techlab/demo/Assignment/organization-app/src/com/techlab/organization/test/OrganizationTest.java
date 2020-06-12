@@ -1,6 +1,7 @@
 package com.techlab.organization.test;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import com.techlab.organization.*;
 
@@ -9,7 +10,7 @@ public class OrganizationTest {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 
-		ArrayList<Partner> partner = new ArrayList<Partner>();
+		LinkedList<Partner> partner = new LinkedList<Partner>();
 		ArrayList<Talent> talent = new ArrayList<Talent>();
 		
 		Talent t1 = new Talent(101, "sam", 7.54, "Nexsales");
@@ -49,7 +50,7 @@ public class OrganizationTest {
 		System.out.println(o);
 	}
 	
-	public static void printPartnerDetails(ArrayList<Partner> partner) {
+	public static void printPartnerDetails(LinkedList<Partner> partner) {
 		for(Partner p: partner) {
 			System.out.println(p);
 		}

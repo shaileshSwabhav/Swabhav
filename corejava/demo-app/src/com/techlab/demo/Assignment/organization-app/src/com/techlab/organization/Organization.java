@@ -9,9 +9,9 @@ public class Organization {
 	private String orgname;
 	private Date registrationDate;
 	private ArrayList<Talent> talent = new ArrayList<Talent>();
-	private ArrayList<Partner> partner;
+	private LinkedList<Partner> partner;
 
-	public Organization(int orgID, String name, String registrationDate, ArrayList<Partner> partner) throws Exception {
+	public Organization(int orgID, String name, String registrationDate, LinkedList<Partner> partner) throws Exception {
 
 		this.orgID = orgID;
 		this.orgname = name;
