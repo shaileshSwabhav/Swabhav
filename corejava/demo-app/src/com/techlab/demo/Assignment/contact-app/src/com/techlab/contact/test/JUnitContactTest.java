@@ -53,79 +53,114 @@ class JUnitContactTest {
 	void testAddToContact() throws Exception {
 
 		// Arrange
-		ArrayList<ContactManager> expectedList = new ArrayList<ContactManager>();
-		expectedList.add(new ContactManager("sam", "thomas", 988888, "sam@gmail.com"));
-	
+		String expectedFirstName = "sam";
+		String expectedLastName = "thomas";
+		long expectedPhoneNo = 988888;
+		String expectedEmailID = "sam@gmail.com";
+
 		// Act
 		ContactManager contact = new ContactManager();
-		contact.addToContacts(expectedList);
-		ArrayList<ContactManager> resultList = contact.displayContactList();
+		ArrayList<ContactManager> list = new ArrayList<ContactManager>();
+		list.add(new ContactManager("sam", "thomas", 988888, "sam@gmail.com"));
+		contact.addToContacts(list);
+		
+		ArrayList<ContactManager> resultList = ContactManager.displayContactList();
 
 		// Assert
-		assertEquals(expectedList.size(), resultList.size());
-		for(int i = 0; i < expectedList.size(); i++) {
-			assertEquals(expectedList.get(i).getFirstName(), resultList.get(i).getFirstName());
-			assertEquals(expectedList.get(i).getLastName(), resultList.get(i).getLastName());
-			assertEquals(expectedList.get(i).getPhoneNo(), resultList.get(i).getPhoneNo());
-			assertEquals(expectedList.get(i).getEmailID(), resultList.get(i).getEmailID());
+		for (int i = 0; i < resultList.size(); i++) {
+			assertEquals(expectedFirstName, resultList.get(i).getFirstName());
+			assertEquals(expectedLastName, resultList.get(i).getLastName());
+			assertEquals(expectedPhoneNo, resultList.get(i).getPhoneNo());
+			assertEquals(expectedEmailID, resultList.get(i).getEmailID());
 
 		}
-
 	}
 
 	@Test
 	void testModifyContact() throws Exception {
 
 		// Arrange
-		ArrayList<ContactManager> expectedList = new ArrayList<ContactManager>();
-		expectedList.add(new ContactManager("tom", "thomas", 988888, "sam@gmail.com"));
-		
+		String expectedFirstName = "sam";
+		String expectedLastName = "thomas";
+		long expectedPhoneNo = 988888;
+		String expectedEmailID = "sam@gmail.com";
+
 		// Act
 		ContactManager contact = new ContactManager();
-		ArrayList<ContactManager> c = new ArrayList<ContactManager>();
-		c.add(new ContactManager("sam", "thomas", 988888, "sam@gmail.com"));
+		ArrayList<ContactManager> list = new ArrayList<ContactManager>();
+		list.add(new ContactManager("tom", "thomas", 988888, "sam@gmail.com"));
+
+		contact.addToContacts(list);
+		contact.modifyContactByName("tom", "sam");
 		
-		contact.addToContacts(c);
-		contact.modifyContactByName("sam", "tom");
-		ArrayList<ContactManager> resultList = contact.displayContactList();
+		ArrayList<ContactManager> resultList = ContactManager.displayContactList();
+		
 		
 		// Assert
-		assertEquals(expectedList.size(), resultList.size());
-		for(int i = 0; i < expectedList.size(); i++) {
-			assertEquals(expectedList.get(i).getFirstName(), resultList.get(i).getFirstName());
-			assertEquals(expectedList.get(i).getLastName(), resultList.get(i).getLastName());
-			assertEquals(expectedList.get(i).getPhoneNo(), resultList.get(i).getPhoneNo());
-			assertEquals(expectedList.get(i).getEmailID(), resultList.get(i).getEmailID());
+		for (int i = 0; i < resultList.size(); i++) {
+			assertEquals(expectedFirstName, resultList.get(i).getFirstName());
+			assertEquals(expectedLastName, resultList.get(i).getLastName());
+			assertEquals(expectedPhoneNo, resultList.get(i).getPhoneNo());
+			assertEquals(expectedEmailID, resultList.get(i).getEmailID());
 
 		}
-		
+
 	}
 
 	@Test
 	void testDeleteContact() throws Exception {
 
 		// Arrange
-		ArrayList<ContactManager> expectedList = new ArrayList<ContactManager>();
-		expectedList.add(new ContactManager("tom", "thomas", 988888, "sam@gmail.com"));
+		String expectedFirstName = "sam";
+		String expectedLastName = "thomas";
+		long expectedPhoneNo = 988888;
+		String expectedEmailID = "sam@gmail.com";
+
+		// Act
+		ContactManager contact = new ContactManager();
+		ArrayList<ContactManager> list = new ArrayList<ContactManager>();
+		list.add(new ContactManager("sam", "thomas", 988888, "sam@gmail.com"));
+		list.add(new ContactManager("tom", "thomas", 983188, "tom@gmail.com"));
+
+		contact.addToContacts(list);
+		contact.deleteContactByName("tom");
+		
+		
+		ArrayList<ContactManager> resultList = ContactManager.displayContactList();
+
+		// Assert
+		for (int i = 0; i < resultList.size(); i++) {
+			assertEquals(expectedFirstName, resultList.get(i).getFirstName());
+			assertEquals(expectedLastName, resultList.get(i).getLastName());
+			assertEquals(expectedPhoneNo, resultList.get(i).getPhoneNo());
+			assertEquals(expectedEmailID, resultList.get(i).getEmailID());
+		}
+	}
+	
+	@Test
+	void testSearchContact() throws Exception {
+		
+		// Arrange
+		String expectedFirstName = "sam";
+		String expectedLastName = "thomas";
+		long expectedPhoneNo = 988888;
+		String expectedEmailID = "sam@gmail.com";
 		
 		// Act
 		ContactManager contact = new ContactManager();
-		ArrayList<ContactManager> c = new ArrayList<ContactManager>();
-		c.add(new ContactManager("sam", "thomas", 988888, "sam@gmail.com"));
-		c.add(new ContactManager("tom", "thomas", 988888, "sam@gmail.com"));
+		ArrayList<ContactManager> list = new ArrayList<ContactManager>();
+		list.add(new ContactManager("sam", "thomas", 988888, "sam@gmail.com"));
+		list.add(new ContactManager("tom", "thomas", 983188, "tom@gmail.com"));
 		
-		contact.addToContacts(c);
-		contact.deleteContactByName("sam");
-		ArrayList<ContactManager> resultList = contact.displayContactList();
+		contact.addToContacts(list);
+		ArrayList<ContactManager> resultList = contact.searchContactByName("sam");
 		
 		// Assert
-		assertEquals(expectedList.size(), resultList.size());
-		for(int i = 0; i < expectedList.size(); i++) {
-			assertEquals(expectedList.get(i).getFirstName(), resultList.get(i).getFirstName());
-			assertEquals(expectedList.get(i).getLastName(), resultList.get(i).getLastName());
-			assertEquals(expectedList.get(i).getPhoneNo(), resultList.get(i).getPhoneNo());
-			assertEquals(expectedList.get(i).getEmailID(), resultList.get(i).getEmailID());
-
+		for (int i = 0; i < resultList.size(); i++) {
+			assertEquals(expectedFirstName, resultList.get(i).getFirstName());
+			assertEquals(expectedLastName, resultList.get(i).getLastName());
+			assertEquals(expectedPhoneNo, resultList.get(i).getPhoneNo());
+			assertEquals(expectedEmailID, resultList.get(i).getEmailID());
 		}
 		
 	}
