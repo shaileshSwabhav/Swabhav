@@ -12,6 +12,10 @@ public class Customer implements Serializable {
 	private String customerName, customerAddress;
 	private Date purchaseDate;
 	private final static String FILENAME = "src/resource/ShoppingCart.txt";
+	
+	public Customer() {
+		
+	}
 
 	public Customer(int customerId, String customerName, String purchaseDate, String address) throws Exception {
 		this.customerId = customerId;
@@ -63,6 +67,7 @@ public class Customer implements Serializable {
 		for (int i = 0; i < product.size(); i++) {
 			if (product.get(i).getProductName().equals(productName)) {
 				product.remove(i);
+				contactFound = true;
 			}
 		}
 		
