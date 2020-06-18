@@ -80,6 +80,7 @@ class JUnitGuitarTest {
 		Type expectedType = Type.ACOUSTIC;
 		Wood expectedBackWood = Wood.ALDER;
 		Wood expectedTopWood = Wood.ALDER;
+		int expectedSize = 4;
 
 		// Act
 		Inventory i = new Inventory();
@@ -90,16 +91,18 @@ class JUnitGuitarTest {
 		GuitarSpecs searchSpec = new GuitarSpecs(Builder.FENDER, "xyz", Type.ACOUSTIC, Wood.ALDER, Wood.ALDER);
 		List spec = i.search(searchSpec);
 
+		assertEquals(expectedSize, spec.size());
+		
 		// Assert
-		for (Iterator i1 = spec.iterator(); i1.hasNext();) {
-			Guitar guitar = (Guitar) i1.next();
-			GuitarSpecs x = guitar.getSpec();
-			assertEquals(expectedBuilder, x.getBuilder());
-			assertEquals(expectedModel, x.getModel());
-			assertEquals(expectedType, x.getType());
-			assertEquals(expectedBackWood, x.getBackWood());
-			assertEquals(expectedTopWood, x.getTopWood());
-		}
+//		for (Iterator i1 = spec.iterator(); i1.hasNext();) {
+//			Guitar guitar = (Guitar) i1.next();
+//			GuitarSpecs x = guitar.getSpec();
+//			assertEquals(expectedBuilder, x.getBuilder());
+//			assertEquals(expectedModel, x.getModel());
+//			assertEquals(expectedType, x.getType());
+//			assertEquals(expectedBackWood, x.getBackWood());
+//			assertEquals(expectedTopWood, x.getTopWood());
+//		}
 	}
 	
 	@Test

@@ -26,7 +26,7 @@ public class Customer implements Serializable {
 
 	private Date setDate(String purchaseDate) throws Exception {
 
-		SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat s = new SimpleDateFormat("dd-MM-yyyy");
 		Date date = s.parse(purchaseDate);
 		return date;
 	}

@@ -91,20 +91,16 @@ class JUnitContactTest {
 		list.add(new ContactManager("tom", "thomas", 988888, "sam@gmail.com"));
 
 		contact.addToContacts(list);
-		contact.modifyContactByName("tom", "sam");
-		
+		contact.modifyContactByName("tom", "sam");	
 		ArrayList<ContactManager> resultList = ContactManager.displayContactList();
-		
-		
+			
 		// Assert
 		for (int i = 0; i < resultList.size(); i++) {
 			assertEquals(expectedFirstName, resultList.get(i).getFirstName());
 			assertEquals(expectedLastName, resultList.get(i).getLastName());
 			assertEquals(expectedPhoneNo, resultList.get(i).getPhoneNo());
 			assertEquals(expectedEmailID, resultList.get(i).getEmailID());
-
 		}
-
 	}
 
 	@Test
@@ -123,9 +119,7 @@ class JUnitContactTest {
 		list.add(new ContactManager("tom", "thomas", 983188, "tom@gmail.com"));
 
 		contact.addToContacts(list);
-		contact.deleteContactByName("tom");
-		
-		
+		contact.deleteContactByName("tom");	
 		ArrayList<ContactManager> resultList = ContactManager.displayContactList();
 
 		// Assert
@@ -161,8 +155,6 @@ class JUnitContactTest {
 			assertEquals(expectedLastName, resultList.get(i).getLastName());
 			assertEquals(expectedPhoneNo, resultList.get(i).getPhoneNo());
 			assertEquals(expectedEmailID, resultList.get(i).getEmailID());
-		}
-		
+		}		
 	}
-
 }
