@@ -1,18 +1,27 @@
 package com.techlab.shoppingcart;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Customer {
+public class Customer implements Serializable {
 
 	private int customerID;
 	private String customerName, customerAddress;
 	private LinkedList<Order> orders;
+	private final static String FILENAME = "src/resource/Cart.txt";
+	
 	
 	public Customer(int customerID, String customerName, String customerAddress) {
 		this.customerID = customerID;
 		this.customerName = customerName;
 		this.customerAddress = customerAddress;
-//		this.orders = orders;
 		this.orders = new LinkedList<Order>();
 	}
 	
@@ -40,9 +49,13 @@ public class Customer {
 	public String toString() {
 		
 		String result = "";
-		result += "Customer\n" + "Customer ID:" + this.customerID
-				+ " Customer Name: " + this.customerName
-				+ " Customer Address: " + this.customerAddress;
+		result += "\nCustomer\n" + "Customer ID:" + this.customerID
+				+ "\nCustomer Name: " + this.customerName
+				+ "\nCustomer Address: " + this.customerAddress;
+		
+		for(Order o: orders) {
+			result += o.toString();
+		}
 		
 		return result;
 	}

@@ -1,13 +1,17 @@
 package com.techlab.shoppingcart;
 
 import java.util.Date;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 
-public class Order {
+public class Order implements Serializable {
 	
 	private int orderID;
 	private LineItem lineItem;
 	private Date orderDate;
+	private final static String FILENAME = "src/resource/Cart.txt";
 	
 	public Order(int orderID, String orderDate, LineItem lineItem) throws Exception {
 		this.orderID = orderID;
@@ -34,8 +38,7 @@ public class Order {
 		return lineItem;
 	}
 	
-	public void cancelOrder() {
-		
+	public void cancelOrder() {	
 		this.lineItem = null;
 	}
 	
