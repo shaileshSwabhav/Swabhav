@@ -44,11 +44,21 @@ public class LineItem {
 		return products;
 	}
 	
+	public double totalCartCost() {
+		double totalCost = 0.0;
+		
+		for(Product p: products)
+			totalCost += p.getUnitPrice() * p.getQuantity();
+		
+		return totalCost;
+	}
+	
 	@Override
 	public String toString() {
 		
 		String result = "";
-		result += "\nLineItem\n" + "Cart ID: " + this.cartID;
+		result += "\nLineItem\n" + "Cart ID: " + this.cartID
+				+ "\nTotal Cart Cost: " + this.totalCartCost();
 		
 		for(Product p: products) {
 			result += p.toString();

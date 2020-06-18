@@ -34,6 +34,11 @@ public class Order {
 		return lineItem;
 	}
 	
+	public void cancelOrder() {
+		
+		this.lineItem = null;
+	}
+	
 	@Override
 	public String toString() {
 		
@@ -42,7 +47,11 @@ public class Order {
 		result += "\nOrders\n" + "Order ID: " + this.orderID
 				+ "\nOrder Date: " + this.orderDate;
 		
-		result += lineItem.toString();
+		if(this.lineItem != null) {
+			result += lineItem.toString();
+		} else {
+			result += "\nOrder Cancelled.";
+		}
 		
 		return result;
 	}

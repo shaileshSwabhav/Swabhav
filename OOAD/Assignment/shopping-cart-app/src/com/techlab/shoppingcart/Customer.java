@@ -40,7 +40,7 @@ public class Customer {
 	public String toString() {
 		
 		String result = "";
-		result += "\nCustomer\n" + "Customer ID:" + this.customerID
+		result += "Customer\n" + "Customer ID:" + this.customerID
 				+ " Customer Name: " + this.customerName
 				+ " Customer Address: " + this.customerAddress;
 		
