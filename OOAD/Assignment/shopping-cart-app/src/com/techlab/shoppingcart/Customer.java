@@ -53,9 +53,14 @@ public class Customer implements Serializable {
 				+ "\nCustomer Name: " + this.customerName
 				+ "\nCustomer Address: " + this.customerAddress;
 		
-		for(Order o: orders) {
-			result += o.toString();
+		if (!orders.isEmpty()) {
+			for(Order o: orders) {
+				result += o.toString();
+			}
+		} else {
+			result += "\nOrder not placed" + "\n";
 		}
+
 		
 		return result;
 	}

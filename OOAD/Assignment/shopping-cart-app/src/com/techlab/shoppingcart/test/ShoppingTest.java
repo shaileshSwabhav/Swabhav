@@ -10,7 +10,6 @@ public class ShoppingTest {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 
-//		Customer customer = new Customer();
 		SerializeCustomer serialize = new SerializeCustomer();
 		ArrayList<Customer> cust = new ArrayList<Customer>();
 
@@ -35,21 +34,15 @@ public class ShoppingTest {
 		Order o1 = new Order(512, "12/03/2017", cart1);
 		Order o2 = new Order(1502, "15/05/2019", cart2);
 
-//		o2.cancelOrder();
-
 		Customer cust1 = new Customer(114, "Sam", "Mumbai");
 		Customer cust2 = new Customer(103, "ben", "pune");
 //		cust2.addOrder(o2);
 		cust1.addOrder(o1);
 
-//		printCustomerInfo(cust1);
-//		printCustomerInfo(cust2);
-
-
-//		cust.add(cust1);
-//		cust.add(cust2);
+		cust.add(cust1);
+		cust.add(cust2);
 //
-//		serialize.serializeCustomer(cust);
+		serialize.serializeCustomer(cust);
 		
 		cust = serialize.deserializeCustomer();
 		
@@ -61,6 +54,7 @@ public class ShoppingTest {
 //		serialize.serializeCustomer(cust);
 		
 		Customer cust4 = new Customer(105, "tom", "Mumbai");
+		cust4.addOrder(o2);
 		cust.add(cust4);
 		serialize.serializeCustomer(cust);
 		

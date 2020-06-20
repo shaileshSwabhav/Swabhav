@@ -10,7 +10,7 @@ public class Order implements Serializable {
 	
 	private int orderID;
 	private LineItem lineItem;
-	private Date orderDate;
+	private String orderDate;
 	private final static String FILENAME = "src/resource/Cart.txt";
 	
 	public Order(int orderID, String orderDate, LineItem lineItem) throws Exception {
@@ -19,9 +19,11 @@ public class Order implements Serializable {
 		this.lineItem = lineItem;
 	}
 	
-	private Date setDate(String orderDate) throws Exception {
-		SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyy");
-		Date date = s.parse(orderDate);
+	private String setDate(String orderDate) throws Exception {
+		
+		SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy");
+		Date d = s.parse(orderDate);
+		String date = s.format(d);
 		
 		return date;		
 	}
@@ -30,7 +32,7 @@ public class Order implements Serializable {
 		return orderID;
 	}
 	
-	public Date getOrderDate() {
+	public String getOrderDate() {
 		return orderDate;
 	}
 	

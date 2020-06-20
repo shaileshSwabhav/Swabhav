@@ -13,6 +13,10 @@ public class Product implements Serializable {
 		this.productName = productName;
 		this.unitPrice = unitPrice;
 	}
+	
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 
 	public int getProductID() {
 		return productID;
@@ -30,10 +34,6 @@ public class Product implements Serializable {
 		return quantity;
 	}
 	
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
 	@Override
 	public String toString() {
 		String result = "";

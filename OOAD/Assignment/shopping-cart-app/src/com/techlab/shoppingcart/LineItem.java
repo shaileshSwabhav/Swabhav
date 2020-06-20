@@ -18,44 +18,35 @@ public class LineItem implements Serializable {
 	}
 
 	public void addToCart(Product product, int quantity) {
-		boolean productFound = false;
 
-		for (int i = 0; i < products.size(); i++) {
-			if (products.get(i).getProductID() == (product.getProductID())) {
-				products.get(i).setQuantity(quantity);
-				productFound = true;
-			}
-		}
-
-		if (!productFound) {
+		Product p = searchProductByID(product.getProductID());
+		if (p != null) {
+			p.setQuantity(quantity);
+		} else {
 			products.add(product);
 			product.setQuantity(quantity);
 		}
+
 	}
 
-	public Product searchProduct(String productName) {
+	public Product searchProductByID(int pID) {
 
 		for (int i = 0; i < products.size(); i++) {
-			if (products.get(i).getProductName().equalsIgnoreCase(productName)) {
+			if (products.get(i).getProductID() == pID) {
 				return products.get(i);
 			}
 		}
 		return null;
 	}
 
-	public void deleteProduct(String productName) {
+	public void deleteProductByID(int pID) {
 
-		for (int i = 0; i < products.size(); i++) {
-			if (products.get(i).getProductName().equalsIgnoreCase(productName)) {
-				products.remove(i);
-			}
+		Product p = searchProductByID(pID);
+		if (p != null) {
+			products.remove(p);
 		}
 	}
-
-	public LinkedList<Product> displayCart() {
-		return products;
-	}
-
+	
 	public double totalCartCost() {
 		double totalCost = 0.0;
 
@@ -63,6 +54,14 @@ public class LineItem implements Serializable {
 			totalCost += p.getUnitPrice() * p.getQuantity();
 
 		return totalCost;
+	}
+
+	public int getCartSize() {
+		return products.size();
+	}
+
+	public LinkedList<Product> displayCart() {
+		return products;
 	}
 
 	@Override

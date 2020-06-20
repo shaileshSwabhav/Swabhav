@@ -15,10 +15,11 @@ class ProductTest {
 		int expectedProductID = 101;
 		String expectedProductName = "Shoes";
 		double expectedUnitPrice = 2500.0;
-		int expectedQuantity = 1;
+		int expectedQuantity = 5;
 		
 		// Act
-		Product p = new Product(101, "Shoes", 2500, 1);
+		Product p = new Product(101, "Shoes", 2500);
+		p.setQuantity(5);
 		
 		// Assert
 		assertEquals(expectedProductID, p.getProductID());
