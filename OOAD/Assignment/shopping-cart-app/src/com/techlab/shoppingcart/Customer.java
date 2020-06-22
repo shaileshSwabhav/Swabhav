@@ -26,7 +26,11 @@ public class Customer implements Serializable {
 	}
 	
 	public void addOrder(Order o) {
-		orders.add(o);
+		if(o.getLineItem().getCartSize() == 0) {
+			orders.add(null);
+		} else {
+			orders.add(o);
+		}
 	}
 	
 	public int getCustomerID() {
@@ -55,7 +59,11 @@ public class Customer implements Serializable {
 		
 		if (!orders.isEmpty()) {
 			for(Order o: orders) {
-				result += o.toString();
+				if (o != null) {
+					result += o.toString();
+				} else {
+					result += "\nOrder cannot be placed\n";
+				}
 			}
 		} else {
 			result += "\nOrder not placed" + "\n";
