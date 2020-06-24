@@ -1,6 +1,6 @@
-package com.techlab.solution;
+package com.techlab.ocpsolution;
 
-public class Circle implements Shape {
+public class Circle implements IShape {
 	
 	private double radius;
 

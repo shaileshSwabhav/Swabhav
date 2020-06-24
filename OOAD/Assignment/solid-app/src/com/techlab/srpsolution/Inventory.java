@@ -1,8 +1,11 @@
-package com.techlab.solution;
+package com.techlab.srpsolution;
 
 import java.util.LinkedList;
 
 public class Inventory {
+	
+	// here inventory will do all the work related to search 
+	// and adding the book
 	
 	private LinkedList<Book> books;
 	

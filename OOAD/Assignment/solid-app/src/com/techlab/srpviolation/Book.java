@@ -1,4 +1,4 @@
-package com.techlab.violation;
+package com.techlab.srpviolation;
 
 import java.util.LinkedList;
 

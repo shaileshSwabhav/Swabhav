@@ -1,4 +1,4 @@
-package com.techlab.solution;
+package com.techlab.srpsolution;
 
 public class Book {
 
@@ -10,11 +10,6 @@ public class Book {
 		this.author = author;
 	}
 
-	@Override
-	public String toString() {
-		return "Book [bookName=" + bookName + ", author=" + author + "]";
-	}
-
 	public String getBookName() {
 		return bookName;
 	}
@@ -23,4 +18,8 @@ public class Book {
 		return author;
 	}
 
+	@Override
+	public String toString() {
+		return "Book [bookName=" + bookName + ", author=" + author + "]";
+	}
 }

@@ -1,6 +1,6 @@
-package com.techlab.solution;
+package com.techlab.ocpviolation;
 
-public class Rectangle implements Shape {
+public class Rectangle {
 	
 	private double length, width;
 
@@ -15,11 +15,6 @@ public class Rectangle implements Shape {
 
 	public double getWidth() {
 		return width;
-	}
-
-	@Override
-	public double calculateArea() {
-		return length * width;
 	}	
 	
 }

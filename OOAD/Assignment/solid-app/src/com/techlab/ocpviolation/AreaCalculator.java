@@ -1,4 +1,4 @@
-package com.techlab.violation;
+package com.techlab.ocpviolation;
 
 public class AreaCalculator {
 	
@@ -10,7 +10,7 @@ public class AreaCalculator {
 		return (3.14 * circle.getRadius() * circle.getRadius());
 	}
 	
-	// this is not good becoz we cannot override the method everytime user has new shape
-	// instead we should have a interface class which will define the calculateArea nethod accordingly.
+	// this is not good becoz we cannot override the method every time user has new shape
+	// instead we should have a interface class which will define the calculateArea method accordingly.
 
 }

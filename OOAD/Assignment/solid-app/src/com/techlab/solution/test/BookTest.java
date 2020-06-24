@@ -1,6 +1,6 @@
 package com.techlab.solution.test;
 
-import com.techlab.solution.*;
+import com.techlab.srpsolution.*;
 
 public class BookTest {
 
@@ -16,7 +16,8 @@ public class BookTest {
 		i.addBook(b2);
 		i.addBook(b3);
 
-		System.out.println(i.searchBook("xyz"));
+		System.out.println(i.searchBook("pqr"));
+		System.out.println(i.searchBook("abc"));
 	}
 
 }

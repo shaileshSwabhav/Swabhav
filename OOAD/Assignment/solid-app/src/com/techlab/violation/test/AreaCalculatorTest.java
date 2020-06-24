@@ -1,6 +1,6 @@
 package com.techlab.violation.test;
 
-import com.techlab.violation.*;
+import com.techlab.ocpviolation.*;
 
 public class AreaCalculatorTest {
 

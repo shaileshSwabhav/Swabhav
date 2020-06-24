@@ -1,22 +1,22 @@
 package com.techlab.solution.test;
 
-import com.techlab.solution.*;
+import com.techlab.ocpsolution.*;
 
 public class CalculateAreaTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Shape s1 = new Rectangle(4.5, 7.4);
-		Shape s2 = new Circle(5.3);
+		IShape s1 = new Rectangle(4.5, 7.4);
+		IShape s2 = new Circle(5.3);
 		
-		s1.calculateArea();
-		s2.calculateArea();
+		calculateArea(s1);
+		calculateArea(s2);
 	}
 	
-	public static void calculateArea(Shape s) {
-		
-		System.out.println(s.calculateArea());
+	public static void calculateArea(IShape s) {	
+		System.out.println(s.getClass().getSimpleName() 
+				+  ": " + s.calculateArea());
 	}
 
 }
