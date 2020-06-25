@@ -35,6 +35,6 @@ class AudioBookDelivery extends BookDelivery {							// so we have to deliver Au
 	
 	@Override
 	public void getBookDeliveryLocation() {
-		// audio book cannot be delivered.
+		throw new RuntimeException("Audio book cannot be physically delivered");
 	}
 }

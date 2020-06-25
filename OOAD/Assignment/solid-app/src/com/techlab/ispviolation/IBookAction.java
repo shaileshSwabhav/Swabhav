@@ -21,7 +21,7 @@ class HandBook implements IBookAction {
 
 	@Override
 	public void listenSample() {
-		System.out.println("This is sample for the audio book" + this.getClass().getSimpleName());
+		throw new RuntimeException("Handbook dooesn't have sample to listen");
 	}
 	
 }
@@ -35,7 +35,7 @@ class AudioBook implements IBookAction {
 
 	@Override
 	public void searchSecondHandBook() {
-		System.out.println("This is second hand book" + this.getClass().getSimpleName());
+		throw new RuntimeException("Audio book does not have second hand book");
 	}
 
 	@Override
