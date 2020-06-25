@@ -19,13 +19,13 @@ public class Robot implements IWorkable {
 	@Override
 	public void startEat() {
 		// TODO Auto-generated method stub
-
+		throw new RuntimeException("Robots cannot eat");
 	}
 
 	@Override
 	public void stopEat() {
 		// TODO Auto-generated method stub
-
+		throw new RuntimeException("Robots cannot eat");
 	}
 
 }
