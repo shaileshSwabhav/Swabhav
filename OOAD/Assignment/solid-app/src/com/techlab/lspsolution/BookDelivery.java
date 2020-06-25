@@ -11,7 +11,6 @@ public class BookDelivery {
 }
 																								// here we have added 2 more classes for offline and online delivery
 class OfflineDelivery extends BookDelivery {													// offline delivery will implement for physical delivery of book 
-
 	public OfflineDelivery(int userID, String bookTitle) {
 		super(userID, bookTitle);
 	}
@@ -21,8 +20,7 @@ class OfflineDelivery extends BookDelivery {													// offline delivery wil
 	}
 }
 
-class OnlineDelivery extends BookDelivery {														// online delivery will implement for online delivery of books
-																								// by getting the available softwares
+class OnlineDelivery extends BookDelivery {														// online delivery will implement for online delivery of books																							// by getting the available softwares
 	public OnlineDelivery(int userID, String bookTitle) {
 		super(userID, bookTitle);
 	}
@@ -33,7 +31,6 @@ class OnlineDelivery extends BookDelivery {														// online delivery will
 }
 
 class HandcoverDelivery extends OfflineDelivery {
-
 	public HandcoverDelivery(int userID, String bookTitle) {
 		super(userID, bookTitle);
 	}
@@ -45,7 +42,6 @@ class HandcoverDelivery extends OfflineDelivery {
 }
 
 class AudioBookDelivery extends OnlineDelivery {
-
 	public AudioBookDelivery(int userID, String bookTitle) {
 		super(userID, bookTitle);
 	}
