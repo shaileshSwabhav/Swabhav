@@ -12,6 +12,6 @@ public class DVD {
 }
 
 // now we need to add this to the shelf
-// we cant do that bcoz it will violate OCP has we will end up modifying shelf class
+// we can't do that bcoz it will violate OCP has we will end up modifying shelf class
 // so we need to have a abstract(interface) class 
 // which we help us to add book and DVD to the shelf

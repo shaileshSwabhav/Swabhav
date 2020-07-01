@@ -7,6 +7,7 @@ public class Books {
 	}
 
 	public void readSample() {
-		System.out.println("Reading sample of the book");
+		System.out.println("Reading sample of "
+				+ "the book");
 	}
 }
