@@ -5,9 +5,10 @@ import java.net.*;
 
 public class URLLoader implements ILoadable {
 
+	private File csvFile;
+	
 	@Override
-	public File loadFile(String webURL) throws Exception {
-		// TODO Auto-generated method stub
+	public void loadFile(String webURL) throws Exception {
 
 		URL url = new URL(webURL);
 		BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -15,13 +16,17 @@ public class URLLoader implements ILoadable {
 		String inputLine;
 		File csvFile = new File("src/resource/webEmp_data.txt");
 		FileWriter file = new FileWriter(csvFile);
+		
 		while ((inputLine = in.readLine()) != null) {
 			file.write(inputLine + "\n");
 		}
 		file.close();
 		in.close();
 
-	return csvFile;
+	}
+
+	public File getCsvFile() {
+		return csvFile;
 	}
 
 }

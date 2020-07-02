@@ -4,12 +4,15 @@ import java.io.*;
 
 public class FileLoader implements ILoadable {
 
+	private File csvFile;
+
 	@Override
-	public File loadFile(String fileLocation) throws Exception {
-		// TODO Auto-generated method stub
+	public void loadFile(String fileLocation) throws Exception {
 		
 		File csvFile = new File(fileLocation);
-		
+	}
+
+	public File getCsvFile() {
 		return csvFile;
 	}
 

@@ -3,8 +3,14 @@ package com.techlab.employee;
 import java.util.*;
 
 public class Analyzer {
+	
+	private Parser parse;
+	
+	public Analyzer(Parser parse) {
+		this.parse = parse; 
+	}
 
-	public String calculateMaximumSalariedPerson(HashSet<String> empData) {
+	public String calculateMaximumSalariedPerson() {
 
 		final int SALARY_INDEX = 5;
 		final int COMISSION_INDEX = SALARY_INDEX + 1;
@@ -14,9 +20,10 @@ public class Analyzer {
 		String[] employee = null;
 		int maximumSalary = 0;
 
-		for (String e : empData) {
+		for (String e : parse.getEmpData()) {
 			employee = e.split(",", e.length());
 			salary = Integer.parseInt(employee[SALARY_INDEX]);
+			
 			if (employee[COMISSION_INDEX].equals("NULL")) {
 			} else {
 				salary += Integer.parseInt(employee[COMISSION_INDEX]);
@@ -31,13 +38,14 @@ public class Analyzer {
 		return maxSalariedPerson;
 	}
 
-	public HashSet<String> calulateTotalNumberofEmployee(HashSet<String> empData, int deptNumber) {
+	public HashSet<String> calulateTotalNumberofEmployee(int deptNumber) {
 
 		HashSet<String> departmentData = new HashSet<String>();
 		String[] employee = null;
 		final int DEPT_INDEX = 7;
 		
-		for(String e: empData) {
+		for(String e: parse.getEmpData()) {
+
 			employee = e.split(",", e.length());
 						
 			if(deptNumber == Integer.parseInt(employee[DEPT_INDEX])) {
@@ -48,13 +56,13 @@ public class Analyzer {
 		return departmentData;
 	}
 	
-	public HashSet<String> calulateTotalNumberofEmployee(HashSet<String> empData, String designation) {
+	public HashSet<String> calulateTotalNumberofEmployee(String designation) {
 		
 		HashSet<String> departmentData = new HashSet<String>();
 		String[] employee = null;
 		final int DESIGNATION_INDEX = 2;
 		
-		for(String e: empData) {
+		for(String e: parse.getEmpData()) {
 			employee = e.split(",", e.length());
 			if(designation.equalsIgnoreCase(employee[DESIGNATION_INDEX].replace("'", ""))) {
 				departmentData.add(e);

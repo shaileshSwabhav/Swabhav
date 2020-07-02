@@ -1,6 +1,5 @@
 package com.techlab.employee.test;
 
-import java.io.*;
 import java.util.*;
 
 import com.techlab.employee.*;
@@ -10,21 +9,17 @@ public class EmployeeTest {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		ILoadable load = new FileLoader();
-		File file = load.loadFile("src/resource/dataFile_emp.txt");
+		Parser p = new Parser(new FileLoader());
+		p.parseFile("src/resource/dataFile_emp.txt");
 		
-		ILoadable web = new URLLoader();
-		File webFile = web.loadFile("https://swabhav-tech.firebaseapp.com/emp.txt");
-		
-		Parser p = new Parser();
-		HashSet<String> empData = p.parseFile(file);
-//		HashSet<String> empData = p.parseFile(webFile);
+//		Parser p = new Parser(new URLLoader());
+//		p.parseFile("https://swabhav-tech.firebaseapp.com/emp.txt");
 			
-		Analyzer a = new Analyzer();
-		String maxSalariedPerson = a.calculateMaximumSalariedPerson(empData);
+		Analyzer a = new Analyzer(p);
+		String maxSalariedPerson = a.calculateMaximumSalariedPerson();
 		System.out.println("Max Salaried person: " + maxSalariedPerson);
 		
-		HashSet<String> deptNoData = a.calulateTotalNumberofEmployee(empData, 20);
+		HashSet<String> deptNoData = a.calulateTotalNumberofEmployee(20);
 		if(!deptNoData.isEmpty()) {
 			System.out.println("DEPARTMENT");
 			for(String s: deptNoData) {
@@ -34,7 +29,7 @@ public class EmployeeTest {
 			System.out.println("Employees Not Found!");
 		}
 		
-		HashSet<String> designationData = a.calulateTotalNumberofEmployee(empData, "clerk");
+		HashSet<String> designationData = a.calulateTotalNumberofEmployee("clerk");
 		if(!designationData.isEmpty()) {
 			System.out.println("DESIGNATION");
 			for(String s: designationData) {

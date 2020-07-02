@@ -5,20 +5,28 @@ import java.util.*;
 
 public class Parser {
 
-	HashSet<String> empData;
+	private HashSet<String> empData;
+	private ILoadable load;
 	
-	public Parser() {
+	public Parser(ILoadable load) {
+		this.load = load;
 		empData = new HashSet<String>();
 	}
 
-	public HashSet<String> parseFile(File file) throws Exception {
-
+	public void parseFile(String location) throws Exception {
+		
+		load.loadFile(location);
+		File file = load.getCsvFile();
 		Scanner scan = new Scanner(file);
+		
 		while (scan.hasNext()) {
 			empData.add(scan.next());
 		}
 	
 		scan.close();
+	}
+
+	public HashSet<String> getEmpData() {
 		return empData;
 	}
 

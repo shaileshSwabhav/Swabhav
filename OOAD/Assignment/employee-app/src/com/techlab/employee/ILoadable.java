@@ -4,5 +4,6 @@ import java.io.File;
 
 public interface ILoadable {
 	
-	public File loadFile(String str) throws Exception;
+	public void loadFile(String str) throws Exception;
+	public File getCsvFile();
 }
