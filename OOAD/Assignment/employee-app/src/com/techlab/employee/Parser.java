@@ -20,7 +20,8 @@ public class Parser {
 		Scanner scan = new Scanner(file);
 		
 		while (scan.hasNext()) {
-			empData.add(scan.next());
+			empData.add(scan.next());			
+			
 		}
 	
 		scan.close();

@@ -17,11 +17,11 @@ public class EmployeeTest {
 			
 		Analyzer a = new Analyzer(p);
 		String maxSalariedPerson = a.calculateMaximumSalariedPerson();
-		System.out.println("Max Salaried person: " + maxSalariedPerson);
+		System.out.println("Max Salaried person is:\n" + maxSalariedPerson);
 		
-		HashSet<String> deptNoData = a.calulateTotalNumberofEmployee(20);
+		HashSet<String> deptNoData = a.calulateTotalNumberofEmployee(30);
+		System.out.println("DEPARTMENT");
 		if(!deptNoData.isEmpty()) {
-			System.out.println("DEPARTMENT");
 			for(String s: deptNoData) {
 				System.out.println(s);
 			}
@@ -30,8 +30,8 @@ public class EmployeeTest {
 		}
 		
 		HashSet<String> designationData = a.calulateTotalNumberofEmployee("clerk");
+		System.out.println("DESIGNATION");
 		if(!designationData.isEmpty()) {
-			System.out.println("DESIGNATION");
 			for(String s: designationData) {
 				System.out.println(s);
 			}

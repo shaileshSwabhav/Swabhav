@@ -9,7 +9,7 @@ public class FileLoader implements ILoadable {
 	@Override
 	public void loadFile(String fileLocation) throws Exception {
 		
-		File csvFile = new File(fileLocation);
+		csvFile = new File(fileLocation);
 	}
 
 	public File getCsvFile() {
