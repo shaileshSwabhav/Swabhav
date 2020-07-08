@@ -4,8 +4,10 @@ public class Board {
 
 	private String[] board;
 	private Cell cell;
+	private int size;
 
-	public Board() {
+	public Board(int size) {
+		this.size = size;
 		cell = new Cell();
 	}
 
@@ -17,32 +19,56 @@ public class Board {
 		return cell;
 	}
 
+	public int getSize() {
+		return size;
+	}
+	
 	public void createBoard() {
-		board = new String[9];
+		board = new String[size * size];
 		for (int i = 0; i < board.length; i++) {
 			board[i] = "-";
 		}
 	}
 
+	public boolean isBoardFull() {
+
+		for (int i = 0; i < board.length; i++) {
+			if (board[i].equals("-")) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public void printBoard() {
-		System.out.println("| " + board[0] + " | " + board[1] + " | " + board[2] + " |");
-		System.out.println("| " + board[3] + " | " + board[4] + " | " + board[5] + " |");
-		System.out.println("| " + board[6] + " | " + board[7] + " | " + board[8] + " |");
+		
+		int j = 1;
+		for(int i = 0; i < board.length; i ++) {
+			if(j <= size) {
+				System.out.print("| " + board[i] + " ");
+				j++;
+
+			} else {
+				j = 2;
+				System.out.println("|");
+				System.out.print("| " + board[i] + " ");
+			}
+		}
+		System.out.println("|");
+
 	}
 
 	public boolean addMarkToCell(Mark mark, int location) throws CellAlreadyOccupiedException, OutOfCellException {
 
-		if (location > 8) {
+		if (location > board.length - 1) {
 			throw new OutOfCellException();
 		}
-		
-		if (!cell.isBoardFull(board)) {
-			if (cell.isCellEmpty(board, location)) {
-				board[location] = mark.toString();
-				return true;
-			} else {
-				throw new CellAlreadyOccupiedException();
-			}
+
+		if (!isBoardFull()) {
+			cell.setMark(mark);
+			board = cell.isCellEmpty(board, location);
+
+			return true;
 		}
 		return false;
 	}

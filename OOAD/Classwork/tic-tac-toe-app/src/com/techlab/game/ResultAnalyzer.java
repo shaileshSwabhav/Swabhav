@@ -9,25 +9,37 @@ public class ResultAnalyzer {
 		this.board = board;
 	}
 
-	public boolean checkWinner() {
+	public String checkWinner() {
 
+		if (board.isBoardFull())
+			return Result.DRAW.toString();
 		if (checkRow().equals(Result.WIN))
-			return true;
+			return Result.WIN.toString();
 		if (checkColumn().equals(Result.WIN))
-			return true;
+			return Result.WIN.toString();
 		if (checkDiagonal().equals(Result.WIN))
-			return true;
+			return Result.WIN.toString();
 
-		return false;
+		return result.toString();
 	}
 
 	public Result checkRow() {
 
-		for (int i = 0; i < board.getBoard().length; i += 3) {
-			if (!board.getBoard()[i].equals("-") && board.getBoard()[i].equals(board.getBoard()[i + 1])
-					&& board.getBoard()[i].equals(board.getBoard()[i + 2])) {
-				result = Result.WIN;
-				break;
+		int j = 0, resultCount = 1;
+		Result result = Result.INPROGESS;
+
+		for (int i = 1; i < board.getBoard().length; i++) {
+
+			if (!board.getBoard()[j].equals("-") && board.getBoard()[j].equals(board.getBoard()[i])) {
+
+				if (++resultCount == board.getSize()) {
+					result = Result.WIN;
+					break;
+				}
+			} else {
+				i = j + board.getSize();
+				j = j + board.getSize();
+				result = Result.INPROGESS;
 			}
 		}
 
@@ -36,10 +48,25 @@ public class ResultAnalyzer {
 
 	public Result checkColumn() {
 
-		for (int i = 0; i < (board.getBoard().length / 3); i++) {
-			if (!board.getBoard()[i].equals("-") && board.getBoard()[i].equals(board.getBoard()[i + 3])
-					&& board.getBoard()[i].equals(board.getBoard()[i + 6]))
-				return Result.WIN;
+		int j = 0, resultCount = 1;
+		Result result = Result.INPROGESS;
+
+		for (int i = board.getSize(); j < (board.getBoard().length / board.getSize()); i += board.getSize()) {
+
+			if (!board.getBoard()[j].equals("-") && board.getBoard()[j].equals(board.getBoard()[i])) {
+
+				if (++resultCount == board.getSize()) {
+					result = Result.WIN;
+					break;
+				}
+
+			} else {
+
+				j++;
+				i = j;
+				result = Result.INPROGESS;
+
+			}
 		}
 
 		return result;
@@ -47,10 +74,38 @@ public class ResultAnalyzer {
 
 	public Result checkDiagonal() {
 
-		if (!board.getBoard()[0].equals("-") && board.getBoard()[0].equals(board.getBoard()[4]) && board.getBoard()[0].equals(board.getBoard()[8]))
-			return Result.WIN;
-		if (!board.getBoard()[2].equals("-") && board.getBoard()[2].equals(board.getBoard()[4]) && board.getBoard()[2].equals(board.getBoard()[6]))
-			return Result.WIN;
+		int j = 0, resultCount = 1;
+		boolean resultFound = false;
+		Result result = Result.INPROGESS;
+
+		for (int i = (board.getSize() + 1); i < board.getBoard().length; i += (board.getSize() + 1)) {
+
+			if (!board.getBoard()[j].equals("-") && board.getBoard()[j].equals(board.getBoard()[i])) {
+				if (++resultCount == board.getSize()) {
+					result = Result.WIN;
+					resultFound = true;
+					break;
+				}
+			} else {
+				resultCount = 1;
+				break;
+			}
+		}
+		
+		j = board.getSize() - 1;
+		
+		for (int i = board.getSize() + (board.getSize() / 2) ; i < board.getBoard().length - j;  i += j) {
+
+			if (resultFound) {
+				break;
+			}
+			if (!board.getBoard()[j].equals("-") && board.getBoard()[j].equals(board.getBoard()[i])) {
+				if(++resultCount == board.getSize()) {
+					 result = Result.WIN;
+					 break;
+				 }
+			}
+		}
 
 		return result;
 	}
