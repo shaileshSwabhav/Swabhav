@@ -6,7 +6,7 @@ public class Board extends JFrame {
 
 	private JButton[] board;
 	private Cell cell;
-	private int boardSize = 3;
+	private int boardSize;
 
 	public Board() {
 		super("Tic-Tac-Toe");

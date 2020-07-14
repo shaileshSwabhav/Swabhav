@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -12,14 +13,16 @@ public class Game extends JFrame implements ActionListener {
 
 	private JFrame frame;
 	private JPanel panel;
-	private JLabel player1, player2, player, instructions1, instructions2, instructions3, boardSize;
-	private JTextField t1, t2, t3;
+	private JLabel player1, player2, player, instructions1, instructions2, instructions3, boardSize; 
+	private JComboBox boardSizeCB;
+	private JTextField t1, t2;
 	private JButton submit;
 	private JButton[] playBoard;
 	private Board board;
 	private ArrayList<Player> players;
 	private ResultAnalyzer analyzer;
 	private int CURRENT_PLAYER = 0;
+	private static String name;
 
 	public Game(Board board, ResultAnalyzer analyzer) {
 		super("Tic-Tac-Toe");
@@ -33,7 +36,12 @@ public class Game extends JFrame implements ActionListener {
 
 		t1 = new JTextField();
 		t2 = new JTextField();
-		t3 = new JTextField();
+		List<Integer> boardSizeList = new ArrayList<Integer>();
+		for (int i = 2; i <= 5; ++i) {
+			boardSizeList.add(i);
+		}
+		boardSizeCB = new JComboBox(boardSizeList.toArray());
+
 
 		submit = new JButton("Start Game");
 
@@ -44,10 +52,11 @@ public class Game extends JFrame implements ActionListener {
 		player1.setForeground(Color.blue);
 		player2.setForeground(Color.blue);
 		boardSize.setForeground(Color.blue);
+		boardSizeCB.setBackground(Color.white);
 
 		t1.setBounds(145, 100, 220, 20);
 		t2.setBounds(145, 140, 220, 20);
-		t3.setBounds(125, 180, 100, 20);
+		boardSizeCB.setBounds(125, 180, 100, 20);
 
 		submit.setBounds(110, 220, 100, 20);
 
@@ -56,7 +65,7 @@ public class Game extends JFrame implements ActionListener {
 		add(t1);
 		add(t2);
 		add(boardSize);
-		add(t3);
+		add(boardSizeCB);
 		add(submit);
 
 		submit.addActionListener(new ActionListener() {
@@ -64,9 +73,11 @@ public class Game extends JFrame implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String player1Name = t1.getText();
-				String player2Name = t2.getText();
-				int boardSize = Integer.parseInt(t3.getText());
+				String player1Name = null, player2Name = null;
+				player1Name = checkTextFields(t1);
+				player2Name = checkTextFields(t2);
+
+				int boardSize = (int) boardSizeCB.getSelectedItem();
 
 				players.add(new Player(player1Name, Mark.X));
 				players.add(new Player(player2Name, Mark.O));
@@ -84,6 +95,22 @@ public class Game extends JFrame implements ActionListener {
 
 	}
 
+	public static String checkTextFields(JTextField tf) {
+
+		try {
+			if (!tf.getText().equals("")) {
+				name = tf.getText();
+			} else {
+				throw new EmptyTextException();
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, new EmptyTextException());
+		}
+
+		return name;
+	}
+
+	
 	public void play() {
 
 		frame = new JFrame("Tic-Tac-Toe");
