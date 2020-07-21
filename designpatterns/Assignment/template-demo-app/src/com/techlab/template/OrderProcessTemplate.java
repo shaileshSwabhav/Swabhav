@@ -12,7 +12,6 @@ public abstract class OrderProcessTemplate {
 		System.out.println("Gift wrap successful");
 
 	}
-
 	public abstract void doDelivery();
 
 	public final void processOrder(boolean isGift) {
@@ -23,7 +22,6 @@ public abstract class OrderProcessTemplate {
 		if (isGift) {
 			giftWrap();
 		}
-
 		doDelivery();
 	}
 

@@ -6,8 +6,7 @@ public class NetOrder extends OrderProcessTemplate {
 	public void doSelect() {
 		// TODO Auto-generated method stub
 		System.out.println("Item added to online shopping cart");
-		System.out.println("Get gift wrap preference");
-		System.out.println("Get delivery address.");
+
 	}
 
 	@Override

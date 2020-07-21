@@ -1,25 +1,26 @@
 package com.techlab.game.facade;
 
-import java.awt.Font;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
-public class Cell extends JFrame {
-
-	Mark playerMark;
+public class Cell {
 	
-	public void setMark(Mark playerMark) {
-		this.playerMark = playerMark;
+	Mark mark;
+	
+	public void setMark(Mark mark) {
+		this.mark = mark;
 	}
 
-	public void addMark(JButton btn) throws CellAlreadyOccupiedException {
-		
-		if (!btn.getText().equals("-")) {
-			throw new CellAlreadyOccupiedException();
+
+	public String[] addMarkToCell(String[] board, int location) throws CellAlreadyOccupiedException, OutOfCellException {
+
+		if(location > board.length - 1) {
+			throw new OutOfCellException();
 		}
-		btn.setFont(new Font("Arial", Font.BOLD, 25));
-		btn.setText(playerMark.toString());
+		
+		if (!board[location].equals("-")) {
+			throw new CellAlreadyOccupiedException();
+		} else {
+			board[location] = mark.toString();
+			return board;
+		}
 	}
 
 }

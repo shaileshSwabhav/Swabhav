@@ -13,7 +13,7 @@ public class TemplateMethodPatternClient {
 		System.out.println();
 		
 		OrderProcessTemplate storeOrder = new StoreOrder();
-		storeOrder.processOrder(true);
+		storeOrder.processOrder(false);
 
 	}
 

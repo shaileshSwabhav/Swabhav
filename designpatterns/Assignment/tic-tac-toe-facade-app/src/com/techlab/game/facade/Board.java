@@ -1,27 +1,17 @@
 package com.techlab.game.facade;
 
-import javax.swing.*;
+public class Board {
 
-public class Board extends JFrame {
-
-	private JButton[] board;
+	private String[] board;
 	private Cell cell;
-	private int boardSize;
+	private int size;
 
-	public Board() {
-		super("Tic-Tac-Toe");
+	public Board(int size) {
+		this.size = size;
 		cell = new Cell();
 	}
-	
-	public void setBoardSize(int boardSize) {
-		this.boardSize = boardSize;
-	}
 
-	public int getBoardSize() {
-		return this.boardSize;
-	}
-
-	public JButton[] getBoard() {
+	public String[] getBoard() {
 		return board;
 	}
 
@@ -29,37 +19,36 @@ public class Board extends JFrame {
 		return cell;
 	}
 
-	public void gameBoard() {
-
-		board = new JButton[boardSize * boardSize];
-
-		for (int i = 0; i < (boardSize * boardSize); i++) {
-			board[i] = new JButton();
-			board[i].setText("-");
+	public int getSize() {
+		return size;
+	}
+	
+	public void createBoard() {
+		board = new String[size * size];
+		for (int i = 0; i < board.length; i++) {
+			board[i] = "-";
 		}
 	}
 
 	public boolean isBoardFull() {
 
 		for (int i = 0; i < board.length; i++) {
-			if (!board[i].getText().equals("")) {
+			if (board[i].equals("-")) {
 				return false;
 			}
 		}
-
 		return true;
 	}
 
-	public void addMarkToCell(Mark mark, JButton button) {
-		
-		cell.setMark(mark);
-		try {
-			cell.addMark(button);
-		} catch (CellAlreadyOccupiedException e1) {
-			JOptionPane.showMessageDialog(null, new CellAlreadyOccupiedException());
+
+	public boolean setCurrentPlayerMark(Mark mark, int location) throws CellAlreadyOccupiedException, OutOfCellException {
+
+		if (!isBoardFull()) {
+			cell.setMark(mark);
+			board = cell.addMarkToCell(board, location);
+
+			return true;
 		}
-		
+		return false;
 	}
-
-
 }
