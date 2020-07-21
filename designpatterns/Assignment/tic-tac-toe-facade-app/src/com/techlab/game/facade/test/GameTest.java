@@ -31,12 +31,8 @@ public class GameTest {
 
 		while (!facade.checkWinner()) {
 
-			if (markInserted && index == 1) {
-				index--;
-			} else if (markInserted && index == 0) {
-				index++;
-			}
-			
+			index = (int) (markInserted ? (index == 1) ? (index -= 1) : (index += 1) : index);
+
 			System.out.print(facade.getPlayer().get(index).getPlayerName() + " enter cell number: ");
 			location = scan.nextInt();
 
@@ -49,6 +45,7 @@ public class GameTest {
 			}
 
 		}
+
 
 		if (facade.checkWinner()) {
 			System.out.println(facade.getPlayer().get(index).getPlayerName() + " is WINNER!!!");
@@ -90,15 +87,15 @@ public class GameTest {
 		}
 
 	}
-	
+
 	public static void printBoard(GameFacade facade, int boardSize) {
-		
+
 		String[] board = facade.retriveBoard();
 		int length = board.length;
-		
+
 		int j = 1;
-		for(int i = 0; i < length; i ++) {
-			if(j <= boardSize) {
+		for (int i = 0; i < length; i++) {
+			if (j <= boardSize) {
 				System.out.print("| " + board[i] + " ");
 				j++;
 
