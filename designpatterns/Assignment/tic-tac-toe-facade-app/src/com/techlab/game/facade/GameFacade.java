@@ -47,8 +47,21 @@ public class GameFacade {
 		return false;
 	}
 	
+	public boolean checkInProgress() {
+		
+		if (game.getStatus().equals("INPROGRESS")) {
+			return true;
+		}
+		return false;
+
+	}
+	
 	public String getCurrentPlayerName() {
 		return game.getCurrentPlayer().getPlayerName();
+	}
+	
+	public String getNextPlayerName() {
+		return game.getNextPlayer().getPlayerName();
 	}
 	
 	public ArrayList<Player> getPlayers() {

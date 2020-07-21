@@ -27,7 +27,7 @@ public class GameTest {
 		getLocation(facade, name);
 		printBoard(facade, boardSize);
 
-		while (!facade.checkWinner()) {
+		while (facade.checkInProgress()) {
 
 			System.out.print(facade.getCurrentPlayerName() + " enter cell number: ");
 			location = scan.nextInt();
@@ -42,8 +42,9 @@ public class GameTest {
 		}
 
 		if (facade.checkWinner()) {
-			System.out.println(facade.getCurrentPlayerName() + " is WINNER!!!");
-		} else if (facade.checkDraw()) {
+			System.out.println(facade.getNextPlayerName() + " is WINNER!!!");
+		} 
+		if (facade.checkDraw()) {
 			System.out.println("It's a DRAW.......");
 		}
 
