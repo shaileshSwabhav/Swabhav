@@ -25,11 +25,9 @@ public class GameFacade {
 
 	}
 
-	public boolean facadePlay(int location) throws Exception {
+	public void facadePlay(int location) throws Exception {
 
-		markInseterd = game.play(location);
-
-		return markInseterd;
+		game.play(location);
 
 	}
 
@@ -48,13 +46,17 @@ public class GameFacade {
 		}
 		return false;
 	}
+	
+	public String getCurrentPlayerName() {
+		return game.getCurrentPlayer().getPlayerName();
+	}
+	
+	public ArrayList<Player> getPlayers() {
+		return players;
+	}
 
 	public void addPlayers(String name, Mark mark) {
 		players.add(new Player(name, mark));
-	}
-
-	public ArrayList<Player> getPlayer() {
-		return players;
 	}
 
 	public String[] retriveBoard() {

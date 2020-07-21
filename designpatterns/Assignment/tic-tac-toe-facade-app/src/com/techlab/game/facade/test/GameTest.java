@@ -12,10 +12,8 @@ public class GameTest {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 
-		int location, index = 1;
+		int location;
 		String name;
-		boolean markInserted = true;
-
 		System.out.print("Enter board size: ");
 		int boardSize = scan.nextInt();
 
@@ -31,24 +29,20 @@ public class GameTest {
 
 		while (!facade.checkWinner()) {
 
-			index = (int) (markInserted ? (index == 1) ? (index -= 1) : (index += 1) : index);
-
-			System.out.print(facade.getPlayer().get(index).getPlayerName() + " enter cell number: ");
+			System.out.print(facade.getCurrentPlayerName() + " enter cell number: ");
 			location = scan.nextInt();
 
 			try {
-				markInserted = facade.facadePlay(location);
+				facade.facadePlay(location);
 				printBoard(facade, boardSize);
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
-				markInserted = false;
 			}
 
 		}
 
-
 		if (facade.checkWinner()) {
-			System.out.println(facade.getPlayer().get(index).getPlayerName() + " is WINNER!!!");
+			System.out.println(facade.getCurrentPlayerName() + " is WINNER!!!");
 		} else if (facade.checkDraw()) {
 			System.out.println("It's a DRAW.......");
 		}
@@ -61,7 +55,7 @@ public class GameTest {
 
 		System.out.print("Enter your name: ");
 		p = scan.next();
-		if (facade.getPlayer().isEmpty()) {
+		if (facade.getPlayers().isEmpty()) {
 			facade.addPlayers(p, Mark.X);
 		} else {
 			facade.addPlayers(p, Mark.O);
@@ -78,9 +72,8 @@ public class GameTest {
 			System.out.print(name + " enter cell number: ");
 			location = scan.nextInt();
 			try {
-				if (facade.facadePlay(location)) {
-					break;
-				}
+				facade.facadePlay(location);
+				break;
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
