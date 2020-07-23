@@ -1,0 +1,18 @@
+package com.techlab.composite.html.test;
+
+import com.techlab.composite.html.ControlGroup;
+
+public class HtmlPageTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ControlGroup html = new ControlGroup("html");
+		ControlGroup body = new ControlGroup("body");
+		ControlGroup div = new ControlGroup("div");
+		
+		
+
+	}
+
+}

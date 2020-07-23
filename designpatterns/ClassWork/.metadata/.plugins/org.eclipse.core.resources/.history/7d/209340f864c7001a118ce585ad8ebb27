@@ -1,0 +1,21 @@
+package com.techlab.decorator.test;
+
+import com.techlab.decorator.*;
+
+
+public class BikeServiceTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		IBikeService bikeService = new ChainAlignment(new OilChange(new BasicBikeService()) {
+			
+			@Override
+			public String getdescription() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		}))
+	}
+
+}

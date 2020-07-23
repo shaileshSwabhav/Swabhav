@@ -1,0 +1,11 @@
+package com.techlab.composite.html;
+
+public class Control implements IHtml {
+
+	@Override
+	public StringBuilder parseHtml() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,25 @@
+package com.techlab.composite.folder;
+
+public class File implements IStorable {
+
+	private String name;
+	private double size;
+	private String extension;
+
+	public File(String name, double size, String extension) 
+
+	public String getName()  {
+		return this.name
+	}
+
+	public double getSize()
+
+	public String getExtension() 
+	
+	@Override
+	public void display(StringBuilder dashes) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

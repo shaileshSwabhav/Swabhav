@@ -1,0 +1,5 @@
+package com.techlab.composite.folder;
+
+public interface IStorable {
+
+}

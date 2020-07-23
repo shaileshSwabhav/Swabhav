@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=factory-app/src&lt;com.techlab.factory{IAutoMobile.java[IAutoMobile" modifiers="513" timestamp="1594731113292"/>
+<typeInfo handle="=decorator-demo-app/src&lt;com.techlab.decorator{Shape.java[Shape" modifiers="513" timestamp="1594902410015"/>
+<typeInfo handle="=decorator-demo-app/src&lt;com.techlab.decorator{ShapeDecorator.java[ShapeDecorator" modifiers="1025" timestamp="1594902835979"/>
+<typeInfo handle="=decorator-app/src&lt;com.techlab.decorator{IBikeService.java[IBikeService" modifiers="513" timestamp="1594904044214"/>
+<typeInfo handle="=decorator-app/src&lt;com.techlab.decorator{BikeServices.java[BikeServices" modifiers="1025" timestamp="1594904850783"/>
+</typeInfoHistroy>

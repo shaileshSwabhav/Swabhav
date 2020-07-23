@@ -1,0 +1,15 @@
+package com.techlab.decorator;
+
+public class OilChange extends BikeServices {
+
+	public OilChange(IBikeService bikeService) {
+		super(bikeService);
+	}
+
+	@Override
+	public String getdescription() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

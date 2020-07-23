@@ -1,0 +1,27 @@
+package com.techlab.composite.html;
+
+public class Control implements IHtml {
+
+	private StringBuilder sb;
+	private final String tag;
+	private String type;
+	private String value;
+	
+
+	
+	public Control(String tag, String type, String value) {
+		this.sb = new StringBuilder();
+		this.tag = tag;
+		this.type = type;
+		this.value = value;
+	}
+
+
+
+	@Override
+	public StringBuilder parseHtml() {
+		// TODO Auto-generated method stub
+		sb.a
+	}
+
+}

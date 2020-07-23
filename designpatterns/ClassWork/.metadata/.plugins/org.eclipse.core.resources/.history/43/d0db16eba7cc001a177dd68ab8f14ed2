@@ -1,0 +1,6 @@
+package com.techlab.adapter;
+
+public interface IQueue<T> extends Iterable<T> {
+
+	
+}

@@ -12,6 +12,12 @@ public class BikeServiceTest {
 		
 		System.out.println(service.getdescription());
 		System.out.println("Total Cost: " + service.getCost());
+		
+		IBikeService service1 = new ChainAlignment(new OilChange(new BasicBikeService()));
+		
+		System.out.println(service1.getdescription());
+		System.out.println("Total Cost: " + service.getCost());
+
 	}
 
 }

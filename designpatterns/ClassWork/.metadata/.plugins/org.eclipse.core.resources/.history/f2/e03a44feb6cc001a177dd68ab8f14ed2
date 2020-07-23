@@ -1,0 +1,30 @@
+package com.techlab.composite.html;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ControlGroup implements IHtml {
+
+	private String tag;
+	private String id;
+	private List<IHtml> controls;
+	private StringBuilder sb;
+	
+	public ControlGroup(String tag) {
+		this.tag = tag;
+		controls = new ArrayList<IHtml>();
+		sb = new StringBuilder();
+	}
+	
+	public void addControl(IHtml element) {
+		
+		controls.add(element);
+	}
+	
+	@Override
+	public StringBuilder parseHtml() {
+		// TODO Auto-generated method stub
+		return sb;
+	}
+
+}

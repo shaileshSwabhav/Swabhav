@@ -1,0 +1,10 @@
+package com.techlab.decorator.test;
+
+public class BikeServiceTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

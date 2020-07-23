@@ -1,0 +1,23 @@
+package com.techlab.decorator.test;
+
+import com.techlab.decorator.BikeServices;
+import com.techlab.decorator.ChainAlignment;
+import com.techlab.decorator.IBikeService;
+import com.techlab.decorator.OilChange;
+
+public class BikeServiceTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		IBikeService bikeService = new ChainAlignment(new OilChange(new BasicBikeService()) {
+			
+			@Override
+			public String getdescription() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		}))
+	}
+
+}

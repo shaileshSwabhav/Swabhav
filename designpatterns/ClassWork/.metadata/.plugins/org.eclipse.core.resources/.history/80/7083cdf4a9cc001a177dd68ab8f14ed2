@@ -1,0 +1,11 @@
+package com.techlab.adapter.test;
+
+public class AdapterTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+	}
+
+}

@@ -1,0 +1,18 @@
+package com.techlab.decorator;
+
+public abstract class BikeServices implements IBikeService {
+
+	IBikeService bikeService;
+	
+	@Override
+	public String getdescription() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public int getCost() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
