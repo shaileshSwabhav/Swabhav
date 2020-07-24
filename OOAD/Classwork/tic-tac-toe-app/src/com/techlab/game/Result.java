@@ -1,13 +1,13 @@
 package com.techlab.game;
 
 public enum Result {
-	WIN, DRAW, INPROGESS;
+	WIN, DRAW, INPROGRESS;
 	
 	public String toString() {
 		switch(this) {
 		case WIN: return "WIN";
 		case DRAW: return "DRAW";
-		case INPROGESS: return "INPROGESS";
+		case INPROGRESS: return "INPROGESS";
 		}
 		return null;
 	}

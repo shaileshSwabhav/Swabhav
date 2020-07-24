@@ -70,14 +70,16 @@ class ResultAnalyzerTest {
 		String expectedResult = "WIN";
 
 		// Act
-		Board b = new Board(3);
+		Board b = new Board(5);
 		ResultAnalyzer r = new ResultAnalyzer(b);
 
 		b.createBoard();
-		boolean v1 = b.addMarkToCell(Mark.X, 2);
+		boolean v1 = b.addMarkToCell(Mark.X, 16);
 		boolean v2 = b.addMarkToCell(Mark.X, 4);
-		boolean v3 = b.addMarkToCell(Mark.X, 6);
-//		boolean v4 = b.addMarkToCell(Mark.X, 15);
+		boolean v3 = b.addMarkToCell(Mark.X, 20);
+		boolean v4 = b.addMarkToCell(Mark.X, 12);
+		boolean v5 = b.addMarkToCell(Mark.X, 8);
+		
 		Result result = r.checkDiagonal();
 
 		b.printBoard();

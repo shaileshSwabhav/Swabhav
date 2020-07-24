@@ -5,8 +5,9 @@ public class Phone {
 	String os, processor;
 	int ram, battery;
 	double screenSize;
-	
-	public Phone(String os, String processor, int ram, int battery, double screenSize) {
+
+	public Phone(String os, String processor, int ram, int battery, 
+			double screenSize) {
 		this.os = os;
 		this.processor = processor;
 		this.ram = ram;
@@ -16,9 +17,9 @@ public class Phone {
 
 	@Override
 	public String toString() {
-		return "Phone [os=" + os + ", processor=" + processor + ", ram=" + ram + ", battery=" + battery
-				+ ", screenSize=" + screenSize + "]";
+		return "Phone [os=" + os + "\nprocessor=" + processor 
+				+ "\nram=" + ram + "\nbattery=" + battery
+				+ "\nscreenSize=" + screenSize + "]";
 	}
-	
 
 }

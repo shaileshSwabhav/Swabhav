@@ -77,6 +77,3 @@ public class FileReadingTest {
 	}
 
 }
-
-//ok mam
-//no doubt

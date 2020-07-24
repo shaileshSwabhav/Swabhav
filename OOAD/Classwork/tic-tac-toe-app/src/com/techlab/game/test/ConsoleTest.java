@@ -12,7 +12,6 @@ public class ConsoleTest {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 
-		Player player1 = null, player2 = null;
 		ArrayList<Player> players = new ArrayList<Player>();
 
 		String p;

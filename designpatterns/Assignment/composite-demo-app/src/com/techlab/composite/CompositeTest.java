@@ -25,11 +25,7 @@ public class CompositeTest {
 		cabinet.addComponent(hdd);
 		computer.addComponent(peripheral);
 		computer.addComponent(cabinet);
-		
-		ram.showPrice();
-		
-		System.out.println();
-		
+						
 		computer.showPrice();
 		
 	}

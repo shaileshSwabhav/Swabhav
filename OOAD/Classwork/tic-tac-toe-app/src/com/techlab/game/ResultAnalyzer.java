@@ -3,7 +3,7 @@ package com.techlab.game;
 public class ResultAnalyzer {
 
 	private Board board;
-	private Result result = Result.INPROGESS;
+	private Result result = Result.INPROGRESS;
 
 	public ResultAnalyzer(Board board) {
 		this.board = board;
@@ -26,7 +26,7 @@ public class ResultAnalyzer {
 	public Result checkRow() {
 
 		int j = 0, resultCount = 1;
-		Result result = Result.INPROGESS;
+		Result result = Result.INPROGRESS;
 
 		for (int i = 1; i < board.getBoard().length; i++) {
 
@@ -39,7 +39,7 @@ public class ResultAnalyzer {
 			} else {
 				i = j + board.getSize();
 				j = j + board.getSize();
-				result = Result.INPROGESS;
+				result = Result.INPROGRESS;
 			}
 		}
 
@@ -49,7 +49,7 @@ public class ResultAnalyzer {
 	public Result checkColumn() {
 
 		int j = 0, resultCount = 1;
-		Result result = Result.INPROGESS;
+		Result result = Result.INPROGRESS;
 
 		for (int i = board.getSize(); j < (board.getBoard().length / board.getSize()); i += board.getSize()) {
 
@@ -64,7 +64,7 @@ public class ResultAnalyzer {
 
 				j++;
 				i = j;
-				result = Result.INPROGESS;
+				result = Result.INPROGRESS;
 
 			}
 		}
@@ -76,7 +76,7 @@ public class ResultAnalyzer {
 
 		int j = 0, resultCount = 1;
 		boolean resultFound = false;
-		Result result = Result.INPROGESS;
+		Result result = Result.INPROGRESS;
 
 		for (int i = (board.getSize() + 1); i < board.getBoard().length; i += (board.getSize() + 1)) {
 
@@ -94,8 +94,8 @@ public class ResultAnalyzer {
 		
 		j = board.getSize() - 1;
 		
-		for (int i = board.getSize() + (board.getSize() / 2) ; i < board.getBoard().length - j;  i += j) {
-
+		for (int i = (j * 2) ; i < board.getBoard().length - j;  i += j) {
+			
 			if (resultFound) {
 				break;
 			}

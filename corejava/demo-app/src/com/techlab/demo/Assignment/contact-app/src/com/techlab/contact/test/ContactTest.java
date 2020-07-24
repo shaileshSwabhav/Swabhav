@@ -7,8 +7,6 @@ import com.techlab.contact.*;
 public class ContactTest {
 
 	static Scanner scan = new Scanner(System.in);
-//	private static String firstName, lastName, emailID;
-//	private static long phoneNo;
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
