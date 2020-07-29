@@ -54,6 +54,7 @@ public class DisplayTime extends JFrame implements ActionListener, Runnable {
 			SimpleDateFormat sd = new SimpleDateFormat("HH:mm:ss");
 			Date d = new Date();
 			System.out.println(sd.format(d));
+			try {t1.sleep(1000);} catch (InterruptedException e1) {}
 		}
 
 	}
