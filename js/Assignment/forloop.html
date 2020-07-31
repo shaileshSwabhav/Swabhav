@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function loops() {
+            var ar = [1, 2, 3]
+            console.log(typeof(ar));
+            for(var i = 0; i < 5; i++) {
+                console.log(i);
+                if (i == 4) {
+                    console.log('loop ends here');
+                }
+            }
+        }
+        console.log(typeof(loops));
+    </script>
+</head>
+<body>
+    <button id="btn" onclick="loops()">click me</button>
+</body>
+</html>
