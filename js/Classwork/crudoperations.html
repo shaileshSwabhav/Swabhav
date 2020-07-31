@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <script>
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        function readArray() {
+                console.log(arr)
+        }
+
+        function addElementsToArray() {
+            var element = document.getElementById("addToArray").value;
+            arr.push(parseInt(element))
+            console.log(arr);
+        }
+
+        function deleteElementsFromArray() {
+            arr.pop()
+            console.log(arr);
+        }
+
+        function updateElementFromArray() {
+            var element1 = document.getElementById("updateArray1").value;
+            var element2 = document.getElementById("updateArray2").value;
+
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == element1) {
+                    arr.splice(i, 1, parseInt(element2))
+                }     
+            }
+            console.log(arr);
+        }
+
+    </script>
+
+</head>
+<body>
+    <button onclick="readArray()">Display Array</button>
+    <br>
+    <input id="addToArray" value="Enter value" type="text">
+    <button onclick="addElementsToArray()">Add To Array</button>
+    <br>
+    <button onclick="deleteElementsFromArray()">Delete From Array</button>
+    <br>
+    <input id="updateArray1" value="Enter old value" type="text">
+    <input id="updateArray2" value="Enter new value" type="text">
+    <button onclick="updateElementFromArray()">Update Array</button>
+
+</body>
+</html>

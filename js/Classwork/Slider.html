@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <script>    
+        function changeValue(){
+            var element = document.getElementById("slider");
+            var output = document.getElementById("print");
+
+            slider.oninput = function() {
+                output.innerHTML = this.value;
+            }
+        }
+
+        function addButtons() {
+                var output = document.getElementById("slider").value;
+
+                for(var x = 0; x < output; x++) {
+                var btn = document.createElement("button");
+                btn.setAttribute('id', 'button');
+                btn.innerHTML = x + 1;
+                document.body.appendChild(btn);
+                }
+                document.body.appendChild(document.createElement('br'));
+        }
+    </script>
+
+</head>
+<body>
+    <input type="range" min="1" max="100" value="1" id="slider" oninput="changeValue()">
+    <p>Value: <span id="print">1</span></p>
+    <button onclick="addButtons()">Submit</button>
+    <br>
+    
+</body>
+</html>
