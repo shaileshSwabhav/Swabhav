@@ -27,3 +27,8 @@ person.setLastName("Domingo");
 
 console.log(person.getFirstName());
 console.log(person.getLastName());
+
+console.log(lastName); // Uncaught ReferenceError: lastName is not defined
+console.log(this.lastName); // undefined
+console.log(person.lastName); // undefined
+console.log(person.setFirstName("tom")); // undefined

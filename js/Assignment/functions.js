@@ -9,10 +9,10 @@ function squaresOfNumber() {
         var product = arr[i] * arr[i];
         
         if (product == arr[j]){
+            console.log(arr[i] + " square is present in array: " + product);
             count++;
             i++;
             j++;
-            console.log("Present in array: " + product);
         } else if (j == arr.length) {
             j = 0;
             i++;
