@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binding</title>
+</head>
+<body>
+    <label>Enter Your Text:</label>
+    <input type="text" id="name" oninput="updateData()">
+    <br><br>
+
+    <label>Font-Size</label>
+    <input type="number" id="size" min="1" max="200" value="40" oninput="updateData()">
+    <br><br>
+
+    <label>Background Color</label>
+    <input type="text" id="bgColor" oninput="updateData()">
+    <br><br>
+
+    <label>Foreground Color</label>
+    <input type="text" id="fgColor" oninput="updateData()">
+    <br><br>
+
+    <script src="binder.js"></script>
+
+</body>
+</html>
