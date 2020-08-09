@@ -1,0 +1,88 @@
+.container {
+    margin-top: 30px;
+    text-align: center;
+    font-size: large;
+}
+
+.mainDiv {
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.btn {
+    background-color: #14B5C2;
+    border: none;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 40px;
+}
+
+.welcomeTag {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+    color: crimson;
+}
+
+.answerLabels {
+    cursor: pointer;
+}
+
+#submitTest {
+    background-color: #42AEB2;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#nextButton {
+    background-color: #12972E;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#prevButton {
+    background-color: #BACA1F;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#answers {
+    font-size: large;
+}
+
+#question {
+    font-size: large;
+}
+
+#result {
+    font-size: 40px;
+}
