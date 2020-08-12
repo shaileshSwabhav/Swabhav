@@ -1,14 +1,19 @@
-const worker = new Worker("timePrinter.js");
+var worker;
+function displayTime() {
 
-worker.onmessage = function(e) {
-    console.log(e.data);
+    if (typeof(worker) == "undefined") {
+        worker = new Worker("worker.js");
+    }
+    
+    worker.onmessage = function(e) {
+        console.log(e.data);
+    }
+    
+    var date = new Date();
+    worker.postMessage(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
+
 }
 
-document.getElementById('displayTime').addEventListener('click', function(e) {
-
-        worker.postMessage(new Date().getSeconds());
-});
-
-document.getElementById('hello').addEventListener('click', function(e) {
+function displayHello() {
     console.log('HELLO!!!');
-});
+}
