@@ -7,6 +7,9 @@
 .mainDiv {
     margin-left: 10px;
     margin-top: 30px;
+    border: darkcyan;
+    border-style: solid;
+    margin-right: 500px;
 }
 
 .btn {
@@ -22,7 +25,7 @@
     margin-left: 40px;
 }
 
-.welcomeTag {
+#welcomeTag {
     margin-top: 30px;
     text-align: center;
     font-size: 30px;
@@ -31,6 +34,8 @@
 
 .answerLabels {
     cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 #submitTest {
@@ -75,6 +80,20 @@
     margin-right: 5px;
 }
 
+#playAgain {
+    background-color: #42AEB2;
+    border: none;
+    color: white;
+    padding: 8px 8px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 #answers {
     font-size: large;
 }
@@ -86,3 +105,11 @@
 #result {
     font-size: 40px;
 }
+
+.options {
+    border: 0px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+

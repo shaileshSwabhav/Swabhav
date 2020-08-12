@@ -28,6 +28,7 @@ function showOptions() {
                 name: 'userAnswer',
                 value: mcqQuestions[questionNumber][ans],
                 id: ans,
+                className: 'options',
             });
 
             if(userEnterdAnswers.hasOwnProperty('question' + (questionNumber + 1))){

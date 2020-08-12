@@ -31,7 +31,7 @@ function drawChart() {
 
     function drawPieChart() {
         var charData = google.visualization.arrayToDataTable([
-            ['questions', 'Result'],
+            ['Answers', 'Result'],
             ['Right Answers', rightAnswers],
             ['Wrong Answers', wrongAnswers],
             ['Not Answered', answersLeft]
@@ -42,7 +42,32 @@ function drawChart() {
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(charData, options);
 
+
+        const playAgain = document.createElement('button');
+        playAgain.innerHTML = "Play Again";
+        playAgain.setAttribute('id', 'playAgain');
+
         mainDiv.appendChild(result);
+        mainDiv.appendChild(playAgain);
+
+        playAgain.addEventListener('click', function() {
+
+            document.getElementById('piechart').remove();
+            document.getElementById('result').remove();
+            document.getElementById('playAgain').remove();
+            
+
+            const time = document.createElement('h4');
+            time.setAttribute('id', 'welcomeTag');
+            mainDiv.appendChild(time);
+    
+            var fiveMinutes = 60 * 1 - 1,
+                display = document.getElementById('welcomeTag');
+            startTimer(fiveMinutes, display);
+
+            questionNumber = 0;
+            createQuestions();
+        });
 
     }
 }

@@ -11,14 +11,15 @@ public class ResultAnalyzer {
 
 	public String checkWinner() {
 
-		if (board.isBoardFull())
-			return Result.DRAW.toString();
+
 		if (checkRow().equals(Result.WIN))
 			return Result.WIN.toString();
 		if (checkColumn().equals(Result.WIN))
 			return Result.WIN.toString();
 		if (checkDiagonal().equals(Result.WIN))
 			return Result.WIN.toString();
+		if (board.isBoardFull())
+			return Result.DRAW.toString();
 
 		return result.toString();
 	}

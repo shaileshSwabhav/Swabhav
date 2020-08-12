@@ -58,13 +58,38 @@ document.getElementById('startBtn').addEventListener('click', function() {
         alert("Please Enter your name.");
     } else {
         removeUserDetails();
-        const welcomeTag = document.createElement('h4');
-        welcomeTag.setAttribute('class', 'welcomeTag');
-        welcomeTag.setAttribute('id', 'welcomeTag');
-        welcomeTag.innerHTML = "Welcome to the test " + userName;
-    
-        mainDiv.appendChild(welcomeTag);
-    
+
+        const time = document.createElement('h4');
+        time.setAttribute('id', 'welcomeTag');
+        mainDiv.appendChild(time);
+
+        var fiveMinutes = 60 * 1 - 1,
+            display = document.getElementById('welcomeTag');
+        startTimer(fiveMinutes, display);
+
         createQuestions();
     }
 });
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = `${userName} time left for your test - ` + minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            document.getElementById('welcomeTag').remove();
+            document.getElementById('question').remove();
+            document.getElementById('answers').remove();
+            document.getElementById('answerButtons').remove();
+            drawChart();
+        }
+    }, 1000);
+
+}
+
