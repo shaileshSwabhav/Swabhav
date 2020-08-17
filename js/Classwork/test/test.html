@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p id="resultDiv"></p>
+
+    <script>
+        (function test1() {
+            function student(fname, lname){
+            this.fname = fname;
+            this.lname = lname;
+            this.getFullName = function (){
+                return this.fname + " " + this.lname
+            }
+            }
+            console.log(new student("Rajendra", "prasad").getFullName());
+
+        })();
+            
+        (function test2() {
+            function student(fname, mname, lname){
+            this.fname = fname;
+            this.mname = mname;
+            this.lname = lname;
+            this.getFullName = function (){
+                return this.fname + " " + this.mname + " " + this.lname;
+            }
+        }
+        console.log(new student("Rajendra", "Prasad", "Patil").getFullName());
+        })();
+
+        
+    </script>
+</body>
+</html>

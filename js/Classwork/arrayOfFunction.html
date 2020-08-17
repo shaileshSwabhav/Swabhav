@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array of Function</title>
+</head>
+<body>
+
+    <p id="up"></p> 
+    <p id = "down"> </p> 
+
+    <script> 
+        var up = document.getElementById('up'); 
+        var down = document.getElementById('down'); 
+          
+        function firstFun() { 
+            down.innerHTML = "This is first function"; 
+        } 
+        function secondFun() { 
+            down.innerHTML = "This is second function"; 
+        } 
+        function thirdFun() { 
+            down.innerHTML = "This is third function"; 
+        } 
+          
+        var arrayOfFunction = [ 
+            firstFun, 
+            secondFun, 
+            thirdFun      
+        ] 
+          
+        up.innerHTML = "Calling function from the array of functions"; 
+          
+        arrayOfFunction[2](); 
+
+    </script> 
+</body>
+</html>

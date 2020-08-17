@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DropdownList</title>
     <script>
-        function selectColor() {
-            var element = document.getElementById("colorsListDropdown");
-            var elementValue = element.options[element.selectedIndex].value;
-            var color = element.options[element.selectedIndex].text;
-            document.getElementById('selectColor').style.background = color;
-            document.body.style.backgroundColor = color;
-        }
+            element.onchange = function() {
+                document.body.style = element.value;
+            }
     </script>
 </head>
 <body>
