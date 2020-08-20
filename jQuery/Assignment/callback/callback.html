@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+    <script src="../../jquery-3.5.1.min.js"></script>
+
+</head>
+<body>
+    <div id="firstDiv" style="border: 2px solid red; padding: 5px;">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Similique, est odit? Adipisci ipsa vitae porro ab eos ut repudiandae eveniet.</p>
+    </div>
+    <br>
+    <div id="secondDiv" style="border: 2px solid blue; padding: 5px;">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Similique, est odit? Adipisci ipsa vitae porro ab eos ut repudiandae eveniet.</p>
+    </div>
+    <br>
+    <button id="callback">Callback</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#callback').click(function() {
+                $('#firstDiv').fadeToggle(3000, function() {
+                    alert('FirtDiv is fadded');
+                })
+            });
+        });
+    </script>
+</body>
+</html>
