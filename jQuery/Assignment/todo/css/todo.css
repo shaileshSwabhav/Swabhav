@@ -1,0 +1,17 @@
+#addTask {
+  background-color: #CD2C2C; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+#task {
+    min-width: 490px;
+    position: relative;
+    display: inline-block;
+}
