@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     // new task   
     $('#addTask').on('click', function() {
-        let classname = 'Task' + ++taskNumber;
+        let classname = 'task' + ++taskNumber;
         addTask(classname);
     });
 
@@ -47,7 +47,6 @@ $(document).ready(function() {
         $('#undonePara').append("<button class='" + classname + "'>Remove Task</button>");
 
         $('.'+classname).on('click', function(event) { 
-            console.log('hello');
             removeTask(event);
         });
 
@@ -60,6 +59,7 @@ $(document).ready(function() {
             $("." + $(event.target).attr('class')).remove();
             $("#" + $(event.target).attr('class')).remove();
 
+            console.log("#" +$(event.target).attr('class'));
             localStorage.removeItem($(event.target).attr('class'));
         }
     }
