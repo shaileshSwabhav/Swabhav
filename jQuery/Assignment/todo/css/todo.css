@@ -1,17 +1,16 @@
-body {
-    background-color: #BBFBF9;
-}
-
 #addTask {
-  background-color: #CD2C2C; /* Green */
+  background-color: rgb(223, 117, 20);
   border: none;
   color: white;
   padding: 8px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 15px;
-  margin-top: 10px;
+  font-size: 1em;
+  margin-top: 1em;
+  margin-left: 1em;
+  border-radius: 4px;
+  transition: all 0.4s ease 0s;
 }
 
 #task {
@@ -19,5 +18,31 @@ body {
     position: relative;
     display: inline-block;
     background-color: #DAF8F7;
+    font-family: sans-serif;
 
+}
+
+#btn {
+  background-color: #CD2C2C;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-left: 1em;
+  border-radius: 4px;
+}
+
+#undone {
+  font-size: 1.2em;
+}
+
+.task {
+  margin-top: 0.6em;
+}
+
+ul {
+  list-style-type: none;
 }

@@ -1,66 +1,72 @@
 $(document).ready(function() {
-    const time = moment().format('MM D YYYY hh:mm:ss');
-    var taskNumber = localStorage.length;
-    $('body').append('<div id="undone">');
-    $('#undone').append('<p id="undonePara">');
+    let priority = 0;
+    const TASK = 0;
+    const PRIORITY = 1;
+    let x = 0;
 
-    $('#undonePara').text("Undone Task: ");
+    $('body').append('<div id="undone">');
+    $('#undone').append('<ul id="undonePara">');
 
     // task from localstorage
     for(var key in window.localStorage) {
         if(window.localStorage.hasOwnProperty(key)) {
-            displayTask(key, true);
+            let previousKey =  localStorage.getItem(key);
+            key = key.split(',');
+            displayTask(key, previousKey);
         }
     }
+    $('#highPriority').change(function() {
+        priority = $('#highPriority').val();
+    });
+
+    $('#lowPriority').change(function() {
+        priority = $('#lowPriority').val();
+    });
 
     // new task   
     $('#addTask').on('click', function() {
-        let classname = 'task' + ++taskNumber;
-        addTask(classname);
+    const userTask = [($("#task").val()), priority];
+       addTask(userTask);
     });
 
 
-    function addTask(classname) {
-        // const time = moment().format('MM D YYYY hh:mm:ss');
-
-        localStorage.setItem(($("#task").val()), time);
-        displayTask(classname, false);
+    function addTask(userTask) {
+        const time = moment().format('MM D YYYY hh:mm:ss');
+        localStorage.setItem(userTask, time);
+        displayTask(userTask, time);
     }
 
-    function displayTask(classname, isFromLocalstorage) {
+    function displayTask(userTask, time) {
 
-        $('#undonePara').append('<br><br>');
+        let timeDifference = calculateTimeDifference(time);
 
-        // console.log(currentDate);
-        if(isFromLocalstorage == false) {
-            let timeDifference = calculateTimeDifference(time);
-            $("#undonePara").append('<label id="'+ classname +'"> ' + 
-            $("#task").val() + " task added at "+ time + " " + timeDifference + '</label>');
-            // $("#"+classname).text($("#task").val() + " task added at " + time + " " + timeDifference); 
+        if(userTask[PRIORITY] == '1') {
+            $('<li class="task" id="'+ userTask[TASK] +'"> ' + 
+            userTask[TASK] + " task added at "+ time + " " + timeDifference + '</li>').prependTo('ul');
+   
+            $('#'+userTask[TASK]).append("<button id='btn' class='" + userTask[TASK] + "'>Remove Task</button>");
 
-        } else {
-            let timeDifference = calculateTimeDifference(localStorage.getItem(classname));
-            $("#undonePara").append('<label id="'+ classname +'"> '+ classname +
-            " task added at " + localStorage.getItem(classname) + " " + timeDifference + '</label>');
+        } else if(userTask[PRIORITY] == '0') {
+            $("#undonePara").append('<li class="task" id="'+ userTask[TASK] +'"> ' + 
+            userTask[TASK] + " task added at "+ time + " " + timeDifference + '</li>');
+            $('#'+userTask[TASK]).append("<button id='btn' class='" + userTask[TASK] + "'>Remove Task</button>");
+
         }
-        // $('#undonePara').append("<input type='button' class='" + classname + "' value= 'Remove Task'>");
-        $('#undonePara').append("<button class='" + classname + "'>Remove Task</button>");
-
-        $('.'+classname).on('click', function(event) { 
-            removeTask(event);
+        
+        //button event
+        $('.'+userTask[TASK]).on('click', function(event) { 
+            removeTask(event, userTask);
         });
 
     }
 
-    function removeTask(event) {
+    function removeTask(event, userTask) {
  
         //remove from undone list
         if(confirm("Do you want to delete?")) {
             $("." + $(event.target).attr('class')).remove();
             $("#" + $(event.target).attr('class')).remove();
-
-            console.log("#" +$(event.target).attr('class'));
-            localStorage.removeItem($(event.target).attr('class'));
+            localStorage.removeItem(userTask);
         }
     }
 
@@ -70,4 +76,7 @@ $(document).ready(function() {
         let compare = moment.duration(taskAddedTime.diff(currentTime));
         return compare.humanize(true);
     }
+
+
+
 });
