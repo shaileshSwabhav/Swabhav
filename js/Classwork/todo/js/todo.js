@@ -4,15 +4,18 @@ const div2 = document.createElement('div');
 const p1 = document.createElement('p');
 const p2 = document.createElement('p');
 
+div1.setAttribute('id', 'div1');
+div2.setAttribute('id', 'div2');
+
 document.body.appendChild(div1);
 div1.appendChild(p1);
 
 document.body.appendChild(div2);
 div2.appendChild(p2);
 
-var i = 1;
+let i = 1;
 
-window.onload = function(e) {
+window.onload = function() {
 
     p1.innerHTML = "Undone Task: <br>";
     div1.appendChild(p1);
@@ -20,44 +23,10 @@ window.onload = function(e) {
     let localStorageIndex = 0;
     for(var key in window.localStorage) {
         if(window.localStorage.hasOwnProperty(key)) {
-
-            const lbl = document.createElement('label');
-            const chkBox = document.createElement('input'); 
-            chkBox.setAttribute('type', 'checkbox');
-            chkBox.setAttribute('id', localStorage.key(localStorageIndex));
+            addTask(localStorage.getItem(key), localStorage.key(localStorageIndex));
             localStorageIndex++;
-            chkBox.setAttribute('value', localStorage.getItem(key));
-
-            lbl.innerHTML = localStorage.getItem(key);
-
-            div1.appendChild(chkBox);
-            div1.appendChild(lbl);
-            div1.appendChild(document.createElement('br'));
-
-            chkBox.addEventListener('change', function(e) {
-                var date = new Date();
-                var currentDate = (date.getDate() + "/"
-                + (date.getMonth()+1)  + "/" 
-                + date.getFullYear() + " @ "  
-                + date.getHours() + ":"  
-                + date.getMinutes() + ":" 
-                + date.getSeconds());
-            
-                p2.innerHTML = "Done<br>";
-                const donePara = document.createElement('p');
-            
-                console.log(e.currentTarget);
-                donePara.innerHTML = e.currentTarget.value + " task completed at " + currentDate;
-                localStorage.removeItem(e.currentTarget.id);
-
-                div1.removeChild(e.currentTarget);
-                div1.removeChild(lbl);
-            
-                div2.appendChild(donePara);
-            });        
         }
     }
-    
 }
 
 document.getElementById('addTask').addEventListener('click', function() {
@@ -66,72 +35,49 @@ document.getElementById('addTask').addEventListener('click', function() {
     let taskNumber = 'Task ' + i;
     localStorage.setItem(taskNumber, add.value);
 
-    const lbl = document.createElement('label');
-    const chkBox = document.createElement('input'); 
-    chkBox.setAttribute('type', 'checkbox');
-
-    lbl.innerHTML = add.value;
-    chkBox.setAttribute('id', taskNumber);
-    chkBox.setAttribute('value', add.value);
+    addTask(add.value, taskNumber);
     i++;
-
-    div1.appendChild(chkBox);
-    div1.appendChild(lbl);
-    div1.appendChild(document.createElement('br'));
-
-    chkBox.addEventListener('change', function(e) {
-        var date = new Date();
-        var currentDate = (date.getDate() + "/"
-        + (date.getMonth()+1)  + "/" 
-        + date.getFullYear() + " @ "  
-        + date.getHours() + ":"  
-        + date.getMinutes() + ":" 
-        + date.getSeconds());
-    
-        p2.innerHTML = "Done<br>";
-        const donePara = document.createElement('p');
-        
-        donePara.innerHTML = localStorage.getItem(e.currentTarget.id) + " task completed at " + currentDate;
-        console.log(e.currentTarget.id);
-
-        localStorage.removeItem(e.currentTarget.id);
-    
-        div1.removeChild(e.currentTarget);
-        div1.removeChild(lbl);
-    
-        div2.appendChild(donePara);
-    });
 });
 
 
+function addTask(taskName, taskNumber) {
 
+    const lbl = document.createElement('label');
+    const chkBox = document.createElement('input'); 
+    lbl.setAttribute('id', taskNumber);
+    chkBox.setAttribute('type', 'checkbox');
 
-// function addTaskToDoneList(e) {
+    lbl.innerHTML = taskName;
+    chkBox.setAttribute('class', taskNumber);
+    chkBox.setAttribute('value', taskName);
 
-//     var date = new Date();
-//     var currentDate = (date.getDate() + "/"
-//     + (date.getMonth()+1)  + "/" 
-//     + date.getFullYear() + " @ "  
-//     + date.getHours() + ":"  
-//     + date.getMinutes() + ":" 
-//     + date.getSeconds());
+    document.getElementById('div1').appendChild(chkBox);
+    document.getElementById('div1').appendChild(lbl);
+    document.getElementById('div1').appendChild(document.createElement('br'));
 
-//     p2.innerHTML = "Done<br>";
-//     const donePara = document.createElement('p');
+    chkBox.addEventListener('change', function(e) {
+        checkboxEvent(e);
+    }); 
+}
 
-//     doneList.push(undoneList[undoneList.indexOf(e.currentTarget.value)]);
-//     localStorage.removeItem('doneList', doneList);
+function checkboxEvent(e) {
+    var date = new Date();
+    var currentDate = (date.getDate() + "/"
+    + (date.getMonth()+1)  + "/" 
+    + date.getFullYear() + " @ "  
+    + date.getHours() + ":"  
+    + date.getMinutes() + ":" 
+    + date.getSeconds());
 
-//     donePara.innerHTML = e.currentTarget.id + " task completed at " + currentDate;
-//     // console.log(e.currentTarget);
-//     localStorage.removeItem(e.currentTarget.id);
-//     let index = undoneList.indexOf(e.currentTarget.value);
-//     undoneList.splice(index, 1);
+    p2.innerHTML = "Done<br>";
+    const donePara = document.createElement('p');
+    
+    donePara.innerHTML = localStorage.getItem(e.currentTarget.className) + " task completed at " + currentDate;
 
-//     div1.removeChild(e.currentTarget);
-//     div1.removeChild(lbl);
+    localStorage.removeItem(e.currentTarget.className);
+    
+    document.getElementById('div1').removeChild(e.currentTarget);
+    document.getElementById('div1').removeChild(document.getElementById(e.currentTarget.className));
 
-//     div2.appendChild(donePara);
-// }
-
-
+    div2.appendChild(donePara);
+}
