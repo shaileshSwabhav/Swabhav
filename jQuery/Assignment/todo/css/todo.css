@@ -1,4 +1,18 @@
+body {
+  font-family: Sans-Serif;
+}
+
+#task {
+  min-width: 490px;
+  position: relative;
+  display: inline-block;
+  background-color: #DAF8F7;
+  font-family: sans-serif;
+  font-size: 1em;
+}
+
 #addTask {
+  cursor: pointer;
   background-color: rgb(223, 117, 20);
   border: none;
   color: white;
@@ -10,29 +24,21 @@
   margin-top: 1em;
   margin-left: 1em;
   border-radius: 4px;
-  transition: all 0.4s ease 0s;
-}
-
-#task {
-    min-width: 490px;
-    position: relative;
-    display: inline-block;
-    background-color: #DAF8F7;
-    font-family: sans-serif;
-
 }
 
 #btn {
+  cursor: pointer;
   background-color: #CD2C2C;
   border: none;
   color: white;
-  padding: 5px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 0.8em;
-  margin-left: 1em;
   border-radius: 4px;
+  margin-left: 1em;
+  padding: 8px 10px;
+  font-size: 0.9em;
+
 }
 
 #undone {
@@ -43,6 +49,47 @@
   margin-top: 0.6em;
 }
 
+.radiobtn {
+  cursor: pointer;
+  color: black;
+}
+
 ul {
+  margin-left: -2em;
   list-style-type: none;
+}
+
+ul li {
+  position: relative;
+  padding: 1em 13em 1em 14em;
+  list-style-type: none;
+  background: #eee;
+  font-size: 1em;
+  text-align: center;
+}
+
+.header {
+  background-color: #BCFFFD;
+  padding: 1em 3em;
+  color: white;
+  text-align: center;
+}
+
+span {
+  color: #6F6F6F;
+}
+
+.taskHeader {
+  text-align: center;
+  background-color: #7C7C7C;
+  margin-top: 0.3em;
+  height: 2em;
+  position: relative;
+  padding-top: 0.8em;
+  color: #FFF;
+}
+
+#undonePara {
+  margin-top: -1em;
+  margin-left: -2.1em;
 }

@@ -20,6 +20,7 @@ $(document).ready(function() {
     });
 
     $('#lowPriority').change(function() {
+        console.log($('#lowPriority').val());
         priority = $('#lowPriority').val();
     });
 
@@ -41,14 +42,15 @@ $(document).ready(function() {
         let timeDifference = calculateTimeDifference(time);
 
         if(userTask[PRIORITY] == '1') {
-            $('<li class="task" id="'+ userTask[TASK] +'"> ' + 
-            userTask[TASK] + " task added at "+ time + " " + timeDifference + '</li>').prependTo('ul');
-   
+            $('<li class="task" id="'+ userTask[TASK] +'">' + 
+            userTask[TASK] + '<span>' + " task added at "  + time + " " + timeDifference + '</span></li>').prependTo('ul');
+            
             $('#'+userTask[TASK]).append("<button id='btn' class='" + userTask[TASK] + "'>Remove Task</button>");
 
         } else if(userTask[PRIORITY] == '0') {
-            $("#undonePara").append('<li class="task" id="'+ userTask[TASK] +'"> ' + 
-            userTask[TASK] + " task added at "+ time + " " + timeDifference + '</li>');
+            $("#undonePara").append('<li class="task" id="'+ userTask[TASK] +'">' + 
+            userTask[TASK] + '<span>' + " task added at "  + time + " " + timeDifference + '</span></li>');
+
             $('#'+userTask[TASK]).append("<button id='btn' class='" + userTask[TASK] + "'>Remove Task</button>");
 
         }

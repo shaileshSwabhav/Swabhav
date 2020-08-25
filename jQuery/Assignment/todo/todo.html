@@ -11,13 +11,22 @@
     <link rel="stylesheet" href="./css/todo.css">
 </head>
 <body>
-    <textarea type="text" id="task" placeholder = "Enter your task" cols="60" rows="4" required></textarea>
-    <br>
-    <input type="radio" name="priority" id="highPriority" value="1">High Priority
-    <input type="radio" name="priority" id="lowPriority" value="0">Low Priority
-    <br>
-    <button id="addTask">Add Task</button>
-    <br>
+    <div class="header">
+        <textarea type="text" id="task" placeholder = "Enter your task" cols="60" rows="4" required></textarea>
+        <!-- <input type="text" placeholder="Enter your task" id='task'> -->
+        <br><br>
+        <input type="radio" name="priority" id="lowPriority" value="0" class="radiobtn" checked>
+        <label for="lowPriority" class="radiobtn">Low Priority</label>
+        
+        <input type="radio" name="priority" id="highPriority" value="1" class="radiobtn">
+        <label for="highPriority" class="radiobtn">High Priority</label>
+        <br>
+        <button id="addTask">Add Tasks</button>
+    </div>
+
+    <h2 class="taskHeader">Your Tasks</h2>
+
+
 
 </body>
 </html>
