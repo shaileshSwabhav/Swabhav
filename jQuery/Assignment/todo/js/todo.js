@@ -2,7 +2,6 @@ $(document).ready(function() {
     let priority = 0;
     const TASK = 0;
     const PRIORITY = 1;
-    let x = 0;
 
     $('body').append('<div id="undone">');
     $('#undone').append('<ul id="undonePara">');
@@ -26,8 +25,8 @@ $(document).ready(function() {
 
     // new task   
     $('#addTask').on('click', function() {
-    const userTask = [($("#task").val()), priority];
-       addTask(userTask);
+        const userTask = [($("#task").val()), priority];
+        addTask(userTask);
     });
 
 
@@ -40,23 +39,24 @@ $(document).ready(function() {
     function displayTask(userTask, time) {
 
         let timeDifference = calculateTimeDifference(time);
+        let userTaskName = userTask[TASK].split(' ').join('');
 
         if(userTask[PRIORITY] == '1') {
-            $('<li class="task" id="'+ userTask[TASK] +'">' + 
+            $('<li class="taskClass" id="'+ userTaskName +'">' + 
             userTask[TASK] + '<span>' + " task added at "  + time + " " + timeDifference + '</span></li>').prependTo('ul');
             
-            $('#'+userTask[TASK]).append("<button id='btn' class='" + userTask[TASK] + "'>Remove Task</button>");
+            $('#'+userTaskName).append("<button id='btn' class='" + userTaskName + "'>Remove Task</button>");
 
         } else if(userTask[PRIORITY] == '0') {
-            $("#undonePara").append('<li class="task" id="'+ userTask[TASK] +'">' + 
+            $("#undonePara").append('<li class="taskClass" id="'+ userTaskName +'">' + 
             userTask[TASK] + '<span>' + " task added at "  + time + " " + timeDifference + '</span></li>');
 
-            $('#'+userTask[TASK]).append("<button id='btn' class='" + userTask[TASK] + "'>Remove Task</button>");
+            $('#'+userTaskName).append("<button id='btn' class='" + userTaskName + "'>Remove Task</button>");
 
         }
         
         //button event
-        $('.'+userTask[TASK]).on('click', function(event) { 
+        $('.'+ userTaskName).on('click', function(event) {
             removeTask(event, userTask);
         });
 

@@ -38,14 +38,13 @@ body {
   margin-left: 1em;
   padding: 8px 10px;
   font-size: 0.9em;
-
 }
 
 #undone {
   font-size: 1.2em;
 }
 
-.task {
+.taskClass {
   margin-top: 0.6em;
 }
 
