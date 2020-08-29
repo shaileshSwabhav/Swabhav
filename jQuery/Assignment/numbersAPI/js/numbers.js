@@ -1,15 +1,17 @@
 $(document).ready(function() {
     let inputAndTimeArr = [];
     let localStorageIndex = 0;
+    let arr = [];
+
     for(var key in localStorage) {
         if(window.localStorage.hasOwnProperty(key)) {
-            const arr = localStorage.key(localStorageIndex).split(',');
+            arr = localStorage.key(localStorageIndex).split(',');
             let time = arr[1];
-            let trivia = localStorage.getItem(key).split('.').join('');
-            const timeDiff = calculateTimeDifference(time);
+            localStorageIndex++;
 
-            $('.results').append("<p class='trivia'>" + trivia + "<span> searched at " +
-            time + " " + timeDiff + "</span></p>");
+            let trivia = localStorage.getItem(key).split('.').join('');
+
+            displayTrivia(trivia, time);
         }
     }
 
@@ -17,18 +19,19 @@ $(document).ready(function() {
         let inputValue = $('#userInput').val();
         const time = moment().format('MM D YYYY hh:mm:ss');
 
-        const timeDiff = calculateTimeDifference(time);
-
         if(inputValue != null) {
             inputAndTimeArr = [inputValue, time];
+            url = `http://numbersapi.com/${inputValue}/trivia`;
 
-            fetch("http://numbersapi.com/" + inputValue + "/trivia")
-            .then(response => response.text())
-            .then(trivia => {
-                $('.results').append("<p class='trivia'>" + trivia.split('.').join('') + "<span> searched at " +
-                time + " " + timeDiff + "</span></p>");
+            fetch(url)
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(trivia) {
+                displayTrivia(trivia.split('.').join(''), time);
                 localStorage.setItem(inputAndTimeArr, trivia);
             });
+
         } else {
             alert("Please enter a number to find it's trivia.");
         }
@@ -41,6 +44,13 @@ $(document).ready(function() {
         let compare = moment.duration(taskAddedTime.diff(currentTime));
 
         return compare.humanize(true);
+    }
+
+    function displayTrivia(trivia, time) {
+        const timeDiff = calculateTimeDifference(time);
+
+        $('.results').append("<p class='trivia'>" + trivia + "<span> searched at " +
+            time + " " + timeDiff + "</span></p>");
     }
 
 });

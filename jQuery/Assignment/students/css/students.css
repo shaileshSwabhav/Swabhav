@@ -1,0 +1,18 @@
+#studentsData {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#studentsData td, #studentsData th {
+    text-align: center;
+    border: 1px solid black;
+    padding: 8px;
+}
+
+#studentsData tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#studentsData tr:hover {
+    background-color: #ddd;
+}
