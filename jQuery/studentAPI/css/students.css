@@ -1,0 +1,22 @@
+.students {
+    font-family: sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.students td, .students th {
+    text-align: left;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.students th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #1abc9c;
+    color: white;
+}
+
+.students tr:nth-child(even) {
+    background-color: #F0FFFC;
+}

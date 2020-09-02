@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Info</title>
+
+    <link rel="stylesheet" href="../css/studentForm.css">
+    <script src="../../jquery-3.5.1.min.js"></script>
+    <script src="../js/studentForm.js"></script>
+</head>
+<body>
+    <div class="form-style">
+        <form>
+            <label for="studentName">Student Name: </label>
+            <input type="text" id="studentName" placeholder="Student Name">
+            <br>
+        
+            <label for="rollNo">Roll No: </label>
+            <input type="text" id="rollNo" placeholder="Enter Student's Roll Number">
+            <br>
+        
+            <label for="age">Age: </label>
+            <input type="text" id="age" placeholder="Enter Student's Age">
+            <br>
+        
+            <label for="email">Email: </label>
+            <input type="text" id="email" placeholder="Enter Student's Email">
+            <br>
+        
+            <label for="date">Date: </label>
+            <input type="text" id="date" placeholder="Enter Student's Date of Birth">
+            <br>
+        
+            <label for="isMale">Gender: </label>
+            <select name="gender" id="isMale">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <br>
+        </form>
+
+        <p>
+            <button id="submit">Submit</button>
+            <button id="existingStudents"><a id="existing" href="./studentsList.html">Check Existing Students</a></button>
+        </p>
+        
+    </div>
+
+</body>
+</html>
