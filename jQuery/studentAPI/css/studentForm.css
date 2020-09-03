@@ -22,11 +22,12 @@ a {
 }
 
 .form-style label {
-	display: block;
+  display: block;
+  margin-top: 10px;
 	margin-bottom: 8px;
 }
 
-#submit, #existingStudents {
+.form-style input[type="submit"], #existingStudents {
   position: relative;
   display: inline;
   padding: 15px 39px 14px 30px;
@@ -37,10 +38,11 @@ a {
   border: 1px solid #16a085;
   border-width: 1px 1px 3px;
   margin-left: 10px;
+  margin-top: 20px;
 }
 
 #existingStudents:hover,
-#submit:hover {
+.form-style input[type="submit"]:hover {
 	background: #109177;
 }
 
@@ -54,10 +56,8 @@ a {
 	padding: 10px;
 	width: 100%;
 	box-sizing: border-box; 
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box; 
 	background-color: #e8eeef;
-	color:#8a97a0;
-	margin-bottom: 30px;
+  color:#8a97a0;
+  /* margin-bottom: 20px; */
 }
 
