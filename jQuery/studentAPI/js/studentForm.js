@@ -34,12 +34,12 @@ $(document).ready(function() {
 
             return false;
         } else if($('#email').val() == "") {
-            $('#email').after('<span id="fieldNotEntered"> Please enter students age</span>');
+            $('#email').after('<span id="fieldNotEntered"> Please enter students email</span>');
             $('span').css('color', 'red');
 
             return false;
         } else if($('#date').val() == "") {
-            $('#date').after('<span id="fieldNotEntered"> Please enter students age</span>');
+            $('#date').after('<span id="fieldNotEntered"> Please enter students dob</span>');
             $('span').css('color', 'red');
 
             return false;
