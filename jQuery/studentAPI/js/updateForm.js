@@ -1,5 +1,8 @@
+var studentID;
+
 $(document).ready(function() {
 
+    window.studentID = sessionStorage.getItem('studentApiKey');
     $('form').on('submit', function(event) {
 
         event.preventDefault();
@@ -12,11 +15,9 @@ $(document).ready(function() {
         let dob;
         let gender;
 
-        const url = "http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/";
+        const url = "http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/" + window.studentID;
 
         $('#fieldNotEntered').remove();
-
-        // vaildateFormDetails("studentName");
 
         if(vaildateFormDetails("studentName") &&
             (vaildateFormDetails("rollNo")) &&
@@ -42,12 +43,12 @@ $(document).ready(function() {
                 isMale: gender
             };
     
-            connectToApi(url, "POST", studentDetails);
+            connectToApi(url, "PUT", studentDetails);
 
             return true;
         }
 
-    }); //end of button listner
+    });
 
 
 });

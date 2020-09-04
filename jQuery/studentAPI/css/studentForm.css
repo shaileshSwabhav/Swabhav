@@ -28,6 +28,7 @@ a {
 }
 
 .form-style input[type="submit"], #existingStudents {
+  cursor: pointer;
   position: relative;
   display: inline;
   padding: 15px 39px 14px 30px;
