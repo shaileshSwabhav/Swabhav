@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>chp-20</title>
+</head>
+
+<body>
+
+    <script>
+        var isLucky = function(){
+
+            var foo = Math.round(Math.random()*100);
+
+            if(foo > 50){
+                return "you are lucky";
+            } else {
+                return "You are not lucky";
+            }
+        };
+        var me = isLucky();
+        
+        console.log(me);
+
+        window.setTimeout(function(){
+            console.log("Everything is awesome!!!");
+        },2000);
+
+        //IIFE
+        (function (first, last) {
+            console.log("My name is " + last + ", " + first + " " + last + ".");
+        })("James", "Bond");
+
+    </script>	
+</body>
+</html> 

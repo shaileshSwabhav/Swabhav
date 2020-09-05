@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chp-18</title>
+</head>
+<body>
+    
+    <script>
+        var bool;
+        bool = Boolean(null);
+        console.log("Null: " + bool);
+
+        bool = Boolean(undefined);
+        console.log("Undefined: " + bool);
+        
+        bool = Boolean();
+        console.log("No Value: " + bool);
+        
+        bool = Boolean(0);
+        console.log("Number: " + bool);
+        
+        bool = Boolean("");
+        console.log("Empty String: " + bool); 
+        
+        bool = Boolean("hello");
+        console.log("String: " + bool);
+
+        bool = Boolean(new Boolean());
+        console.log("Object: " + bool);
+
+        let value = "42";
+        let num = 42;
+
+        console.log("== : " + (value == num));
+        console.log("=== : " + (value === num));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chp-27</title>
+
+    <style>
+        h2 {
+            font-family: Arial, Helvetica;
+            font-size: 100px;
+            color: #FFF;
+            text-shadow: 0px 0px 11px #333333;
+            margin: 0;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Random
+        <br />Color
+        <br />Generator</h2>
+    <script>
+
+        var generateRandomColor = function() {
+            let randomColor = ['red', 'yellow', 'pink', 'green', 'orange', 'grey', 'black', 'purple', 'blue', 'maroon'];
+
+            let randomNumber = Math.floor((Math.random() * 10));
+            return randomColor[randomNumber];
+        }
+        var bodyElement = document.querySelector("body");
+        bodyElement.style.backgroundColor = generateRandomColor();
+
+
+    </script>
+</body>
+</html>

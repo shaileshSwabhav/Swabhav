@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chp-14</title>
+</head>
+<body>
+    <script>
+        var groceries = ["Milk","Eggs","Frosted Flakes","Salami","Juice"] ;
+
+        console.log("Accessing array element : "+groceries[0]);
+
+        groceries.push("Cookies");
+        console.log("Element added: "+ groceries);
+
+        groceries.unshift("Bananas");
+        console.log("Adding data at starting: " + groceries);
+        console.log("Pop array elment : " + groceries.pop());
+        console.log("Shift array elment : " + groceries.shift());
+        console.log("Grocery List: " + groceries);
+        console.log("Finding in array : " + groceries.indexOf('Salami'));
+
+        var newArray = groceries.slice(1, 4);
+        console.log("New Array: " + newArray);
+
+    </script>
+</body>
+</html>
