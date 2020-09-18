@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+
+    <script src="../../../angular.min.js"></script>
+    <script src="../../../jquery-3.5.1.min.js"></script>
+</head>
+<body ng-app="studentsInfo">
+
+
+    <div ng-controller="studentsController">
+        <button id="btn" ng-click="btn()">Load Students Data</button>
+
+        <div ng-repeat="std in studentsData">
+            <p>Student Name: {{std.Name}}</p>
+            <p>Student Roll No: {{std.Roll_No}}</p>
+            <p>Student CGPA: {{std.CGPA}}</p>
+        </div>
+    </div>
+
+    <script src="../js/students.js"></script>
+    <!-- <script src="../js/student_onewaybinding.js"></script> -->
+</body>
+</html>

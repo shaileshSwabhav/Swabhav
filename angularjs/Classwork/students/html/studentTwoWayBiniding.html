@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Way Binding</title>
+
+    <script src="../../../angular.min.js"></script>
+</head>
+<body ng-app="studentsInfo">
+
+    <h1>One Way Binding</h1>
+
+    <div ng-controller="oneWayController">
+        <div ng-repeat="std in studentsData">
+            <p>Student Name: {{std.Name}}</p>
+            <p>Student Roll No: {{std.Roll_No}}</p>
+            <p>Student CGPA: {{std.CGPA}}</p>
+        </div>
+    </div>
+    
+    <hr>
+
+    <h1>Two Way Binding</h1>
+
+    <div ng-controller="twoWayController">
+        <label for="name">Name: </label>
+        <input type="text" id="name" ng-model="name" placeholder="Name"> <br> <br>
+
+        <label for="rollno">Roll No: </label>
+        <input type="text" id="rollno" ng-model="rollno" placeholder="Roll No"> <br> <br>
+
+        <label for="cgpa">CGPA: </label>
+        <input type="text" id="cgpa" ng-model="cgpa" placeholder="CGPA"> <br> <br>
+
+        <p>Student Name: <span ng-bind="name">{{name}}</span></p>
+        <p>Student Name: <span ng-bind="rollno">{{rollno}}</span></p>
+        <p>Student Name: <span ng-bind="cgpa">{{cgpa}}</span></p>
+    </div>
+
+
+    <script src="../js/studentTwoWayBinding.js"></script>
+</body>
+</html>
