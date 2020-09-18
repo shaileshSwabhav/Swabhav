@@ -4,7 +4,7 @@ $('#undone').append('<ul id="undonePara">');
 
 todoApp.controller("todoListController", function($scope, $rootScope) {
 
-    $scope.priority = {taskPriority : 0}
+    // $scope.priority = {taskPriority : 0}
 
     $scope.addTask = function() {
         const userTask = [$scope.userTaskDescription, $scope.priority.taskPriority];
@@ -37,6 +37,10 @@ todoApp.controller('taskController', function($scope, $rootScope) {
         }      
     }
 
+    $rootScope.$on("displayTask", function(event, userTaskDescription, time) {
+        $scope.displayTask(userTaskDescription, time);
+    });
+
     $scope.calculateTimeDifference = function(time) {
         let taskAddedTime = moment(time);
         let currentTime = moment(moment().format('MM D YYYY hh:mm:ss'));
@@ -58,8 +62,8 @@ todoApp.controller('taskController', function($scope, $rootScope) {
 
         let timeDifference = $scope.calculateTimeDifference(time);
 
-        let userTaskName = userTask[$scope.taskIndex].split(' ').join('');
-    
+        $scope.userTaskName = userTask[$scope.taskIndex].split(' ').join('');
+        
         if(userTask[$scope.priorityIndex] == '1') {
             $('<li class="taskClass" id="'+ userTaskName +'">' + 
             userTask[$scope.taskIndex] + '<span>' + " task added at "  + time + " " + timeDifference + '</span></li>').prependTo('ul');
