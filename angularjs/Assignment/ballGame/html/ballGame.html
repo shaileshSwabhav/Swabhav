@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the correct ball</title>
+
+    <link rel="stylesheet" href="../css/ballGameStyle.css">
+    <script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="../../../jquery-3.5.1.min.js"></script>
+
+</head>
+<body ng-app="ballGameApp">
+    <div ng-controller='ballGameController'>
+        <p id="rules">Rules of the guessing game.<br>
+                1) Pick a ball from the list. <br>
+                2) If selected ball turns red that means blue ball is after selected ball <br>
+                3) If selected ball turns green that means blue ball is before it <br>
+                4) Total attempts for this game is 4 <br>
+                5) Attempts left: <span id="attemptsLeft">{{noOfAttempts}}</span>
+        </p>
+        <div id="btnBalls">
+            <button ng-repeat="i in range(1, 51)" id="{{i}}" ng-click="checkButton($event)">{{i}}</button> 
+        </div>
+
+        <p  id="printResult">{{gameResult}}</p>
+        <button id="restartGame" ng-hide="IsVisible" ng-click="reloadPage()">Reload Game </button>
+
+
+    </div>
+    
+    <script src="../js/ballGame.js"></script>
+</body>
+</html>

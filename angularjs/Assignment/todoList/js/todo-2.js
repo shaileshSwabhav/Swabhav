@@ -6,7 +6,7 @@ todoApp.controller("todoListController", function($scope, $rootScope) {
         // $scope.tasks.push($scope.userTaskDescription);
         const time = moment().format('MM D YYYY hh:mm:ss');
         localStorage.setItem($scope.userTaskDescription, time);
-        $rootScope.$emit("displayTask", $scope.userTaskDescription, time);    }
+        $rootScope.$emit("taskFormatter", $scope.userTaskDescription, time);    }
 
 });
 
@@ -21,7 +21,7 @@ todoApp.controller('taskController', function($scope, $rootScope) {
             if(window.localStorage.hasOwnProperty(userTaskDescription)) {
                 let taskTime =  localStorage.getItem(userTaskDescription);
 
-                $scope.displayTask(userTaskDescription, taskTime);
+                $scope.taskFormatter(userTaskDescription, taskTime);
 
             }
         }      
@@ -36,11 +36,11 @@ todoApp.controller('taskController', function($scope, $rootScope) {
         }
     }
 
-    $rootScope.$on("displayTask", function(event, userTaskDescription, time) {
-        $scope.displayTask(userTaskDescription, time);
+    $rootScope.$on("taskFormatter", function(event, userTaskDescription, time) {
+        $scope.taskFormatter(userTaskDescription, time);
     });
 
-    $scope.displayTask = function (userTask, time) {
+    $scope.taskFormatter = function (userTask, time) {
         $scope.tasks.push({
             'id': $scope.id++,
             'task': userTask,
