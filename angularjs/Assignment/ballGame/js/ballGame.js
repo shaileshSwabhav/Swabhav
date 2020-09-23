@@ -7,7 +7,6 @@ ballGameApp.controller('ballGameController', function($scope) {
     const randomBallNumber = Math.floor((Math.random() * 50) + 1);
     $scope.noOfAttempts = 4;
     $scope.IsVisible = true;
-
     console.log(randomBallNumber);
 
     $scope.range = function() {
@@ -20,23 +19,23 @@ ballGameApp.controller('ballGameController', function($scope) {
 
     $scope.checkButton = function(event) {
 
-            if($scope.noOfAttempts-- != 0) {
-                if(event.target.id == randomBallNumber) {
-                    $('#'+event.target.id).css('backgroundColor', 'blue');
-                    $scope.checkForResult(true);
-                    return;
-
-                } else if(event.target.id > randomBallNumber) {
-                    $('#'+event.target.id).css('backgroundColor', 'green');
-
-                } else if(event.target.id < randomBallNumber) {
-                    $('#'+event.target.id).css('backgroundColor', 'red');
-                }
+        if($scope.noOfAttempts-- != 0) {
+            if(event.target.id == randomBallNumber) {
+                $('#'+event.target.id).css('backgroundColor', '#1B4BFF');
+                $scope.checkForResult(true);
+                return;
+            } else if(event.target.id > randomBallNumber) {
+                $('#'+event.target.id).css('backgroundColor', '#28B463 ');
+            } else if(event.target.id < randomBallNumber) {
+                $('#'+event.target.id).css('backgroundColor', '#FF1B1B');
             }
+        }
 
-            if($scope.noOfAttempts <= 0) {
-                $scope.checkForResult(false);
-            }
+        alert('Attempts left: ' + $scope.noOfAttempts);
+
+        if($scope.noOfAttempts <= 0) {
+            $scope.checkForResult(false);
+        }
     }
 
     $scope.checkForResult = function(result) {
