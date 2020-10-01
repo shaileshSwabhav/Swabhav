@@ -62,3 +62,11 @@ a {
   /* margin-bottom: 20px; */
 }
 
+#banner {
+  font-size: 1.6em;
+  margin-top: 0.2em;
+  margin-bottom: 10px;
+  color: #158F77;
+  font-weight: 900;
+  font-family: sans-serif;
+}

@@ -62,6 +62,7 @@ $(document).ready(function() {
 
     }
 
+    
     function removeTask(event, userTask) {
  
         //remove from undone list

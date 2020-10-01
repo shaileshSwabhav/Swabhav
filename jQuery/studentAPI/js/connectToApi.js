@@ -8,6 +8,7 @@ var connectToApi = function (url, method, data) {
 
             if (method.toLowerCase() == 'post') {
                 alert("Student successfully added");
+                location.href = '../html/studentsList.html';
             } else if (method.toLowerCase() == 'get') {
                 displayStudentDetails(studentsDetails);
             } else if (method.toLowerCase() == 'put') {

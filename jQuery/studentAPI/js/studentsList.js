@@ -18,9 +18,15 @@ function displayStudentDetails(studentsDetails) {
             '<td>' + studentsDetails[i].email + '</td>' +
             '<td>' + studentsDetails[i].date + '</td>' +
             '<td>' + (studentsDetails[i].isMale?"Male":"Female") + '</td>' +
-            '<td><input type="button" id="'+studentsDetails[i].id+'" onclick="getStudentID(this.id)" value="Update" /></td>' +
-            '<td><input type="button" id="'+studentsDetails[i].id+'" onclick="deleteStudentFromList(this.id)" value="Delete" /></td></tr>' 
+            '<td><input type="button" id="'+studentsDetails[i].id+'" class="btn btn-primary" onclick="getStudentID(this.id)" value="Update" /></td>' +
+            '<td><input type="button" id="'+studentsDetails[i].id+'" class="btn btn-danger" onclick="deleteStudentFromList(this.id)" value="Delete" /></td></tr>' 
         );
 
     }
 }
+
+// when page is loaded its calls the api and gets the data
+// no
+// yes- delete pe timeout hai
+//yes
+// mam yeh first page hai get req yaha se hoga

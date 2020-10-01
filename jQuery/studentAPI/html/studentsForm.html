@@ -8,9 +8,15 @@
     <link rel="stylesheet" href="../css/studentForm.css">
     <script src="../../jquery-3.5.1.min.js"></script>
 
+    <link href= 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+    rel='stylesheet'> 
+          
+    <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+
 </head>
 <body>
     <div class="form-style">
+        <p id="banner">New Student Details</p>
         <form>
             <label for="studentName">Student Name: </label>
             <input type="text" id="studentName" placeholder="Student Name">
@@ -33,10 +39,8 @@
             <br>
         
             <label for="isMale">Gender: </label>
-            <select name="gender" id="isMale">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
+            <input type="radio" name="isMale" value="Male" id="male">Male
+            <input type="radio" name="isMale" value="Female" id="female">Female
             <br>
 
             <input type="submit" value="Submit">

@@ -1,13 +1,15 @@
-var studentID;
-
 $(document).ready(function() {
 
-    window.studentID = sessionStorage.getItem('studentApiKey');
+    $("#date").datepicker({ dateFormat: "dd-m-yy" });
+
+    const url = "http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/" + sessionStorage.getItem('studentApiKey')
+    connectToApi(url, 'get');
+
     $('form').on('submit', function(event) {
 
         event.preventDefault();
         
-        let studentDetails;
+        let updatedStudentDetails;
         let studentName;
         let rollno;
         let studentAge;
@@ -15,26 +17,23 @@ $(document).ready(function() {
         let dob;
         let gender;
 
-        const url = "http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/" + window.studentID;
-
         $('#fieldNotEntered').remove();
 
         if(vaildateFormDetails("studentName") &&
             (vaildateFormDetails("rollNo")) &&
             (vaildateFormDetails("age")) &&
-            (vaildateFormDetails("email")) && 
-            (vaildateFormDetails("date"))) {
+            (vaildateFormDetails("email"))) {
 
             studentName = $('#studentName').val();
             rollno = $('#rollNo').val();
             studentAge = $('#age').val();
             studentEmail = $('#email').val();
             dob = $('#date').val();
-            gender = $('#isMale').val();
-
+            gender = $("input[type='radio']:checked").val();
+            
             gender = ((gender == 'Male' ? true : false));
 
-            studentDetails = {
+            updatedStudentDetails = {
                 rollNo: rollno,
                 name: studentName,
                 age: studentAge,
@@ -43,25 +42,37 @@ $(document).ready(function() {
                 isMale: gender
             };
     
-            connectToApi(url, "PUT", studentDetails);
-
+            connectToApi(url, "PUT", updatedStudentDetails);
             return true;
         }
 
     });
-
 
 });
 
 function vaildateFormDetails(elementID) {
 
     if($('#' + elementID).val() == "") {
-        $('#' + elementID).after('<span id="fieldNotEntered"> Please enter student name</span>');
+        $('#' + elementID).after('<span id="fieldNotEntered"> Please enter '+elementID+'</span>');
         $('span').css('color', 'red');
 
         return false;
     } else {
         return true;
+    }
+}
+
+function displayStudentDetails(studentDetails) {
+
+    $('#studentName').attr('value', studentDetails[0].name);
+    $('#rollNo').attr('value', studentDetails[0].rollNo);
+    $('#age').attr('value', studentDetails[0].age);
+    $('#email').attr('value', studentDetails[0].email);
+    $('#date').attr('value', studentDetails[0].date);
+    if(studentDetails[0].isMale == true) {
+        $('#male').prop('checked', true);
+    } else {
+        $('#female').prop('checked', true);
     }
 
 }

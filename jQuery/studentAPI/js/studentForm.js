@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    $("#date").datepicker({ dateFormat: "dd-m-yy" });
+
     $('form').on('submit', function(event) {
 
         event.preventDefault();
@@ -16,20 +18,17 @@ $(document).ready(function() {
 
         $('#fieldNotEntered').remove();
 
-        // vaildateFormDetails("studentName");
-
         if(vaildateFormDetails("studentName") &&
             (vaildateFormDetails("rollNo")) &&
             (vaildateFormDetails("age")) &&
-            (vaildateFormDetails("email")) && 
-            (vaildateFormDetails("date"))) {
+            (vaildateFormDetails("email"))) {
 
             studentName = $('#studentName').val();
             rollno = $('#rollNo').val();
             studentAge = $('#age').val();
             studentEmail = $('#email').val();
             dob = $('#date').val();
-            gender = $('#isMale').val();
+            gender = $("input[type='radio']:checked").val();
 
             gender = ((gender == 'Male' ? true : false));
 
@@ -41,7 +40,7 @@ $(document).ready(function() {
                 date: dob,
                 isMale: gender
             };
-    
+            
             connectToApi(url, "POST", studentDetails);
 
             return true;
@@ -49,7 +48,7 @@ $(document).ready(function() {
 
     }); //end of button listner
 
-
+ 
 });
 
 function vaildateFormDetails(elementID) {
