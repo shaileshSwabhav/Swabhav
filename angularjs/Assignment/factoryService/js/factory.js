@@ -46,5 +46,4 @@ factoryApp.controller('factoryController2', function($scope, $rootScope, countBu
 factoryApp.controller('factoryController', function($rootScope) {
     
     $rootScope.buttonPressedCount = buttonPressedCount;
-    
 });
