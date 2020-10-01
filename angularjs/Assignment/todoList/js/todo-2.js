@@ -2,11 +2,34 @@ var todoApp = angular.module("todoList", []);
 
 todoApp.controller("todoListController", function($scope, $rootScope) {
 
+    var time;
+    $scope.updateBtn = true;
+    $scope.userTaskDescription = 'Enter your task here';
+
     $scope.addTask = function() {
-        // $scope.tasks.push($scope.userTaskDescription);
         const time = moment().format('MM D YYYY hh:mm:ss');
         localStorage.setItem($scope.userTaskDescription, time);
-        $rootScope.$emit("taskFormatter", $scope.userTaskDescription, time);    }
+        $rootScope.$emit("taskFormatter", $scope.userTaskDescription, time);    
+    }
+
+    $rootScope.$on("taskUpdater", function(event, task) {
+        $scope.taskUpdater(task);
+    });
+
+    $scope.taskUpdater = function(task) {
+        $scope.updateBtn = false;
+        $scope.userTaskDescription = task;
+        time = localStorage.getItem(task);
+        localStorage.removeItem(task);
+        $("."+task.split(' ').join('')).remove();
+
+    }
+
+    $scope.update = function() {
+        localStorage.setItem($scope.userTaskDescription, time);
+        $rootScope.$emit("taskFormatter", $scope.userTaskDescription, time);
+
+    }
 
 });
 
@@ -22,16 +45,21 @@ todoApp.controller('taskController', function($scope, $rootScope) {
                 let taskTime =  localStorage.getItem(userTaskDescription);
 
                 $scope.taskFormatter(userTaskDescription, taskTime);
-
             }
         }      
     }
 
-    $scope.removeTask = function (task) {
+    $scope.updateTask = function(task) {
+        
+        if(confirm("Do you want to update your task?")) {
+            $rootScope.$emit('taskUpdater', task);
+        }
+    }
 
+    $scope.removeTask = function(task) {
         //remove from list
         if(confirm("Do you want to delete?")) {
-            $("."+task).remove();
+            $("."+task.split(' ').join('')).remove();
             localStorage.removeItem(task);
         }
     }

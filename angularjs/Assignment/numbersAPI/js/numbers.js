@@ -9,7 +9,6 @@ numbersApiApp.controller('numbersapiController', function($scope, $http) {
                 triviaInfo = triviaInfo.split(',');
 
                 $scope.taskFormatter(triviaInfo, trivia);
-    
             }
         }
     }

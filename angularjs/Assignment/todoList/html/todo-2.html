@@ -15,28 +15,31 @@
 <body>
     
     <div ng-controller="todoListController" class="header">
-        <textarea type="text" id="task" ng-model="userTaskDescription" placeholder = "Enter your task" cols="60" rows="5"  required></textarea>
+        <textarea type="text" id="task" ng-model="userTaskDescription" placeholder = {{userTaskDescription}} cols="60" rows="5"  required></textarea>
         <br><br>
   
         <button class="btn btn-default" ng-click="addTask()">Add Tasks</button>
-
+        <button class="btn btn-default" ng-hide='updateBtn' ng-click="update()">Update Task</button>
     </div>
 
     <div id="undone" ng-controller="taskController" ng-init="load()">
+    <!-- <div id="undone"> -->
         <h2 class="taskHeader">Your Tasks</h2>
         <table id="undoneTable">
             <tr>
                 <th>Done</th>
                 <th>Task</th>
                 <th>Time</th>
+                <th>Update</th>
                 <th>Remove</th>
             </tr>
 
             <tbody ng-repeat="t in tasks">
-                <tr class="{{t.task}}">
+                <tr class="{{t.task.split(' ').join('')}}">
                     <td><input type="checkbox" ng-model='checkbox' ng-click="checkBoxClick($event, t.id)"></td>
                     <td id="{{t.id}}">{{t.task}}</td>
                     <td  class="{{t.id}}">{{t.taskTime}}</td>
+                    <td><input type="button" value="Update button" ng-click="updateTask(t.task)"></td>
                     <td><input type="button" value="Remove button" ng-click="removeTask(t.task)"></td>
                 </tr> 
             </tbody>
