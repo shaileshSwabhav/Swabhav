@@ -19,6 +19,8 @@ ballGameApp.controller('ballGameController', function($scope) {
 
     $scope.checkButton = function(event) {
 
+        console.log(event.target);
+
         if($scope.noOfAttempts-- != 0) {
             if(event.target.id == randomBallNumber) {
                 $('#'+event.target.id).css('backgroundColor', '#1B4BFF');

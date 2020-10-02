@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd Even Using Factory</title>
+
+    <script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+
+</head>
+<body ng-app='oddEvenApp'>
+
+    <div ng-controller='oddEvenController'>
+        <p>
+            Enter a Number: <input type="text" ng-model='oddEvenNum'>
+        </p>
+        <p>
+            <input type="button" value="Check Even or Odd" ng-click='checkOddEvenNumber();'>
+        </p>
+        <p ng-hide='result'>{{oddEvenNum}} is <span style="color: red;">{{numberResult}}</span> Number</p>
+    </div>
+
+    <script src="../js/oddEven.js"></script>
+</body>
+</html>
