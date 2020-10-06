@@ -12,6 +12,26 @@ oddEvenApp.factory('checkOddEven', function() {
         }
     }
 
+    obj.checkPrime = function(num) {
+        var flag ;
+
+            for(i = 2; i <= num - 1; i++){
+                if (num % i == 0) { 
+                    flag = false; 
+                    break; 
+                }else{
+                    flag = true;
+                }
+            }
+                  
+            if (flag == true){
+                return "Prime";
+            }
+            else{
+                return "Not Prime";
+            } 
+    }
+
     return obj;
 });
 
@@ -22,5 +42,6 @@ oddEvenApp.controller('oddEvenController', function($scope, checkOddEven) {
     $scope.checkOddEvenNumber = function() {
         $scope.result = false;
         $scope.numberResult = checkOddEven.checkNum($scope.oddEvenNum);
+        $scope.primeResult = checkOddEven.checkPrime($scope.oddEvenNum);
     }
 });

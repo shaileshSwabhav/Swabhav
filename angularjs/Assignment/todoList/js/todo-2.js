@@ -90,4 +90,8 @@ todoApp.controller('taskController', function($scope, $rootScope) {
         }
     }
 
+    // $scope.updateTaskContent = function(event) {
+    //     event.target.contentEditable = event.target.contentEditable == "false" ? "true" : "false" ;
+    // }
+
 });

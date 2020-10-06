@@ -38,6 +38,7 @@
                 <tr class="{{t.task.split(' ').join('')}}">
                     <td><input type="checkbox" ng-model='checkbox' ng-click="checkBoxClick($event, t.id)"></td>
                     <td id="{{t.id}}">{{t.task}}</td>
+                    <!-- <td> <span contenteditable='false' ng-dblclick='updateTaskContent($event)'>{{t.task}}</span></td> -->
                     <td  class="{{t.id}}">{{t.taskTime}}</td>
                     <td><input type="button" value="Update button" ng-click="updateTask(t.task)"></td>
                     <td><input type="button" value="Remove button" ng-click="removeTask(t.task)"></td>
