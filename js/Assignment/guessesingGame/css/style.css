@@ -1,0 +1,46 @@
+#btn {
+    border-radius: 50%;
+    background-color: #B8B8B8;
+    color: white;
+    border-style: solid;
+    border: 2px;
+    border-color: pink;
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 10px;
+    cursor: pointer;
+}
+
+#attemptsLeft {
+    font-size: larger;
+    color: red;
+}
+
+#btnBalls{
+    display: grid;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+    padding: 5px;
+}
+
+#reload {
+    font-size: 1.2em;
+    width: 10em;
+    margin-left: 1em;
+}
+
+#displayRules {
+    font-size: 1.2em;
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+#result {
+    margin-left: 0.5em;
+    font-size: 2em;
+}

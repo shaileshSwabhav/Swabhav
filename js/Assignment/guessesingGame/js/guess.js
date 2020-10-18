@@ -15,18 +15,16 @@ console.log(randomNumber);
         btn.setAttribute('value', i)
         btn.style.backgroundColor = '#AFADAD';
         btn.innerHTML = i;
-        document.body.appendChild(btn);
-
-        if (i % 10 == 0) {
-            var brk = document.createElement('br');
-            document.body.appendChild(brk);
-        }
+        // document.body.appendChild(btn);
+        document.getElementById('btnBalls').appendChild(btn);
     }
 
     var para = document.createElement('p');
     document.body.appendChild(para);
+
     var displayResult = document.createElement('span');
     displayResult.setAttribute('id', 'result');
+
     para.appendChild(displayResult);
 
 })();
@@ -57,27 +55,32 @@ function changeButtonColor(e) {
         analyzeResult();
     }
     else if (e.currentTarget.value < randomNumber) {
-        e.currentTarget.style.backgroundColor = "#17FF00";
+        e.currentTarget.style.backgroundColor = "#335d2d";
 
     } else if (e.currentTarget.value > randomNumber) {
-        e.currentTarget.style.backgroundColor = "#FF0000";
+        e.currentTarget.style.backgroundColor = "#ff414d";
 
     }
 }
 
-function analyzeResult(e) {
+function analyzeResult() {
 
     let result = document.getElementById('result');
     let reloadBtn = document.createElement('button');
+
+    result.setAttribute('class', 'font-weight-bold');
+
     reloadBtn.setAttribute('id', 'reload');
     reloadBtn.setAttribute('onclick', 'reload()');
     reloadBtn.innerHTML = 'Reload';
 
     if(isWin) {
+        reloadBtn.setAttribute('class', 'btn btn-success');
         result.innerHTML = "Congratulations!!! You have won the game.";
         
     } else {
-        result.innerHTML = "Sorry... You have lost the game. <br>Correct Guess was ball number: " + randomNumber;
+        reloadBtn.setAttribute('class', 'btn btn-danger');
+        result.innerHTML = "Sorry... You have lost the game. Correct Guess was ball number: " + randomNumber;
         btn[randomNumber - 1].style.backgroundColor = '#0074FF';
 
     }
