@@ -1,28 +1,17 @@
-.container {
-    margin-top: 30px;
-    text-align: center;
-    font-size: large;
+.btn {
+    margin-left: 1em;
+}
+
+#container {
+    background-color: #f1f6f9;
+    margin-top: -2em;
+    padding-bottom: 23.7em;
 }
 
 .mainDiv {
-    margin-left: 10px;
-    margin-top: 30px;
-    border: darkcyan;
-    border-style: solid;
-    margin-right: 500px;
-}
-
-.btn {
-    background-color: #14B5C2;
-    border: none;
-    color: white;
-    padding: 8px 20px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    margin-left: 40px;
+    background-color: #f1f6f9;
+    padding-top: 1em;
+    padding-bottom: 18em;
 }
 
 #welcomeTag {
@@ -36,62 +25,8 @@
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
-}
-
-#submitTest {
-    background-color: #42AEB2;
-    border: none;
-    color: white;
-    padding: 8px 8px;
-    text-align: center;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-#nextButton {
-    background-color: #12972E;
-    border: none;
-    color: white;
-    padding: 8px 8px;
-    text-align: center;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-#prevButton {
-    background-color: #BACA1F;
-    border: none;
-    color: white;
-    padding: 8px 8px;
-    text-align: center;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-#playAgain {
-    background-color: #42AEB2;
-    border: none;
-    color: white;
-    padding: 8px 8px;
-    text-align: center;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 0.2em;
+    margin-top: 0.2em;
 }
 
 #answers {
@@ -113,3 +48,14 @@
     vertical-align: middle;
 }
 
+#userTextBox {
+    margin-top: 1em;
+}
+
+#startBtn {
+    margin-bottom: 1em;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+}

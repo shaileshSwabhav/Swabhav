@@ -1,4 +1,6 @@
 function drawChart() {
+    clearInterval(interval);
+    
     let rightAnswers = 0;
     let wrongAnswers = 0;
     let answersLeft = Object.keys(correctAnswers).length - Object.keys(userEnterdAnswers).length;
@@ -9,6 +11,7 @@ function drawChart() {
 
     const result = document.createElement('p');
     result.setAttribute('id', 'result');
+    result.setAttribute('class', 'display-3')
 
     // calculating right and wrong answers
     for(ans in userEnterdAnswers) {
@@ -19,7 +22,7 @@ function drawChart() {
         }
     }
 
-    result.innerHTML = `${userName} your test result is ${rightAnswers} out of ${Object.keys(correctAnswers).length}`;
+    result.innerHTML = `${userName.toUpperCase()} your test result is ${rightAnswers} out of ${Object.keys(correctAnswers).length}`;
 
     console.log(rightAnswers, wrongAnswers, answersLeft);
 
@@ -37,21 +40,31 @@ function drawChart() {
             ['Not Answered', answersLeft]
         ]);
         
-        var options = {'title':`Result Piechart`, 'width':550, 'height':400};
+        var options = {'title': `Result Piechart`, 
+            'width': 550, 
+            'height': 400,
+            'is3D': true,
+            backgroundColor: 'transparent',
+            legend: {
+                alignment: 'right',
+                position: 'top'
+            }
+        };
     
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(charData, options);
 
-
         const playAgain = document.createElement('button');
         playAgain.innerHTML = "Play Again";
         playAgain.setAttribute('id', 'playAgain');
+        playAgain.setAttribute('class', 'btn btn-success');
 
         mainDiv.appendChild(result);
         mainDiv.appendChild(playAgain);
 
         playAgain.addEventListener('click', function() {
 
+            userEnterdAnswers = {};
             document.getElementById('piechart').remove();
             document.getElementById('result').remove();
             document.getElementById('playAgain').remove();

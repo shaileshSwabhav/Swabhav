@@ -44,6 +44,8 @@ for(let i = 0; i < btn.length; i++) {
         }
 
         span.innerHTML = (4 - count);
+        alert("Attempts Left: " + (4 - count));
+        document.getElementById('introRules').remove();
     })
 }
 

@@ -5,14 +5,17 @@ function submitOptions() {
     
     const nextBtn = document.createElement('button');
     nextBtn.setAttribute('id', 'nextButton');
+    nextBtn.setAttribute('class', 'btn btn-primary');
     nextBtn.innerHTML = "Next Question";
 
     const prevBtn = document.createElement('button');
     prevBtn.setAttribute('id', 'prevButton');
+    prevBtn.setAttribute('class', 'btn btn-secondary');
     prevBtn.innerHTML = "Previous Question";
 
     const submitTest = document.createElement('button');
     submitTest.setAttribute('id', 'submitTest');
+    submitTest.setAttribute('class', 'btn btn-success');
     submitTest.innerHTML = "Submit Test";
 
     if (questionNumber > 0){
@@ -61,6 +64,7 @@ function submitOptions() {
                     break;
                 }
             }
+
             document.getElementById('welcomeTag').remove();
             document.getElementById('question').remove();
             document.getElementById('answers').remove();

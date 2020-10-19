@@ -11,14 +11,20 @@
 
 </head>
 <body style="background-color: #f5efef;">
-    <p id="displayRules">Rules of the guessing game.<br>
-    1) Pick a ball from the list. <br>
-        2) If selected ball turns red that means blue ball is after selected ball <br>
-        3) If selected ball turns green that means blue ball is before it <br>
-        4) Total attempts for this game is 4 <br>
-        5) Attempts left: <span id="attemptsLeft">4</span>
-    </p>
-    <br>
+
+    <div class="jumbotron jumbotron-fluid" id="introRules">
+        <div class="container container-fluid">
+            <p class="display-2">Ball Game</p>
+            <p class='lead' id="displayRules">Rules of the guessing game.<br>
+                1) Pick a ball from the list. <br>
+                    2) If selected ball turns red that means blue ball is after selected ball <br>
+                    3) If selected ball turns green that means blue ball is before it <br>
+                    4) Total attempts for this game is 4 <br>
+                    5) Attempts left: <span id="attemptsLeft">4</span>
+                </p>
+        </div>
+
+    </div>
 
     <div id='btnBalls'></div>
 

@@ -1,8 +1,9 @@
 let userName;
 let questionNumber = 0;
+let interval;
 
 const mainDiv = document.createElement('div');
-mainDiv.setAttribute('class', 'mainDiv');
+mainDiv.setAttribute('class', ' container-fluid mainDiv');
 
 const mcqQuestions = [{
         question: "Question 1. Who is creator of Java Language?",
@@ -16,6 +17,7 @@ const mcqQuestions = [{
         option1: 'Dynamic',
         option2: 'Use of pointers',
         option3: 'OOP',
+        option4: 'None',
     },
     {
         question: "Question 3. Which of these is NOT a pillar of OOP?",
@@ -41,7 +43,7 @@ const mcqQuestions = [{
 
     ];
 
-const userEnterdAnswers = {};
+let userEnterdAnswers = {};
 const correctAnswers = {
                         question1: 'James Gosling',
                         question2: 'Use of pointers',
@@ -49,7 +51,6 @@ const correctAnswers = {
                         question4: 'Member Function',
                         question5: 'int'
                     };
-
 
 
 document.getElementById('startBtn').addEventListener('click', function() {
@@ -73,21 +74,23 @@ document.getElementById('startBtn').addEventListener('click', function() {
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+    interval = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = `${userName} time left for your test - ` + minutes + ":" + seconds;
+        display.textContent = `${userName.toUpperCase()} time left for your test - ` + minutes + ":" + seconds;
 
         if (--timer < 0) {
             document.getElementById('welcomeTag').remove();
             document.getElementById('question').remove();
             document.getElementById('answers').remove();
             document.getElementById('answerButtons').remove();
+
             drawChart();
+
         }
     }, 1000);
 
