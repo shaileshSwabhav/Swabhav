@@ -9,6 +9,8 @@
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
     crossorigin="anonymous">
 
+    <script src="../../../../angularjs/angular.min.js"></script>
+
 </head>
 <body style="background-color: #f5efef;">
 
@@ -20,13 +22,16 @@
                     2) If selected ball turns red that means blue ball is after selected ball <br>
                     3) If selected ball turns green that means blue ball is before it <br>
                     4) Total attempts for this game is 4 <br>
-                    5) Attempts left: <span id="attemptsLeft">4</span>
                 </p>
         </div>
 
     </div>
 
-    <div id='btnBalls'></div>
+    <div class="container">
+        <h3>Attempts left: <span id="attemptsLeft">4</span></h3>
+        <div id='btnBalls'></div>
+
+    </div>
 
     <script src="../js/guess.js"></script>
 
