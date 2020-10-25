@@ -1,24 +1,23 @@
 var factoryApp = angular.module('factoryApp', []);
 
-var buttonPressedCount = 0;
+factoryApp.service('countButtonsPressed', function() {
 
-factoryApp.factory('countButtonsPressed', function() {
+    // var object = {};
+    this.buttonPressedCount = 0;
 
-    var object = {};
-
-    object.incrementCount = function(buttonPressedCount) {
-        return buttonPressedCount += 1;
+    this.incrementCount = function() {
+        return this.buttonPressedCount += 1;
     }
 
-    object.decrementCount = function(buttonPressedCount) {
-        return buttonPressedCount -= 1;
+    this.decrementCount = function() {
+        return this.buttonPressedCount -= 1;
     }
 
-    object.currentCount = function() {
-        return buttonPressedCount;
+    this.currentCount = function() {
+        return this.buttonPressedCount;
     }
 
-    return object;
+    // return object;
 
 });
 
@@ -26,9 +25,8 @@ factoryApp.factory('countButtonsPressed', function() {
 factoryApp.controller('factoryController1', function($scope, $rootScope, countButtonsPressed) {
 
     $scope.increment = function() {
-        buttonPressedCount = countButtonsPressed.incrementCount(buttonPressedCount);
-        console.log(buttonPressedCount);
-        $rootScope.buttonPressedCount = buttonPressedCount;
+        $rootScope.buttonPressedCount = countButtonsPressed.incrementCount();
+
     }
 
 });
@@ -36,14 +34,12 @@ factoryApp.controller('factoryController1', function($scope, $rootScope, countBu
 factoryApp.controller('factoryController2', function($scope, $rootScope, countButtonsPressed) {
     
     $scope.decrement = function() {
-        buttonPressedCount = countButtonsPressed.decrementCount(buttonPressedCount);
-        console.log(buttonPressedCount);
-        $rootScope.buttonPressedCount = buttonPressedCount;
+        $rootScope.buttonPressedCount = countButtonsPressed.decrementCount();
     }
 
 });
 
-factoryApp.controller('factoryController', function($rootScope) {
+factoryApp.controller('factoryController', function($rootScope, countButtonsPressed) {
     
-    $rootScope.buttonPressedCount = buttonPressedCount;
+    $rootScope.buttonPressedCount = countButtonsPressed.currentCount();
 });

@@ -8,7 +8,8 @@ oddEvenApp.factory('checkOddEven', function() {
         if(num % 2 == 0) {
             return 'Even';
         } else {
-            return 'Odd';
+            // return 'Odd';
+            return this.checkPrime(num);
         }
     }
 
@@ -19,7 +20,7 @@ oddEvenApp.factory('checkOddEven', function() {
                 if (num % i == 0) { 
                     flag = false; 
                     break; 
-                }else{
+                } else {
                     flag = true;
                 }
             }

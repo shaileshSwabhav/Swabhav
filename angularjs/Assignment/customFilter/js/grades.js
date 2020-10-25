@@ -1,20 +1,24 @@
 var filterApp = angular.module('customFilterApp', []);
 
 filterApp.filter('cgpaToGrade', function() {
-    var grade = function(input) {
-        if(input == 9) {
-            return 'A';
-        } else if(input == 8) {
-            return 'B';
-        } else {
-            return 'C';
+    return function(input) {
+
+        switch (input) {
+            case 9:
+                return 'A';
+            case 8:
+                return 'B';
+            case 7:
+                return 'C';
+
+            default:
+                return  '-';
         }
     }
-
-    return grade;
+    
 });
 
-filterApp.controller('customFilterController', function($scope) {
+filterApp.controller('customFilterController1', function($scope) {
 
     $scope.students = [
         {
