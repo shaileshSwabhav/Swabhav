@@ -13,18 +13,19 @@
     <br>
     <div class="container">
         <table id="studentTable" class="table table-bordered">
-            <tr>
-                <th>ID</th>
-                <th>Roll No</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Email</th>
-                <th>Date</th>
-                <th>Gender</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </tr>
-    
+            <thead class="thead-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Gender</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
             <tr ng-repeat="std in students">
                 <td>{{std.id}}</td>
                 <td>{{std.rollNo}}</td>

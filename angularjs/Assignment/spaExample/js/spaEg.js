@@ -1,31 +1,11 @@
-var spaApp = angular.module('spa', ['ngRoute']);
+var spaApp = angular.module('spa', []);
 
-spaApp.config(function($routeProvider) {
+spaApp.controller('cntrl', function($scope, $window) {
 
-    $routeProvider
-    .when('/', {
-        templateUrl: "./spa-1.html",
-        controller: 'spaController',
-    })
-    .when('#home', {
-        templateUrl: "./spa-1/home.html",
-        controller: 'spaController'
-    })
-    .when('#about', {
-        templateUrl: "./spa-1/about.html/",
-        controller: 'spaController'
-    })
-    .when('#career', {
-        templateUrl: "./spa-1/career.html",
-        controller: 'spaController'
-    })
-    .otherwise({
-        redirectTo: '/'
-    })
-    
-});
+    $window.addEventListener('hashchange', function() {
+        //$rootScope.$broadcast('message', e.data);
 
-spaApp.controller('spaController', function($scope, $location) {
-    console.log($location.path());
-    console.log($location.hash());
+        console.log("Page loaded from "+ $window.location.hash);
+
+    });
 });
