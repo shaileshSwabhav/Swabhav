@@ -19,61 +19,122 @@ studentsApp.config(function($routeProvider) {
 		});
 });
 
+studentsApp.value('url', 'http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/');
 
-studentsApp.controller('studentsController', function($scope, $rootScope, $http, $timeout, $location) {
+studentsApp.factory('addNewStudentInfo', function($location, $http, url) {
+
+    var newStudentInfo = {};
+
+    newStudentInfo.studentDetails = function(rollno, name, age, email, date, gender) {
+        
+        $http({
+            method: 'post',
+            url: url,
+            data: {
+                rollNo: rollno,
+                name: name,
+                age: age,
+                email: email,
+                date: date,
+                gender: gender
+            }
+        }).then(function() {
+            alert("Student Details added successfully");
+            $location.path('/studentsApi');
+        });
+    }
+    return newStudentInfo;
+});
+
+studentsApp.factory('deleteStudentInfo', function($location, $http, url) {
+
+    var deleteInfo = {};
+
+    deleteInfo.deleteDetails = function(studentId) {
+        console.log('deleting');
+        $http({
+            method:'delete',
+            url: url + studentId,
+        }).then(function() {
+            alert("Student data successfully deleted");
+            $location.path('/');
+        });
+    }
+
+    return deleteInfo;
+
+});
+
+studentsApp.factory('updateStudentInfo', function($location, $http, url) {
+
+    var updateInfo = {};
+
+    updateInfo.updateDetails = function(updatedStudentInfo, studentId) {
+
+        $http({
+            method: 'put',
+            url: url + studentId,
+            data: updatedStudentInfo,
+        }).then(function() {
+            alert('Data successfully updated');
+            $location.path('/studentsApi');
+        });
+    }
+
+    return updateInfo;
+});
+
+studentsApp.controller('studentsController', function($scope, $rootScope, $location, $http, url, deleteStudentInfo,
+    addNewStudentInfo, updateStudentInfo) {
 
     $scope.students = [];
 
-    $http({
-        method: 'get',
-        url: 'http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/',
-    }).then(function(response) {
-        $scope.studentDetails(response.data);
-    });
+    //get student details
+        $scope.students = [];
 
-    //add students into array
-    $scope.studentDetails = function(data) {
+        $http({
+            method: 'get',
+            url: url,
+        })
+        .then(function(response) {  
+            console.log(response.data);
+            for (var i = 0; i < response.data.length; i++) {
+        
+                $scope.students.push({
+                    'id': response.data[i].id,
+                    'rollNo': response.data[i].rollNo,
+                    'name': response.data[i].name,
+                    'age': response.data[i].age,
+                    'email': response.data[i].email,
+                    'date': response.data[i].date,
+                    'isMale': (response.data[i].isMale?"Male":"Female"),
+                });
+            }
+        });
 
-        for(var i = 0; i < data.length; i++) {
-            $scope.students.push({
-                'id': data[i].id,
-                'rollno': data[i].rollNo,
-                'name': data[i].name,
-                'age': data[i].age,
-                'email': data[i].email,
-                'date': data[i].date,
-                'gender': (data[i].isMale?"Male":"Female"),
-
-            });
-        }
-    }
 
     //add student
     $scope.addStudent = function() {
 
         $scope.gender = (($scope.gender == 'Male' ? true : false));
 
-        $http({
-            method: 'post',
-            url: 'http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/',
-            data: {
-                rollNo: $scope.rollNo,
-                name: $scope.name,
-                age: $scope.age,
-                email: $scope.email,
-                date: $scope.date,
-                gender: $scope.gender
-            }
-        });
-
-        $timeout( function(){
-            // reloadRoute();
-            alert("Student Details added successfully");
-            $location.path('/studentsApi');
-        },500);
-
+        $scope.newStudentDetails = addNewStudentInfo.studentDetails(
+            $scope.rollNo, $scope.name, $scope.age, $scope.email, $scope.date, $scope.gender
+        );
     }
 
+    //delete student info
+    $scope.deleteStudents = function(studentId) {
+
+        console.log(studentId);
+    
+        if(confirm("Are you sure you want to delete data")) {
+    
+            deleteStudentInfo.deleteDetails(studentId);
+        }
+    }
+
+    //update student info
     $scope.updateStudent = function() {
 
         var students = {
@@ -85,27 +146,7 @@ studentsApp.controller('studentsController', function($scope, $rootScope, $http,
             'isMale': ($scope.gender === "Male" ? true : false),
         };
 
-        $http({
-            method: 'put',
-            url: 'http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/' + $rootScope.studentId,
-            data: students,
-        }).then(function(response) {
-            alert('Data successfully updated');
-            $location.path('/studentsApi');
-        });
-
-    }
-
-    $scope.updateStudentFormFields = function(response) {
-
-        console.log(response.data[0]);
-        $rootScope.studentId = response.data[0].id;
-        $rootScope.namePlaceholder = response.data[0].name;
-        $rootScope.rollNoPlaceholder = response.data[0].rollNo;
-        $rootScope.agePlaceholder = response.data[0].age;
-        $rootScope.emailPlaceholder = response.data[0].email;
-        $rootScope.datePlaceholder = response.data[0].date;
-        $rootScope.gender = (response.data[0].isMale?"Male":"Female");
+        updateStudentInfo.updateDetails(students, $rootScope.studentId);
 
     }
 
@@ -115,35 +156,18 @@ studentsApp.controller('studentsController', function($scope, $rootScope, $http,
         if(confirm("Are you sure you want to update student details")) {
             $http({
                 method: 'get',
-                url: 'http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/' + studentId,
+                url: url + studentId,
             }).then(function(response) {
                 $location.path('/updateForm');
-
-                $scope.updateStudentFormFields(response);
+                $rootScope.studentId = response.data[0].id;
+                $rootScope.namePlaceholder = response.data[0].name;
+                $rootScope.rollNoPlaceholder = response.data[0].rollNo;
+                $rootScope.agePlaceholder = response.data[0].age;
+                $rootScope.emailPlaceholder = response.data[0].email;
+                $rootScope.datePlaceholder = response.data[0].date;
+                $rootScope.gender = (response.data[0].isMale? "Male": "Female");
             });
         }
-
-    }
-
-    //delete student info
-    $scope.deleteStudents = function(studentId) {
-
-        console.log(studentId);
-
-        if(confirm("Are you sure you want to delete data")) {
-
-            $http({
-                method:'delete',
-                url: 'http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/' + studentId,
-            });
-
-            alert("Student data successfully deleted");
-
-        }
-
-        $timeout( function(){
-            $location.path('/');
-        },500);
 
     }
 

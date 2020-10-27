@@ -1,5 +1,5 @@
-<div class="jumbotron">
-    <div class="container">
+<div class="container">
+    <div class="jumbotron">
         <p class="display-2">Update Student Details</p>
     </div>
 </div>
@@ -36,12 +36,12 @@
 
         <div class="form-group">
             <label for="isMale">Gender: </label>
-            <input type="radio" name="isMale" ng-model='gender' value="Male" id="male"> Male
-            <input type="radio" name="isMale" ng-model='gender' value="Female" id="female"> Female
+            <input type="radio" class="radioBtn" name="isMale" ng-model='gender' value="Male" id="male"> Male
+            <input type="radio" class="radioBtn" name="isMale" ng-model='gender' value="Female" id="female"> Female
     
         </div>   
 
-        <button class="btn btn-outline-primary" ng-click='updateStudent()'>Submit</button>
+        <button type="button" class="btn btn-outline-primary" ng-click='updateStudent()'>Update</button>
         <a href="#/studentsApi" class="btn btn-outline-success">Check Existing Students</a>
     </form>
             
