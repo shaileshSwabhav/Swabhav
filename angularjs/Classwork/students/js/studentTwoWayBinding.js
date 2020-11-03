@@ -9,8 +9,8 @@ students.controller("oneWayController", function($scope) {
 });
 
 students.controller("twoWayController", function($scope) {
-    $scope.name = "Student Name";
-    $scope.rollno="Roll No";
-    $scope.cgpa="CGPA";
+    $scope.name = "";
+    $scope.rollno="";
+    $scope.cgpa="";
 });
 

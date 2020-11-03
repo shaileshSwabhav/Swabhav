@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-init='loadData()'>
     <div class="container">
         <div class="jumbotron">
             <p class="display-3">Students Details</p>
@@ -34,7 +34,7 @@
                 <td>{{std.email}}</td>
                 <td>{{std.date}}</td>
                 <td>{{std.isMale}}</td>
-                <td><button class="btn btn-outline-warning" ng-click='updateStudentInfo(std.id)'>Update</button></td>
+                <td><button class="btn btn-outline-warning" ng-click='updateStudentsInfo(std.id)'>Update</button></td>
                 <td><button class="btn btn-outline-danger" ng-click='deleteStudents(std.id);'>Delete</button></td>
             </tr>
     
@@ -42,4 +42,6 @@
     
     </div>
 </div>
+
+<!-- <td><a href="#/updateForm" class="btn btn-outline-warning" ng-click='updateStudentInfo(std.id)'>Update</a></td> -->
 

@@ -11,7 +11,7 @@ loginApp.controller('loginFormValidation', function($scope) {
     
 
     $scope.validateForm = function() {
-        
+
         if(specialChars.test($scope.password) && alpha.test($scope.password) && 
         numeric.test($scope.password) && $scope.password.length >= 8) {
 

@@ -8,9 +8,22 @@
     <script src="../../angular.min.js"></script>
 
 </head>
-<body ng-app="">
+<body ng-app="app" ng-controller='cont'>
 
+    {{std.name}}
     <h2>{{(22/7) | number:2}}</h2>
     <h2>{{"shailesh" | uppercase}}</h2>
+    <h2>{{std.name || 'sonam'}}</h2>
+    <script>
+        var ap = angular.module('app', []);
+        ap.controller('cont', function($scope) {
+
+            $scope.student = [{
+                'name': 'shailesh',
+            }];
+
+        });
+    </script>
+
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+<body ng-app='loop'>
+    
+    <div ng-controller='numArray'>
+
+        <div ng-repeat='n in nums'>
+            <h2>{{n}}</h2>
+        </div>
+
+    </div>
+
+    <div ng-controller='stringArray'>
+        <div ng-repeat='n in str'>
+            <h2>{{n}}</h2>
+        </div>
+    </div>
+
+    <script>
+
+        var loopApp = angular.module('loop', []);
+
+        loopApp.controller('numArray', function($scope) {
+            $scope.nums = [1, 2, 3, 4, 5];
+
+        });
+
+        loopApp.controller('stringArray', function($scope) {
+            $scope.str = ['Jay','Sailesh','Paras'];
+        });
+
+    </script>
+
+</body>
+</html>

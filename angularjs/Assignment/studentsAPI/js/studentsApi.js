@@ -8,11 +8,11 @@ studentsApp.config(function($routeProvider) {
 		})
 		.when('/studentForm', {
 			templateUrl: './studentForm.html',
-			controller: 'studentsController'
+			controller: 'addNewStudentController'
         })
         .when('/updateForm', {
             templateUrl: './updateForm.html',
-            controller: 'studentsController'
+            controller: 'updateStudentController'
         })
 		.otherwise({
 			redirectTo: '/studentsApi'
@@ -21,7 +21,7 @@ studentsApp.config(function($routeProvider) {
 
 studentsApp.value('url', 'http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students/');
 
-studentsApp.factory('addNewStudentInfo', function($location, $http, url) {
+studentsApp.factory('addNewStudentInfo', ['$location', '$http', 'url', function($location, $http, url) {
 
     var newStudentInfo = {};
 
@@ -44,9 +44,9 @@ studentsApp.factory('addNewStudentInfo', function($location, $http, url) {
         });
     }
     return newStudentInfo;
-});
+}]);
 
-studentsApp.factory('deleteStudentInfo', function($location, $http, url) {
+studentsApp.factory('deleteStudentInfo', ['$location', '$http', 'url', function($location, $http, url) {
 
     var deleteInfo = {};
 
@@ -63,9 +63,9 @@ studentsApp.factory('deleteStudentInfo', function($location, $http, url) {
 
     return deleteInfo;
 
-});
+}]);
 
-studentsApp.factory('updateStudentInfo', function($location, $http, url) {
+studentsApp.factory('updateStudentInfo', ['$location', '$http', 'url', function($location, $http, url) {
 
     var updateInfo = {};
 
@@ -82,46 +82,34 @@ studentsApp.factory('updateStudentInfo', function($location, $http, url) {
     }
 
     return updateInfo;
-});
+}]);
 
-studentsApp.controller('studentsController', function($scope, $rootScope, $location, $http, url, deleteStudentInfo,
-    addNewStudentInfo, updateStudentInfo) {
-
-    $scope.students = [];
+studentsApp.controller('studentsController', ['$scope', '$rootScope', '$location', '$http', 'url', 'deleteStudentInfo',
+    function($scope, $rootScope, $location, $http, url, deleteStudentInfo) {
 
     //get student details
-        $scope.students = [];
+    $scope.students = [];
 
-        $http({
-            method: 'get',
-            url: url,
-        })
-        .then(function(response) {  
-            console.log(response.data);
-            for (var i = 0; i < response.data.length; i++) {
-        
-                $scope.students.push({
-                    'id': response.data[i].id,
-                    'rollNo': response.data[i].rollNo,
-                    'name': response.data[i].name,
-                    'age': response.data[i].age,
-                    'email': response.data[i].email,
-                    'date': response.data[i].date,
-                    'isMale': (response.data[i].isMale?"Male":"Female"),
-                });
-            }
-        });
+    $http({
+        method: 'get',
+        url: url,
+    })
+    .then(function(response) {  
+        console.log(response.data);
 
-
-    //add student
-    $scope.addStudent = function() {
-
-        $scope.gender = (($scope.gender == 'Male' ? true : false));
-
-        $scope.newStudentDetails = addNewStudentInfo.studentDetails(
-            $scope.rollNo, $scope.name, $scope.age, $scope.email, $scope.date, $scope.gender
-        );
-    }
+        for (var i = 0; i < response.data.length; i++) {
+    
+            $scope.students.push({
+                'id': response.data[i].id,
+                'rollNo': response.data[i].rollNo,
+                'name': response.data[i].name,
+                'age': response.data[i].age,
+                'email': response.data[i].email,
+                'date': response.data[i].date,
+                'isMale': (response.data[i].isMale?"Male":"Female"),
+            });
+        }
+    });
 
     //delete student info
     $scope.deleteStudents = function(studentId) {
@@ -134,24 +122,10 @@ studentsApp.controller('studentsController', function($scope, $rootScope, $locat
         }
     }
 
-    //update student info
-    $scope.updateStudent = function() {
+    // //update student info
+    $scope.updateStudentsInfo = function(studentId) {
 
-        var students = {
-            'name': ($scope.name == undefined ? $rootScope.namePlaceholder : $scope.name),
-            'rollNo': ($scope.rollNo == undefined ? $rootScope.rollNoPlaceholder : $scope.rollNo),
-            'age': ($scope.age == undefined ? $rootScope.agePlaceholder : $scope.age),
-            'email': ($scope.email == undefined ? $rootScope.emailPlaceholder : $scope.email),
-            'date': ($scope.date == undefined ? $rootScope.datePlaceholder : $scope.date),
-            'isMale': ($scope.gender === "Male" ? true : false),
-        };
-
-        updateStudentInfo.updateDetails(students, $rootScope.studentId);
-
-    }
-
-    //update student info
-    $scope.updateStudentInfo = function(studentId) {
+        console.log('inside updateStudentsInfo');
 
         if(confirm("Are you sure you want to update student details")) {
             $http({
@@ -171,4 +145,39 @@ studentsApp.controller('studentsController', function($scope, $rootScope, $locat
 
     }
 
-});
+}]);
+
+
+studentsApp.controller('updateStudentController', ['$scope', '$rootScope', 'updateStudentInfo', 
+                function($scope, $rootScope, updateStudentInfo) {
+
+    $scope.updateStudent = function() {
+
+        var students = {
+            'name': ($scope.name == undefined ? $rootScope.namePlaceholder : $scope.name),
+            'rollNo': ($scope.rollNo == undefined ? $rootScope.rollNoPlaceholder : $scope.rollNo),
+            'age': ($scope.age == undefined ? $rootScope.agePlaceholder : $scope.age),
+            'email': ($scope.email == undefined ? $rootScope.emailPlaceholder : $scope.email),
+            'date': ($scope.date == undefined ? $rootScope.datePlaceholder : $scope.date),
+            'isMale': ($scope.gender === "Male" ? true : false),
+        };
+
+        updateStudentInfo.updateDetails(students, $rootScope.studentId);
+
+    }
+
+}]);
+
+studentsApp.controller('addNewStudentController', ['$scope', 'addNewStudentInfo', function($scope, addNewStudentInfo) {
+
+    console.log('addNewStudentController');
+
+    $scope.addStudent = function() {
+
+        $scope.gender = (($scope.gender == 'Male' ? true : false));
+
+        $scope.newStudentDetails = addNewStudentInfo.studentDetails(
+            $scope.rollNo, $scope.name, $scope.age, $scope.email, $scope.date, $scope.gender
+        );
+    }
+}]);
