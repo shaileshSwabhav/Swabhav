@@ -1,0 +1,30 @@
+<div class="container" *ngIf='!gameRunning'>
+    <h3>Game Rules</h3>
+    <p id="rules">Rules of the guessing game.<br>
+        1) Pick a ball from the list. <br>
+        2) If selected ball turns red that means blue ball is after selected ball <br>
+        3) If selected ball turns green that means blue ball is before it <br>
+        4) Total attempts for this game is 4 <br>
+    </p>
+
+    <button (click)='startGame();'>Start Game</button>
+
+</div> 
+
+<div class="container" *ngIf='gameRunning'>
+    <h3>Game started</h3>
+    <h4>Attempts left:<span [innerHtml]='attempts'> </span></h4>
+    
+    <div [id]='"btnBalls"'>
+
+        <div *ngFor= 'let b of ball'>
+            <button class="btn" [disabled]='b.disabled' [id]='b.id' 
+            [style.background-color]='b.currentColor' 
+            (click)='checkGameResult(b.id)' [innerHtml]='b.id'></button>
+        </div>
+
+    </div>
+
+    <h1 [innerHtml]='result'></h1>
+
+</div>

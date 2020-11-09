@@ -1,0 +1,43 @@
+<p [innerHtml]='"Hello world using property bindindg."' [style.color]="'red'"></p>
+
+<div class="container">
+    <h1 [innerHtml]='"IStudent"'></h1>
+    <table>
+        <tr>
+            <th>Profile Picture</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>CGPA</th>
+        </tr>
+        <tr>
+            <td><img [src]="imgLoc" alt="Image not found" [style.max-width]="width" [style.max-height]="height" /></td>
+            <td [innerHtml]="student.id"></td>
+            <td [innerHtml]="student.name"></td>
+            <td [innerHtml]="student.cgpa"></td>
+        </tr>
+    </table>
+</div>
+
+<div class="container">
+    <br>
+    <button  (click)='loadstudents();'>Load Students</button>
+</div>
+
+<div *ngIf='isActive'>
+    <h1 [innerHtml]='"IStudent[]"'></h1>
+    <table >
+        <tr>
+            <th>Profile Picture</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>CGPA</th>
+        </tr>
+        <tr *ngFor = "let s of students">
+            <td><img [src]="imgLoc" alt="Image not found" [style.max-width]="width" [style.max-height]="height" /></td>
+            <td [innerHtml]="s.id"></td>    
+            <td [innerHtml]="s.name"></td>
+            <td [innerHtml]="s.cgpa"></td>
+        </tr>
+    
+    </table>
+</div>
