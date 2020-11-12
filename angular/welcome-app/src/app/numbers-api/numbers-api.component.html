@@ -1,3 +1,17 @@
 <div class="container">
-    <h1 [innerHtml]='numberInfo'></h1>
+
+    <input #userInput class="form-control" type="text" placeholder="Enter Number">
+    <button class="btn btn-primary" (click)='displayData(userInput.value)' [innerHtml]='"Fetch Number Info"'></button>
+
+    <table>
+        <tr>
+            <th>Number Information</th>
+            <th>Time</th>
+        </tr>
+        <tr *ngFor="let info of displayInfo">
+            <td [innerHtml]='info.data'></td>
+            <td [innerHtml]='info.time'></td>
+        </tr>
+    </table>
+
 </div>

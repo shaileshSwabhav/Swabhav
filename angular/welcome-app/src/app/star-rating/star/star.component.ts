@@ -9,6 +9,7 @@ export class StarComponent implements OnInit {
 
   @Input() rating;
   maxRating = 5;
+  
   constructor() { }
 
   ngOnInit(): void {

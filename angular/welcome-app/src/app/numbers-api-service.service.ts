@@ -12,9 +12,10 @@ export class NumbersApiService {
 
   constructor(private http: HttpClient) { }
 
-  private options = { headers: new HttpHeaders().set('Content-Type', 'text/plain') };
+  private options = { headers: new HttpHeaders().set('Content-Type', 'text/plain'), 
+                      responseType: 'text' as 'json' };
 
-  getNumberInfo(num: number): Observable<string> {    
+  getNumberInfo(num): Observable<string> {
     return this.http.get<string>( this.url + num, this.options );
 
   }

@@ -16,7 +16,7 @@ export class StarRatingComponent implements OnInit {
     
   }
 
-  onMouseOverHandler = function(event) {
+  onMouseOverHandler = function() {
     console.log("Mouseover: " + this.currentRating);
   }
 

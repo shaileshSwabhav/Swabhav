@@ -1,0 +1,24 @@
+<div class="container">
+
+  <div class="jumbotron">
+    <h2>Single Page Application</h2>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-item">
+      <a class="nav-link" [routerLink]="'/home'">Home</a>
+    </div>
+    <div class="nav-item">
+      <a class="nav-link" [routerLink]="'/service'">Service</a>
+    </div>
+    <div class="nav-item">
+      <a class="nav-link" [routerLink]="'/career'">Career</a>
+    </div>
+    <div class="nav-item">
+      <a class="nav-link" [routerLink]="'/about'">About</a>
+    </div>
+  </nav>
+
+</div>
+
+<router-outlet></router-outlet>
