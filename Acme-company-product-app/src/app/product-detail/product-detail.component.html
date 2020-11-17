@@ -1,0 +1,34 @@
+<section>
+
+        <div class="card">
+
+            <div class="card-header">
+                Product Details: <span [innerHtml]="name"></span>
+            </div>
+
+            <div class="card-body">
+                
+                <div class="container">
+                    <p class="card-text">Name: {{name}}</p>
+                    <p class="card-text">Code: {{code}}</p>
+                    <p class="card-text">Description: {{description}}</p>
+                    <p class="card-text">Availability: {{availability}}</p>
+                    <p class="card-text">Price: {{price}}</p>
+                    <p class="card-text">5 Star Rating: {{rating}}</p>
+                    
+                    <p app-star-rating [rating]="rating"></p>
+
+                </div>
+
+                <div class="container">
+                    <img class="productImage" src="{{imgUrl}}" alt="Image Not Found">
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <a class="btn btn-outline-secondary" [routerLink]="'/productList'">&laquo; Back</a>
+            </div>
+
+        </div>
+
+</section>

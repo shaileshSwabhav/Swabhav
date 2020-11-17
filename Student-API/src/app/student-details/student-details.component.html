@@ -1,0 +1,38 @@
+<section>
+
+    <div class="jumbotron">
+        <h2 class="display-2">Student Details</h2>
+      </div>
+
+    <div>
+        <button class="btn btn-outline-primary" [routerLink]="'/addStudent'">Add new Student</button>
+    </div>
+
+    <br>
+
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Gender</th>
+                <th>Update Student</th>
+                <th>Delete Student</th>
+            </tr>
+            <tr *ngFor="let student of studentDetails">
+                <td [innerHtml]="student.id"></td>
+                <td [innerHtml]="student.name"></td>
+                <td [innerHtml]="student.rollNo"></td>
+                <td [innerHtml]="student.age"></td>
+                <td [innerHtml]="student.email"></td>
+                <td [innerHtml]="student.date"></td>
+                <td [innerHtml]="student.isMale"></td>
+                <td><a class="btn btn-outline-warning" (click)='saveStudentID(student.id)'>Update </a></td>
+                <td><a class="btn btn-outline-danger" (click)='deleteStudent(student.id)'>Delete</a></td>
+            </tr>
+        </table>
+
+</section>
