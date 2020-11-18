@@ -1,0 +1,81 @@
+package com.techlab.accout;
+
+import java.util.ArrayList;
+
+public class Account {
+	
+	private int accountNumber;
+	private String accountName;
+	private double balance ,amount;
+	private ArrayList<IListner> listners = new ArrayList<IListner>();
+	private boolean isDebited, isCredited;
+	
+	public Account(int accountNumber, String accountName, double balance) {
+		this.accountNumber = accountNumber;
+		this.accountName = accountName;
+		this.balance = balance;
+	}
+
+	public int getAccountNumber() {
+		return accountNumber;
+	}
+
+	public String getAccountName() {
+		return accountName;
+	}
+
+	public double getBalance() {
+		return balance;
+	}
+
+	public ArrayList<IListner> getListner() {
+		return listners;
+	}
+	
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setIsDebited(boolean state) {
+		this.isDebited = state;
+	}
+	
+	public void setIsCredited(boolean state) {
+		this.isCredited = state;
+	}
+
+	
+	public boolean getIsDebited() {
+		return isDebited;
+	}
+	
+	public boolean getIsCredited() {
+		return isCredited;
+	}
+
+	public void withdraw(int amount) {
+		this.amount = amount;
+		balance -= amount;
+		setIsCredited(true);
+		notifyListner();
+	}
+	
+	public void deposit(int amount) {
+		this.amount = amount;
+		balance += amount;
+		setIsDebited(true);
+		notifyListner();
+	}
+	
+	public void addListners(IListner listner) {
+		listners.add(listner);
+	}
+	
+	private void notifyListner() {
+		
+		for (IListner l: listners) {
+			l.update();
+		}
+	}
+
+}

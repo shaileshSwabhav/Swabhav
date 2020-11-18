@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Validation</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+<body ng-app='loginForm'>
+    
+    <form ng-controller='loginFormValidation' name="userLoginform">
+        <p>        
+            <label for="username">Username: </label>
+            <input type="text" name="username" ng-model='username' required>
+            <span style="color:red" ng-model="validateUsername" ng-show="userLoginform.username.$error.required">{{validateUsername}}</span>
+        </p>
+
+        <p>
+            <label for="password">Password: </label>
+            <input type="password" name="password" ng-model='password' ng-change='validateForm();' required>
+            <span style="color:red" ng-show="userLoginform.password.$invalid || userLoginform.password.$error.required">{{passwordInfo}}</span>
+            
+        </p>
+
+        <p>
+            <input type="submit" ng-disabled='userLoginform.username.$invalid || userLoginform.password.$invalid'
+            ng-click='login()' value="Submit">
+        </p>
+
+        <p>{{loginInfo}}</p>
+
+    </form>
+
+
+    <script src="../js/login.js"></script>
+
+</body>
+</html>

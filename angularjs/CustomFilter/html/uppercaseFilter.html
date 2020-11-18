@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpperCase Student Name</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="studentsInfo">
+
+    <div ng-controller="studentsController">
+
+        <div ng-repeat="std in studentsData">
+            <p>Student Name: {{std.Name | studentNameUppercase}}</p>
+            <p>Student Roll No: {{std.Roll_No}}</p>
+            <p>Student CGPA: {{std.CGPA}}</p>
+        </div>
+    </div>
+    
+    <script>
+
+    var students = angular.module("studentsInfo", []);
+    students.filter('studentNameUppercase', function() {
+        return function(input) {
+            return angular.uppercase(input); 
+        };
+    });
+    students.controller('studentsController', function($scope) {
+
+        $scope.studentsData = [
+        {
+            Name: "john smith",
+            Roll_No: 1,
+            CGPA: 9.5
+        },
+        {
+            Name: "sally smith",
+            Roll_No: 2,
+            CGPA: 8.6
+        },
+        {
+            Name: "curtis timson",
+            Roll_No: 3,
+            CGPA: 7.6
+        }
+    ];
+
+    });
+
+    </script>
+
+</body>
+</html>

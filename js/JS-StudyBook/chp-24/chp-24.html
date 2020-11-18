@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chp-24</title>
+</head>
+<body>
+    <h1 id="superman">Hello</h1>
+    <h1 class="bar">BAR1</h1>
+    <h1 class="bar">BAR2</h1>
+    <h1 class="bar">BAR3</h1>
+    <h1 class="bar">BAR4</h1>
+
+    <script>
+        var myElement = document.querySelector("#superman");
+        myElement.style.backgroundColor = "#D93600";
+
+        var myElements = document.querySelectorAll(".bar");
+        for (var i = 0; i < myElements.length; i++) {
+            myElements[i].style.opacity = '10%';
+        }
+
+        myElement.classList.add('foo');
+        console.log(myElement.className);
+
+    </script>
+</body>
+</html>

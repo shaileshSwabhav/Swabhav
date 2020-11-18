@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chp-25</title>
+</head>
+<body>
+    
+    <div>Begin</div>
+    <ul>
+        <li>Information</li>
+    </ul>
+    
+    <div>End</div>
+    
+    <script>
+        // ChildNodes of document.body:
+        console.log('ChildNodes of document.body:');
+        for (let i = 0; i < document.body.childNodes.length; i++) {
+          console.log(document.body.childNodes[i]);
+
+        }
+
+        // modifying or replacing childNodes with children:
+        console.log('modifying or replacing childNodes with children:');
+        for (let elem of document.body.children) {
+            console.log(elem);
+            var childElement = elem;
+            document.writeln("children: " + childElement.tagName);
+        }
+
+    </script>
+
+
+</body>
+</html>

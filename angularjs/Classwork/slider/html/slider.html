@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+<body ng-app='slider'>
+    
+    <div ng-controller='silderController'>
+        <p>slider:</p>
+        <input type="range" min="1" max="100" ng-model='sliderValue'>
+
+        <p>Value: <span ng-bind='sliderValue'>{{sliderValue}}</span></p>
+
+        <button ng-repeat="i in createButtons(sliderValue)">{{i}}</button>
+
+    </div>
+
+    <script src="../js/slider.js"></script>
+
+</body>
+</html>

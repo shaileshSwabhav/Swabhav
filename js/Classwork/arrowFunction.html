@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arrowFunction</title>
+</head>
+<body>
+    <h2>JavaScript "this"</h2>
+
+    <button id="btn">Click Me!</button>
+
+    <p id="demo"></p>
+
+    <script>
+    var hello;
+
+    hello = () => {
+    document.getElementById("demo").innerHTML += this;
+    }
+
+    //A button object calls the function:
+    document.getElementById("btn").addEventListener("click", hello);
+    </script>
+
+</body>
+</html>

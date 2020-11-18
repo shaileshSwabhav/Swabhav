@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+<body ng-app="filtereEg" ng-controller="filterController">
+    
+    <p>
+        <label for="firstName">FirstName: </label>
+        <input type="text" ng-model="firstname">
+    </p>
+
+    <p>
+        <label for="lastName">LastName: </label>
+        <input type="text" ng-model="lastname">
+    </p>
+
+    <p>
+        <label for="price">Price: </label>
+        <input type="text" ng-model="p">
+    </p>
+
+    <input type="submit" value="Submit" ng-click="convertToUpperCase()">
+
+    <p>Name: {{upperCaseFirstName | uppercase}} {{uppserCaseLastName | uppercase}}</p>
+    <p>Price: {{price | currency : '₹' : 2}}</p>
+    <p>Date: {{ today | date: "dd/MM/y" }}</p>
+
+
+
+    <script>
+        var filtereg = angular.module('filtereEg', []);
+
+        filtereg.controller('filterController', function($scope) {
+
+            $scope.convertToUpperCase = function() {
+                $scope.upperCaseFirstName = $scope.firstname;
+                $scope.uppserCaseLastName = $scope.lastname;
+                $scope.price = $scope.p;
+                $scope.today = new Date();
+
+            }
+        });
+
+        var filtereg1 = angular.module('filtereEg', []);
+
+        filtereg.controller('filterController1', function($scope) {
+
+            $scope.convertToUpperCase1 = function() {
+                $scope.upperCaseFirstName = $scope.firstname;
+                $scope.uppserCaseLastName = $scope.lastname;
+                $scope.price = $scope.p;
+                $scope.today = new Date();
+
+            }
+        });
+
+    </script>
+
+</body>
+</html>

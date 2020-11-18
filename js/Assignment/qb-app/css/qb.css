@@ -1,0 +1,61 @@
+.btn {
+    margin-left: 1em;
+}
+
+#container {
+    background-color: #f1f6f9;
+    margin-top: -2em;
+    padding-bottom: 23.7em;
+}
+
+.mainDiv {
+    background-color: #f1f6f9;
+    padding-top: 1em;
+    padding-bottom: 18em;
+}
+
+#welcomeTag {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+    color: crimson;
+}
+
+.answerLabels {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.2em;
+    margin-top: 0.2em;
+}
+
+#answers {
+    font-size: large;
+}
+
+#question {
+    font-size: large;
+}
+
+#result {
+    font-size: 40px;
+}
+
+.options {
+    border: 0px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+#userTextBox {
+    margin-top: 1em;
+}
+
+#startBtn {
+    margin-bottom: 1em;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+}

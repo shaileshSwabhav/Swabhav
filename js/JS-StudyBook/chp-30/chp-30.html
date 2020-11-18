@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chp-30</title>
+</head>
+<body>
+    
+    <button id="myButton">Button</button>
+
+    <script>
+        var button = document.querySelector("#myButton");
+        button.addEventListener("mouseover", hovered, false);
+        button.addEventListener("mouseout", hoveredOut, false);
+        function hovered(e) {
+            console.log("Hovered!");
+        }
+
+        function hoveredOut(e) {
+            console.log("Hovered Out!!!");
+        }
+
+        var button = document.querySelector("#myButton");
+        button.addEventListener("mousedown", mousePressed, false);
+        button.addEventListener("mouseup", mouseReleased, false);
+        button.addEventListener("click", mouseClicked, false);
+        function mousePressed(e) {
+            console.log("Mouse is down!");
+        }
+        function mouseReleased(e) {
+            console.log("Mouse is up!");
+        }
+        function mouseClicked(e) {
+            console.log("Mouse is clicked!");
+        }
+
+        var button = document.querySelector("#myButton");
+        button.addEventListener("mousemove", mouseIsMoving, false);
+        function mouseIsMoving(e) {
+            console.log("screen: " + e.screenX + " " + e.screenY);
+            console.log("client: " + e.clientX + " " + e.clientY);
+            // console.log("Mouse is on the run!");
+        }
+
+        document.addEventListener("mousedown", buttonPress, false);
+        function buttonPress(e) {
+            if (e.button == 0) {
+                console.log("Left mouse button pressed!");
+            } else if (e.button == 1) {
+                console.log("Middle mouse button pressed!");
+            } else if (e.button == 2) {
+                console.log("Right mouse button pressed!");
+            } else {
+                console.log("Things be crazy up in here!!!");
+            }
+        }
+
+        document.addEventListener("mousewheel", mouseWheeling, false);
+        function mouseWheeling(e) {
+            var scrollDirection = e.wheelDelta || -1 * e.detail;
+            if (scrollDirection > 0) {
+        console.log("Scrolling up! " + scrollDirection);
+            } else {
+        console.log("Scrolling down! " + scrollDirection);
+            }
+        }
+    </script>
+</body>
+</html>

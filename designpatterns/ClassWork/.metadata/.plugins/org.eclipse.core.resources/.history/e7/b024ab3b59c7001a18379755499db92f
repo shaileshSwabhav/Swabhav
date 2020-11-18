@@ -1,0 +1,18 @@
+package com.techlab.accout;
+
+public class EmailListner implements IListner {
+
+	private Account account;
+	
+	public EmailListner(Account account) {
+		this.account = account;
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		System.out.println("Dear Customer, your account no " + account.getAccountNumber() + " has been " + getClass().getSimpleName()
+		" with amount " + account.getBalance());
+	}
+
+}

@@ -1,0 +1,45 @@
+<div class="container" ng-init='loadData()'>
+    <div class="container">
+        <div class="jumbotron">
+            <p class="display-3">Students Details</p>
+            <p class="lead">Student details fetched from Student API</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <a class="btn btn-outline-primary" href="#/studentForm">Add New Student</a>
+        <input type="search" class="form-control border-2 bg-none searchBox" ng-model="searchBox.name" placeholder="Search Student Name" aria-label="Search">
+    </div>
+    
+    <br>
+    <div class="container">
+        <table id="studentTable" class="table table-bordered">
+            <!-- <thead class="thead-light"> -->
+                <tr>
+                    <th>ID</th>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Gender</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            <!-- </thead> -->
+            <tr ng-repeat="std in students | filter: searchBox">
+                <td>{{std.id}}</td>
+                <td>{{std.rollNo}}</td>
+                <td>{{std.name}}</td>
+                <td>{{std.age}}</td>
+                <td>{{std.email}}</td>
+                <td>{{std.date}}</td>
+                <td>{{std.isMale}}</td>
+                <td><button class="btn btn-outline-warning" ng-click='updateStudentsInfo(std.id)'>Update</button></td>
+                <td><button class="btn btn-outline-danger" ng-click='deleteStudents(std.id);'>Delete</button></td>
+            </tr>
+    
+        </table>
+    
+    </div>
+</div>

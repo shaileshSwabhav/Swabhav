@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chp-26</title>
+
+    <style>
+        body {
+          background-color: #f5feff;
+          padding: 20px;
+        }
+        h1 {
+          color: #1c7a77;
+          font-size: 50px;
+          font-family: sans-serif;
+        }
+        p {
+          color: #1c7a77;
+          font-family: sans-serif;
+          font-size: 25px;
+        }
+      </style>
+
+</head>
+<body>
+    
+    <h1 id="theTitle" class="highlight summer">What's happening?</h1>
+    <h1 id="removeTitle" onclick="remove()">To Remove this click on it</h1>
+    
+    <div id="footer">
+        <h1 id="cloneTitle" class="share" onclick="clone()">Click to clone it</h1>
+    </div>
+
+    <script>
+
+        var newElementP = document.createElement("p");
+        newElementP.textContent = "I exist entirely in your imagination.";
+        var scriptElement = document.querySelector("script");
+        document.body.insertBefore(newElementP, scriptElement);
+
+        function remove() {
+            let newElement = document.querySelector("#removeTitle");
+            newElement.parentNode.removeChild(newElement);
+        }
+
+        function clone() {
+            var share = document.querySelector(".share");
+            var shareClone = share.cloneNode(false);
+            shareClone.textContent = "COLNED";
+            document.querySelector("#footer").appendChild(shareClone);
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<div class="container">
+    <header>
+        <h2 class="jumbotron">Two way binding</h2>
+    </header>
+    
+    <section>
+        <label for="">First Name: </label>
+        <input type="text" [(ngModel)]='firstName' />
+
+        <br>
+        <label for="">Last Name: </label>
+        <input type="text" [(ngModel)]='lastName' />
+
+        <br>
+        <p>firstName: {{ firstName }} <br>
+        Last Name: {{ lastName }} <br>
+        Snake case Name: {{ firstName | snakeCase : lastName }}
+        </p>
+    </section>
+
+
+
+</div>

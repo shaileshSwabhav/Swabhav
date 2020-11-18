@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoList">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/todoStyle.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="../../../jquery-3.5.1.min.js"></script>
+    <script src="../../../moment.js"></script>
+
+</head>
+<body>
+    
+    <div ng-controller="todoListController" class="header">
+        <textarea type="text" id="task" ng-model="userTaskDescription" placeholder = "Enter your task" cols="60" rows="5"  required></textarea>
+        <br><br>
+
+        <input type="radio" ng-model="priority.taskPriority" ng-value="0" name="taskPriority" id="lowPriority" class="radiobtn">
+        <label for="lowPriority" class="radiobtn">Low Priority</label>
+        
+        <input type="radio" ng-model="priority.taskPriority" ng-value="1" name="taskPriority" id="highPriority" class="radiobtn">
+        <label for="highPriority" class="radiobtn">High Priority</label>
+        <br> <br>
+  
+        <button class="btn btn-default" ng-click="addTask()">Add Tasks</button>
+
+    </div>
+
+    <div id="undone" ng-controller="taskController" ng-init="load()">
+        <h2 class="taskHeader">Your Tasks</h2>
+
+    </div>
+
+
+
+    <script src="../js/todo.js"></script>
+
+</body>
+</html>

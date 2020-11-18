@@ -1,0 +1,95 @@
+body {
+    background-color: #ECECEC;
+}
+
+.header {
+    padding: 10px; 
+    margin: 10px 0; 
+}
+
+#undone {
+    /* margin-top: -1em; */
+    padding: 10px; 
+}
+
+#task {
+    font-size: 1.2em;
+    width: 100%;
+    font-family: sans-serif;
+    background-color: #D0CDCD;
+}
+
+.taskHeader {
+    font-size: 2em;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    background-color: #A7ABAB;
+    margin-top: 0.3em;
+    margin-left: -0.1em;
+    height: 2em;
+    position: relative;
+    padding-top: 0.5em;
+    color: #FFF;
+    border-radius: 20px;
+}
+
+#radiobtn {
+    font-size: 1em;
+    font-family: sans-serif; 
+}
+
+#undonePara li {
+    margin-left: -2.5em;
+    padding: 1.5em;
+    list-style-type: none;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.3em;
+    margin-top: 1em;
+    background-color: #97AFAF;
+    border-radius: 20px;
+
+}
+
+#btn {
+    cursor: pointer;
+    background-color: #CD2C2C;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    margin-left: 1em;
+    padding: 8px 10px;
+    font-size: 0.9em;
+  }
+
+.radiobtn {
+    cursor: pointer;
+    color: black;
+}
+
+#undoneTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #undoneTable td, #undoneTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #undoneTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #undoneTable tr:hover {background-color: #ddd;}
+  
+  #undoneTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }

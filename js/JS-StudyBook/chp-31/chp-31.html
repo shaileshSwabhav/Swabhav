@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chp-31</title>
+</head>
+<body>
+    
+    <script>
+        var keys = [];
+        window.addEventListener("keydown", dealWithKeyboard, false);
+        window.addEventListener("keypress", dealWithKeyboard, false);
+        window.addEventListener("keyup", dealWithKeyboard, false);
+        function dealWithKeyboard(e) {
+        
+            keys[e.keyCode] = true;
+            console.log(e.keyCode);
+
+            if (keys[17] && keys[70]) {
+                e.preventDefault();
+                alert('Find option not available');
+                keys = [];
+            }
+        }
+    </script>
+</body>
+</html>

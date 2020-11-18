@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.techlab.singleton.Singleton"/>
+<fullyQualifiedTypeName name="com.techlab.singleton.DataService"/>
+<fullyQualifiedTypeName name="com.tech.factory.demo.Notification"/>
+<fullyQualifiedTypeName name="com.tech.factory.demo.NotificationFactory"/>
+<fullyQualifiedTypeName name="com.techlab.factory.AutoMobileFactory"/>
+<fullyQualifiedTypeName name="com.techlab.factory.IAutoMobile"/>
+<fullyQualifiedTypeName name="com.techlab.factory.AutoType"/>
+<fullyQualifiedTypeName name="com.techlab.decorator.IBikeService"/>
+<fullyQualifiedTypeName name="com.techlab.decorator.ChainAlignment"/>
+<fullyQualifiedTypeName name="com.techlab.decorator.OilChange"/>
+<fullyQualifiedTypeName name="com.techlab.decorator.test.BikeServiceTest"/>
+<fullyQualifiedTypeName name="com.techlab.decorator.BikeServices"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student Details</title>
+
+    <link rel="stylesheet" href="../css/studentForm.css">
+    <script src="../../jquery-3.5.1.min.js"></script>
+
+    <link href= 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+    rel='stylesheet'> 
+          
+    <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+
+
+</head>
+<body>
+    
+    <div class="form-style">
+        <p id="banner">Update Student Details</p>
+        <form>
+            <label for="studentName">Student Name: </label>
+            <input type="text" id="studentName">
+            <br>
+        
+            <label for="rollNo">Roll No: </label>
+            <input type="text" id="rollNo">
+            <br>
+        
+            <label for="age">Age: </label>
+            <input type="text" id="age">
+            <br>
+        
+            <label for="email">Email: </label>
+            <input type="text" id="email">
+            <br>
+        
+            <label for="date">Date: </label>
+            <input type="text" id="date">
+            <br>
+        
+            <label for="isMale">Gender: </label>
+            <input type="radio" name="isMale" value="Male" id="male">Male
+            <input type="radio" name="isMale" value="Female" id="female">Female
+            <br>
+
+            <input type="submit" value="Submit">
+
+        </form>
+        
+    </div>
+
+    <script src="../js/connectToApi.js"></script>
+    <script src="../js/updateForm.js"></script>
+    <script src="../js/getStudentInfo.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+.radioBtn {
+    cursor: pointer;
+}
+
+.searchBox {
+    margin-left: 10em;
+    margin-top: -2.6em;
+    width: 85%;
+    height: 2.6em;
+    border-radius: 1em;
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.searchBox::placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown List</title>
+
+    <script src="../../jquery-3.5.1.min.js"></script>
+
+</head>
+<body>
+    <select name="dropdown" id="colors">'
+        <option selected disabled>Select</option>
+        <option value="red" id="red">Red</option>
+        <option value="blue" id="blue">Blue</option>
+        <option value="green" id="green">Green</option>
+        <option value="yellow" id="yellow">Yellow</option>
+    </select>
+
+    <script>
+        $(document).ready(function() {
+            $('select#colors').change(function() {
+                $('body').css('background-color', $(this).val());
+            });
+        });
+    </script>
+</body>
+</html>

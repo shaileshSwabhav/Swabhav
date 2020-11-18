@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Directive</title>
+
+    <script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+
+</head>
+<body ng-app='customDirective'>
+    
+    <div ng-controller='customDirectiveController'>
+        <div ng-swabhav="">Click Here!!</div>
+        <custom title="{{title}}">Custom Tag</custom>
+    </div>
+    <outertag name="Tom"></outertag>
+
+    <script>
+        var app = angular.module('customDirective', [])
+        .controller('customDirectiveController', ['$scope', function($scope) {
+            console.log('inside controller');
+            this.name = "Sam";
+        }])
+        .directive('ngSwabhav', function() {
+            return {
+
+                controller: 'customDirectiveController',
+                controllerAs: 'ctrl',
+                template: '<h1>Custom Directive Name: {{ctrl.name}}</h1>',
+                link: function($scope, element, attr) {
+                    element.bind('click', function() {
+                        element.html("<h3>Custom Directive was clicked!!!!!</h3>")
+                    });
+                }
+            };
+        })
+        .directive('custom', function() {
+            return {
+                transclude: true,
+                scope: {title: '@'},
+                template: '<div style="border: 1px solid black; color:red"> '+
+                        '<ng-transclude></ng-transclude>'+
+                            '</div>'
+            }
+        })
+        app.directive('outertag', function() {
+            function linkFn($scope, $element, $attrs) {
+                $scope.name = $attrs.name;
+            }
+            return {
+                link: linkFn,
+                restrict: 'E',
+                template: '<div><h1>Outer Tag {{name}}</h1><innertag></innertag></div>',
+            }
+        })
+        app.directive('innertag', function() {
+            return {
+                restrict: 'E',
+                template: '<div><h1>Inner Tag</h1></div>',
+            }
+        })
+    </script>
+
+</body>
+</html>

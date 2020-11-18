@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync Pattern</title>
+    <script>
+    function getData() {
+
+        var d = Math.floor(Math.random()*10);
+
+        if(d>5){
+            return {
+                data:d
+            }
+        } else {
+            return {
+                data:"Error! No. is less than 5"
+            }
+        }
+    }
+    var result = getData();
+    setTimeout(function() {
+        console.log(result.data)
+    }, 100);
+    console.log("End of Script!");
+
+
+    </script>
+</head>
+<body>
+    
+    <h1>Sync Heading</h1>
+
+</body>
+</html>

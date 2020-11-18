@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chp-28</title>
+</head>
+<body>
+    <button id="buttonOne" class="item">one</button>
+
+    <button id="buttonTwo" class="item">two</button>
+    <button id="buttonThree" class="item">three</button>
+
+    <script>
+        let items = document.querySelectorAll(".item")
+        console.log(items);
+        items.forEach(item => {
+            item.addEventListener("click", doSomething, false);
+        });
+
+        function doSomething(event) {
+            console.log(event.target.id);
+            if(event.target.id == 'buttonOne') 
+                document.body.style.backgroundColor = "#FFC926";
+            if(event.target.id == 'buttonTwo')
+                document.body.style.backgroundColor = 'pink';
+            if(event.target.id == 'buttonThree')
+                document.body.style.backgroundColor = 'red';
+        }
+    </script>
+</body>
+</html>

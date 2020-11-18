@@ -1,0 +1,1 @@
+console.log('external1.js');

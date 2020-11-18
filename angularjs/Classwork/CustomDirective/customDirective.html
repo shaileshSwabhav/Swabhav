@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Directive</title>
+    
+    <script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+
+</head>
+<body ng-app='newDirective'>
+    
+    <div ng-controller='newController'>
+        <swabhav-header></swabhav-header>
+        <swabhav-footer></swabhav-footer>
+        <swabhav-footer year='2020'></swabhav-footer>
+    </div>
+
+
+
+    <script>
+
+        angular.module('newDirective', [])
+        .directive('swabhavHeader', function() {
+            return {
+                template: '<header><h2>Swabhav Header</h2><header>',
+                restrict: 'E',
+            }
+        })
+        .directive('swabhavFooter', function() {
+            function footerLink($scope, $ele, $attr) {
+                $scope.year = $attr.year;
+            }
+
+            return {
+                link: footerLink,
+                scope: true,
+                template: "<footer><h4>Swabhav Footer {{year}}</h4><footer>",
+                restrict: 'E',
+            }
+        })
+        .controller('newController', function($scope) {
+            
+        })
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;template-app&apos;&#x0D;&#x0A;- Original project: &apos;template-app&apos;&#x0D;&#x0A;- Original element: &apos;com.techlab.template.GameTemplate.java&apos;" description="Delete element" element1="/src&lt;com.techlab.template{GameTemplate.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1594892741369" subPackages="false" version="1.0"/>
+</session>

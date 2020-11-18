@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chp-33</title>
+</head>
+<body>
+    <div id="theDude">
+        <button id="one">One</button>
+        <button id="two">Two</button>
+        <button id="three">Three</button>
+        <button id="four">Four</button>
+        <button id="five">Five</button>
+    </div>
+
+    <script>
+
+        var theParent = document.querySelector("#theDude");
+        theParent.addEventListener("click", doSomething, false);
+        function doSomething(e) {
+
+            if (e.target !== e.currentTarget) {
+                var clickedItem = e.target.id;
+                alert("Hello " + clickedItem);
+            }
+            e.stopPropagation();
+        }
+    </script>
+</body>
+</html>

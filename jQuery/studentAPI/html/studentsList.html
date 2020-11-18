@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+
+    <link rel="stylesheet" href="../css/students.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+        crossorigin="anonymous">
+    <!-- <script src="../../jquery-3.5.1.min.js"></script> -->
+    <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+
+
+</head>
+<body>
+
+    <button id="studentsForm" onclick="location.href='./studentsForm.html'">Add Students Data</button>
+
+    <br> 
+
+    <table id="studentTable" class="students">
+        <tr>
+            <th>ID</th>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th>Gender</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </table>
+
+
+    <script src="../js/connectToApi.js"></script>
+    <script src="../js/studentsList.js"></script>
+    <script src="../js/getStudentInfo.js"></script>
+    <script src="../js/deleteStudent.js"></script>
+</body>
+</html>

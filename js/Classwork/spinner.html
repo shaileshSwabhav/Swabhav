@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinner</title>
+    <script>
+        function spinImage() {
+            var element = document.getElementById('spinner');
+            console.log();
+            if (element.checked) {
+            var image = document.createElement("img");
+            image.setAttribute('id', 'spinnerImage')
+            image.src = "https://media.tenor.com/images/f864cbf3ea7916572605edd3b3fe637f/tenor.gif";
+            document.body.appendChild(image); 
+            } else {
+                var removeImage = document.getElementById('spinnerImage');
+                removeImage.parentNode.removeChild(removeImage);
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <label for="check">Check: </label>
+    <input type="checkbox" name="checkbox" id="spinner" onclick="spinImage()">
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="../../../moment.js"></script>
+    <link rel="stylesheet" href="../css/numbers.css">
+
+</head>
+<body ng-app="numbersapiApp">
+    
+    <div ng-controller="numbersapiController" ng-init='load();'>
+        <p class="welcome-text">Numbers API</p>
+
+        <input type="text" ng-model='userInput' id="userInput" placeholder="Enter a Number to find its Trivia...">
+        <button id="btn" ng-click='fetchTrivia();'>Get Trivia</button>
+
+        <!-- <ul ng-repeat="t in numbersTrivia">
+            <li>{{t.trivia}} searched at {{t.triviaTime}}</li>
+        </ul> -->
+
+
+        <p class="welcome-text">Search Results</p>
+
+        <table id='trivia'>
+            <tr>
+                <th>Number</th>
+                <th>Trivia</th>
+                <th>Time</th>
+            </tr>
+            <tr ng-repeat="t in numbersTrivia">
+                <td>{{t.number}}</td>
+                <td>{{t.trivia}}</td>
+                <td>{{t.triviaTime}}</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script src="../js/numbers.js"></script>
+</body>
+</html>
