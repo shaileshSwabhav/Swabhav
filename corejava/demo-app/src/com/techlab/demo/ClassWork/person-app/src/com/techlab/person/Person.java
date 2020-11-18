@@ -79,6 +79,8 @@ public class Person {
 		return (value <= 0 ? Math.abs(value) : value);
 	}
 	
-
+	public void setName(String name) {
+		
+	}
 
 }

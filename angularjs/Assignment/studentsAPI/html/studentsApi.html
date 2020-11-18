@@ -8,12 +8,13 @@
     
     <div class="container">
         <a class="btn btn-outline-primary" href="#/studentForm">Add New Student</a>
+        <input type="search" class="form-control border-2 bg-none searchBox" ng-model="searchBox.name" placeholder="Search Student Name" aria-label="Search">
     </div>
     
     <br>
     <div class="container">
         <table id="studentTable" class="table table-bordered">
-            <thead class="thead-light">
+            <!-- <thead class="thead-light"> -->
                 <tr>
                     <th>ID</th>
                     <th>Roll No</th>
@@ -25,8 +26,8 @@
                     <th>Update</th>
                     <th>Delete</th>
                 </tr>
-            </thead>
-            <tr ng-repeat="std in students">
+            <!-- </thead> -->
+            <tr ng-repeat="std in students | filter: searchBox">
                 <td>{{std.id}}</td>
                 <td>{{std.rollNo}}</td>
                 <td>{{std.name}}</td>
@@ -42,6 +43,3 @@
     
     </div>
 </div>
-
-<!-- <td><a href="#/updateForm" class="btn btn-outline-warning" ng-click='updateStudentInfo(std.id)'>Update</a></td> -->
-

@@ -22,10 +22,10 @@ public class SplitTest {
 	}
 	
 	public void SplitCompanyDeveloper(String queryString) {
-		
-		String [] str1 = queryString.split("@|\\?");
-		String [] str2 = queryString.split("=");
-		String [] str3 = queryString.split("\\.");
+				
+		String [] str1 = queryString.split("[@?]");
+		String [] str2 = queryString.split("[=]");
+		String [] str3 = queryString.split("[.]");
 
 		
 //		for (String z : x) {

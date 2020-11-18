@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { StudentDTOService } from '../student-dto.service';
 
@@ -9,30 +10,29 @@ import { StudentDTOService } from '../student-dto.service';
 })
 export class AddNewStudentComponent implements OnInit {
 
-  newStudentDetails = [];
-
-  constructor(private studentDto: StudentDTOService) { }
+  constructor(private studentDto: StudentDTOService, private router: Router ) { }
 
   ngOnInit(): void {
   }
 
   addStudent = function(studentDetails) {
-    console.log(studentDetails);
+    console.log(studentDetails.form.controls.date.value);
+    
 
     if(confirm("Are you sure?")) {
-      this.newStudentDetails.push({
-        name: studentDetails.form.controls.name.value,
-        rollNo: studentDetails.form.controls.rollNo.value,
-        age: studentDetails.form.controls.age.value,
-        date: studentDetails.form.controls.date.value,
-        email: studentDetails.form.controls.email.value,
-        gender: studentDetails.form.controls.gender.value == "Male" ? true: false,
+
+      this.studentDto.addNewStudent({
+        "rollNo": studentDetails.form.controls.rollNo.value,
+        "name": studentDetails.form.controls.name.value,
+        "age": studentDetails.form.controls.age.value,
+        "email": studentDetails.form.controls.email.value,
+        "date": studentDetails.form.controls.date.value,
+        "isMale": studentDetails.form.controls.gender.value == "Male" ? true: false,
       })
-  
-      this.studentDto.addNewStudent(this.newStudentDetails)
       .subscribe(res => {
         console.log(res);
-        confirm("Student successfully added!");
+        alert("Student successfully added!");
+        this.router.navigateByUrl('/home');
       },
       e => {
         console.log(e);

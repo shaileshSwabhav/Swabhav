@@ -1,7 +1,5 @@
 package com.techlab.ispsolution;
 
-import com.techlab.ispsolution.IWorkEat;
-
 public class Robot implements IWork {
 
 	@Override

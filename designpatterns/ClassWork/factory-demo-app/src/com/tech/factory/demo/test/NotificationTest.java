@@ -7,7 +7,7 @@ public class NotificationTest {
 	public static void main(String args[]) {
 		
 		 NotificationFactory notificationFactory = new NotificationFactory(); 
-		 Notification notification = notificationFactory.createNotification("SMS"); 
+		 Notification notification = notificationFactory.createNotification("EMAIL"); 
 		 notification.userNotify();
 		
 	}

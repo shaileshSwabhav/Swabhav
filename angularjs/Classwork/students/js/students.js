@@ -13,6 +13,16 @@ var data = [
         Name: "Curtis Timson",
         Roll_No: "3",
         CGPA: "7.6"
+    },
+    {
+        Name: "Joel Smith",
+        Roll_No: "4",
+        CGPA: "6.6"
+    },
+    {
+        Name: "James Timson",
+        Roll_No: "5",
+        CGPA: "7.3"
     }
 ];
 
@@ -20,8 +30,8 @@ var students = angular.module("studentsInfo", []);
 
 students.controller("studentsController", function($scope) {
 
-    $scope.btn = function() {
+    // $scope.btn = function() {
         $scope.studentsData = data;
-    }
+    // }
 
 });

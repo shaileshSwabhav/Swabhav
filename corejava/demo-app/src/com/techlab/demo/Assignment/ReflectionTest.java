@@ -23,6 +23,14 @@ public class ReflectionTest {
 		for(Method x : method) {
 			System.out.println(x.getName());
 		}
+		
+		Field[] field = d.getClass().getDeclaredFields();
+//		System.out.println(field);
+		
+		for(Field f: field) {
+			System.out.println("public string " + f.getName());
+		}
+		
 
 	}
 

@@ -22,10 +22,12 @@ public class TaxCalculation {
 				TxtLogger txtF = new TxtLogger();
 				txtF.log(e.getMessage());
 				return -1;
+			} else {
+				XmlLogger xm = new XmlLogger();
+				xm.log(e.getMessage());
+				return -1;
 			}
-			XmlLogger xm = new XmlLogger();
-			xm.log(e.getMessage());
-			return -1;
+
 		}
 	}
 }

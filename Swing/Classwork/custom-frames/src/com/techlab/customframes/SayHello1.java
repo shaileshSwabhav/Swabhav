@@ -1,9 +1,6 @@
 package com.techlab.customframes;
 
-import java.awt.Component;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.TextArea;
+import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;

@@ -29,7 +29,8 @@ public class ReflectionTest {
 
 		System.out.println("Methods");
 		Method[] method = o.getClass().getMethods();
-
+		//all methods excluding private methods
+		
 		for (Method m : method) {
 			System.out.println(m.getName());
 		}
@@ -86,6 +87,7 @@ public class ReflectionTest {
 		
 		System.out.println("\nPrivate Fields");
 		Field [] field = o.getClass().getDeclaredFields();
+		// all methods inlcuding private method
 		
 		for (Field f: field) {
 			if (Modifier.isPrivate(f.getModifiers())) {

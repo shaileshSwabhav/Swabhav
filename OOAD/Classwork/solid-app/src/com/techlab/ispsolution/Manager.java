@@ -1,8 +1,7 @@
 package com.techlab.ispsolution;
 
-import com.techlab.ispviolation.IWorkable;
 
-public class Manager implements IWorkable, IWork {
+public class Manager implements IWork, IEat {
 
 	@Override
 	public void startWork() {

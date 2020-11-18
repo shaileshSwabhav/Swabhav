@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { StudentDTOService } from '../student-dto.service';
 
@@ -11,7 +12,7 @@ export class StudentDetailsComponent implements OnInit {
 
   studentDetails = [];
 
-  constructor(private studentDto: StudentDTOService) { }
+  constructor(private studentDto: StudentDTOService, private router: Router ) { }
 
   ngOnInit(): void {
 
@@ -39,6 +40,14 @@ export class StudentDetailsComponent implements OnInit {
       })
     }
     
+  }
+
+  saveStudentID = function(studentID) {
+    
+    if(confirm('Are you sure you want update this student details?')) {
+      localStorage.setItem('studentID', studentID);
+      this.router.navigateByUrl('/updateStudent');
+    }
   }
 
 }

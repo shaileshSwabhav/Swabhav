@@ -4,18 +4,28 @@ $(document).ready(function() {
             
     let url = `https://restcountries.eu/rest/v2/all`;
 
-    fetch(url)
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(countryDetails) {
-        displayCountryDetails(countryDetails);
-    })
-    .catch(function(er) {
-        console.log(er);
+    // fetch(url)
+    // .then(function(response) {
+    //     return response.json();
+    // })
+    // .then(function(countryDetails) {
+    //     displayCountryDetails(countryDetails);
+    // })
+    // .catch(function(er) {
+    //     console.log(er);
+    // });
+
+    $.ajax({
+        method: 'get',
+        url: url,
+        dataType: "json",
+        success: function(countryDetails) {
+            displayCountryDetails(countryDetails);
+        },
+        error: function(er) {
+            console.log(er);
+        }
     });
-
-
 
     function displayCountryDetails(countryDetails) {
 

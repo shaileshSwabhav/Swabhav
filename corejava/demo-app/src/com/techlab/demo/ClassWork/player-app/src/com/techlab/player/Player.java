@@ -12,12 +12,6 @@ public class Player {
 		this.age = age;
 	}
 	
-//	public Player(int newId, String newName, int newAge) {
-//		id = newId;
-//		name = newName;
-//		age = newAge;
-//	}
-	
 	public int getId() {
 		return id;
 	}

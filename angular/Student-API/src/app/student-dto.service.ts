@@ -23,20 +23,25 @@ export class StudentDTOService {
 
   }
 
-  addNewStudent(studentDetails): Observable<IStudentDTO> {
+  addNewStudent(studentDetails): Observable<any> {
 
     let studentJSON: string = JSON.stringify(studentDetails);
     let httpHeaders = new HttpHeaders( { 'Content-type': 'application/json; charset=utf-8'} );
 
-    console.log(studentJSON);
+    console.log(studentJSON);    
 
-    return this.http.post<IStudentDTO>(this.url, studentJSON, {'headers': httpHeaders} );
+    return this.http.post<any>(this.url, studentJSON, {'headers': httpHeaders} );
 
   }
 
-  // updateExisitingStudent(studentID: number): Observable<IStudentDTO> {
+  updateExisitingStudent(studentID: number, studentDetails): Observable<IStudentDTO> {
 
-  // } 
+    let httpHeaders = new HttpHeaders( { 'Content-type': 'application/json; charset=utf-8'} );
+    let studentJSON: string = JSON.stringify(studentDetails);
+    
+    return this.http.put<IStudentDTO>(`${this.url} ${studentID}`, studentJSON, {'headers': httpHeaders} );
+
+  } 
 
   deleteStuden(studentID: number): Observable<IStudentDTO> {
     console.log(studentID);

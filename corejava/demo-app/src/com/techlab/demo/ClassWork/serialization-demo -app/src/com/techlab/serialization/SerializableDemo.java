@@ -9,8 +9,7 @@ public class SerializableDemo implements Serializable {
 	
 	public SerializableDemo(int a, String b) {
 		this.a = a;
-		this.b = b;
-		this.b = b + "hi";
+		this.b = b + " hi";
 	}
 
 }

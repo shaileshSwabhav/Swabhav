@@ -6,7 +6,7 @@ $(document).ready(function() {
 
         if(name != null) {
             
-            let url = `https://restcountries.eu/rest/v2/name/${name}?fullText=true`;
+            let url = `https://restcountries.eu/rest/v2/all`;
 
             $.ajax({
                 method: 'get',
@@ -19,6 +19,8 @@ $(document).ready(function() {
                     console.log(er);
                 }
             });
+
+            console.log('hello');
 
         } else {
             alert("Please enter a number to find it's trivia.");
@@ -34,5 +36,6 @@ $(document).ready(function() {
 
         $('.results').append(`<p>Country Name: ${countryName} </p>`);
         $('.results').append(`<p>Country Capital: ${countryCapital} </p>`);
-        $('.results').append(`<p>Country Flag:</p><img width="25%" height="25%" src=${countryFlag}></img>`);     }
+        $('.results').append(`<p>Country Flag:</p><img width="25%" height="25%" src=${countryFlag}></img>`);     
+    }
 });

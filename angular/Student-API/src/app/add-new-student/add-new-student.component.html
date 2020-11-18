@@ -3,7 +3,7 @@
         <h2 class="display-2">Add New Student</h2>
     </div>
 
-    <form #addNewStudent='ngForm' (ngSubmit)='addStudent(addNewStudent)'>
+    <form #addNewStudent='ngForm' (ngSubmit)='addStudent(addNewStudent); addNewStudent.reset()'>
 
         <div class="form-group">
             <label for="name">Name: </label>

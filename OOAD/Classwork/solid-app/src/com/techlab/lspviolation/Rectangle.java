@@ -1,8 +1,6 @@
 package com.techlab.lspviolation;
 
-import com.techlab.lspsolution.IShapeable;
-
-public class Rectangle implements IShapeable {
+public class Rectangle {
 	
 	protected int width;
 	protected int height;

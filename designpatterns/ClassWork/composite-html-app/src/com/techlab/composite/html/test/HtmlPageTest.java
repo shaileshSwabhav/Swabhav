@@ -31,7 +31,7 @@ public class HtmlPageTest {
 
 		sb = html.parseHtml();
 		
-		File file = new File("src/resource/htmlTest.html");
+		File file = new File("src/resource/htmlTest-1.html");
 
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
 			writer.write(sb.toString());

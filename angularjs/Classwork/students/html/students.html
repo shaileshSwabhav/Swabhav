@@ -12,13 +12,16 @@
 
 
     <div ng-controller="studentsController">
-        <button id="btn" ng-click="btn()">Load Students Data</button>
+        <!-- <button id="btn" ng-click="btn()">Load Students Data</button> -->
+        <input type="text" ng-model='globalSearch.Name'>
 
-        <div ng-repeat="std in studentsData">
+        <div ng-repeat="std in studentsData | filter: globalSearch">
             <p>Student Name: {{std.Name}}</p>
             <p>Student Roll No: {{std.Roll_No}}</p>
             <p>Student CGPA: {{std.CGPA}}</p>
         </div>
+
+
     </div>
 
     <script src="../js/students.js"></script>

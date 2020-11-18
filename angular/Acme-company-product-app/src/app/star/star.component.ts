@@ -13,7 +13,7 @@ export class StarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.rating);
+      console.log(this.rating);
     
   }
 

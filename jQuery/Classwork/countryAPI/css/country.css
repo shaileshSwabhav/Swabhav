@@ -6,9 +6,9 @@ img {
 .results {
   width: 100%;
   border-collapse: collapse;
-  }
+}
   
-  .results td, .results th {
+.results td, .results th {
     border: 1px solid black;
     padding: 8px;
 }

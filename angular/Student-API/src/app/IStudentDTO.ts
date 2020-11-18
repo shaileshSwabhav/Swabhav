@@ -3,7 +3,7 @@ export interface IStudentDTO {
     name: string;
     rollNo: number;
     age: number;
-    email: number;
+    email: string;
     date: string;
-    gender: string;
+    isMale: boolean;
 }

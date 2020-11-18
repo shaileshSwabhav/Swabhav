@@ -20,7 +20,7 @@ public class RectanglePrintTest {
 		
 		System.out.println(r1.hashCode());
 		System.out.println(r2.hashCode());
-
+		System.out.println();
 		//printRectangle(r1);
 		printRectangleInfo(r1);
 
@@ -46,6 +46,7 @@ public class RectanglePrintTest {
 		System.out.println(r.getColor());
 		System.out.println(r.calculateArea());
 		System.out.println(r.hashCode());
+		System.out.println();
 	}
 
 }

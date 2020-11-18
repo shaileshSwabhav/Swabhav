@@ -125,8 +125,6 @@ studentsApp.controller('studentsController', ['$scope', '$rootScope', '$location
     // //update student info
     $scope.updateStudentsInfo = function(studentId) {
 
-        console.log('inside updateStudentsInfo');
-
         if(confirm("Are you sure you want to update student details")) {
             $http({
                 method: 'get',
@@ -147,6 +145,19 @@ studentsApp.controller('studentsController', ['$scope', '$rootScope', '$location
 
 }]);
 
+studentsApp.controller('addNewStudentController', ['$scope', 'addNewStudentInfo', function($scope, addNewStudentInfo) {
+
+    console.log('addNewStudentController');
+    $scope.gender;
+    $scope.addStudent = function() {
+
+        $scope.gender = (($scope.gender == 'Male' ? true : false));
+
+        $scope.newStudentDetails = addNewStudentInfo.studentDetails(
+            $scope.rollNo, $scope.name, $scope.age, $scope.email, $scope.date, $scope.gender
+        );
+    }
+}]);
 
 studentsApp.controller('updateStudentController', ['$scope', '$rootScope', 'updateStudentInfo', 
                 function($scope, $rootScope, updateStudentInfo) {
@@ -168,16 +179,3 @@ studentsApp.controller('updateStudentController', ['$scope', '$rootScope', 'upda
 
 }]);
 
-studentsApp.controller('addNewStudentController', ['$scope', 'addNewStudentInfo', function($scope, addNewStudentInfo) {
-
-    console.log('addNewStudentController');
-
-    $scope.addStudent = function() {
-
-        $scope.gender = (($scope.gender == 'Male' ? true : false));
-
-        $scope.newStudentDetails = addNewStudentInfo.studentDetails(
-            $scope.rollNo, $scope.name, $scope.age, $scope.email, $scope.date, $scope.gender
-        );
-    }
-}]);

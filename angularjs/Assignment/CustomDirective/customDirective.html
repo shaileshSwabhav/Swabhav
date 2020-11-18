@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Directive</title>
 
-    <!-- <script src="https://code.angularjs.org/1.6.9/angular.js"></script> -->
     <script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
 
 </head>
@@ -14,10 +13,8 @@
     <div ng-controller='customDirectiveController'>
         <div ng-swabhav="">Click Here!!</div>
         <custom title="{{title}}">Custom Tag</custom>
-
     </div>
-
-    <outertag></outertag>
+    <outertag name="Tom"></outertag>
 
     <script>
         var app = angular.module('customDirective', [])
@@ -48,9 +45,19 @@
             }
         })
         app.directive('outertag', function() {
+            function linkFn($scope, $element, $attrs) {
+                $scope.name = $attrs.name;
+            }
+            return {
+                link: linkFn,
+                restrict: 'E',
+                template: '<div><h1>Outer Tag {{name}}</h1><innertag></innertag></div>',
+            }
+        })
+        app.directive('innertag', function() {
             return {
                 restrict: 'E',
-                template: '<div><h1>Outer Tag</h1></div>',
+                template: '<div><h1>Inner Tag</h1></div>',
             }
         })
     </script>
