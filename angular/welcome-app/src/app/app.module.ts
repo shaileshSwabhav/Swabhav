@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 
-import { StarRatingComponent } from './star-rating/star-rating.component';
-import { StarComponent } from "./star-rating/star/star.component";
+import { HelloComponent } from "./hello-component/hello-component";
+// import { StarRatingComponent } from './star-rating/star-rating.component';
+// import { StarComponent } from "./star-rating/star/star.component";
 
 @NgModule({
   declarations: [
-    StarRatingComponent,
-    StarComponent
+    HelloComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -17,6 +18,6 @@ import { StarComponent } from "./star-rating/star/star.component";
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [StarRatingComponent]
+  bootstrap: [HelloComponent]
 })
 export class AppModule { }
